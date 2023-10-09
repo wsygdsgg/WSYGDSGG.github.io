@@ -167,6 +167,91 @@
         
 
 <div class="post">
+    <a href="/2023/10/08/SQL%E7%AC%94%E8%AE%B01-0/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/8
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h1 id="SQL笔记-1-0-查询"><a href="#SQL笔记-1-0-查询" class="headerlink" title="SQL笔记 1.0.查询"></a>SQL笔记 1.0.查询</h1><h2 id="一：基本（关键字必须大写，用分号结束）"><a href="#一：基本（关键字必须大写，用分号结束）" class="headerlink" title="一：基本（关键字必须大写，用分号结束）"></a>一：基本（关键字必须大写，用分号结束）</h2><p>1: EXLECT  &lt;列，*表全部&gt; FROM &lt;表格名&gt; WHERE &lt;条件&gt;;</p>
+<p>​        A                    B                 C            D           F           E</p>
+<p>B：eg：score  point  解释：引用时将score改名为point</p>
+<h2 id="二：排序"><a href="#二：排序" class="headerlink" title="二：排序"></a>二：排序</h2><p>1.eg：EXLECT  *  FROM students WHERE num&#x3D;2  ORDER  BY  gender;</p>
+<p>2.eg：EXLECT  *  FROM students  WHERE num&#x3D;2  ORDER  BY  gender  DESC;</p>
+<p>3.eg：EXLECT  *  FROM students  WHERE num&#x3D;2  ORDER  BY  gender  DESC  ，score；</p>
+<p>解释：1.ORDER BY  : 排序；若加上DESC,表倒序；在逗号，表次级排序</p>
+<p>小结，用一个例子：</p>
+<p>SELECT id, name, gender, score<br>FROM students<br>WHERE class_id&#x3D;1<br>ORDER BY score DESC;</p>
+<h2 id="三：分页查询"><a href="#三：分页查询" class="headerlink" title="三：分页查询"></a>三：分页查询</h2><p>1.eg：</p>
+<p>SELECT id, name, gender, score<br>FROM students<br>ORDER BY score DESC<br>LIMIT 3 OFFSET 0;</p>
+<p>解读：1.本指令没有 WHERE </p>
+<p>​           2.LIMIT：表示一次最多拿几条；OFFSET：设想要从第n条开始看，OFFSET 后面的数字为n-1</p>
+<p>小结：</p>
+<p>​          使用<code>LIMIT &lt;M&gt; OFFSET &lt;N&gt;</code>可以对结果集进行分页，每次查询返回结果集的一部分；</p>
+<p>​          分页查询需要先确定每页的数量和当前页数，然后确定<code>LIMIT</code>和<code>OFFSET</code>的值。</p>
+<h2 id="四：聚合查询"><a href="#四：聚合查询" class="headerlink" title="四：聚合查询"></a>四：聚合查询</h2><p>1.eg：SELECT COUNT(*) boys FROM students WHERE gender &#x3D; ‘M’;</p>
+<p>解读：1.COUNT：统计条数</p>
+<p>附：还有其他的聚合函数：</p>
+<p>SUM（）：计算某一列的合计值，该列必须为数值类型；</p>
+<p>AVG（）：计算某一列的平均值，该列必须为数值类型；</p>
+<p>MAX（）：计算某一列的最大值；</p>
+<p>MIN（）：计算某一列的最小值；</p>
+<p>提醒：1.<code>MAX()</code>和<code>MIN()</code>函数并不限于数值类型。如果是字符类型，<code>MAX()</code>和<code>MIN()</code>会返回排序最后和排序最前的字符。</p>
+<p>​           2.如果聚合查询的<code>WHERE</code>条件没有匹配到任何行，<code>COUNT()</code>会返回0，而<code>SUM()</code>、<code>AVG()</code>、<code>MAX()</code>和<code>MIN()</code>会返回<code>NULL</code></p>
+<ul>
+<li><h3 id="提升：每页3条记录，如何通过聚合查询获得总页数？"><a href="#提升：每页3条记录，如何通过聚合查询获得总页数？" class="headerlink" title="提升：每页3条记录，如何通过聚合查询获得总页数？"></a>提升：每页3条记录，如何通过聚合查询获得总页数？</h3></li>
+<li><p>SELECT CEILING(COUNT(*)&#x2F;3) FROM students；</p>
+</li>
+</ul>
+<h3 id="接四：分组聚合"><a href="#接四：分组聚合" class="headerlink" title="接四：分组聚合"></a>接四：分组聚合</h3><p>2.eg：SELECT COUNT(*) num FROM students GROUP BY class_id;</p>
+<p>3.eg：SELECT class_id, COUNT(*) num FROM students GROUP BY class_id;</p>
+<p>解读：1.GROUP BY：分组指令</p>
+<p>​           2.SELECT class_id, COUNT(*)：将class_id一一列出来</p>
+<p>如图：</p>
+<table>
+<thead>
+<tr>
+<th align="left">class_id</th>
+<th align="left">num</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">4</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">3</td>
+</tr>
+</tbody></table>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/08/SQL%E7%AC%94%E8%AE%B01-0/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2023/10/07/%E5%A4%A9%E4%B8%8B%E7%AC%AC%E4%B8%80/">
         <h2 class="post-title">天下第一</h2>
     </a>
