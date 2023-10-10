@@ -187,20 +187,20 @@
             <h1 id="SQL笔记-1-0-查询"><a href="#SQL笔记-1-0-查询" class="headerlink" title="SQL笔记 1.0.查询"></a>SQL笔记 1.0.查询</h1><h2 id="一：基本（关键字必须大写，用分号结束）"><a href="#一：基本（关键字必须大写，用分号结束）" class="headerlink" title="一：基本（关键字必须大写，用分号结束）"></a>一：基本（关键字必须大写，用分号结束）</h2><p>1: EXLECT  &lt;列，*表全部&gt; FROM &lt;表格名&gt; WHERE &lt;条件&gt;;</p>
 <p>​        A                    B                 C            D           F           E</p>
 <p>B：eg：score  point  解释：引用时将score改名为point</p>
-<h2 id="二：排序"><a href="#二：排序" class="headerlink" title="二：排序"></a>二：排序</h2><p>1.eg：EXLECT  *  FROM students WHERE num&#x3D;2  ORDER  BY  gender;</p>
-<p>2.eg：EXLECT  *  FROM students  WHERE num&#x3D;2  ORDER  BY  gender  DESC;</p>
-<p>3.eg：EXLECT  *  FROM students  WHERE num&#x3D;2  ORDER  BY  gender  DESC  ，score；</p>
+<h2 id="二：排序"><a href="#二：排序" class="headerlink" title="二：排序"></a>二：排序</h2><p><code>1.eg：EXLECT  *  FROM students WHERE num=2  ORDER  BY  gender;</code></p>
+<p><code>2.eg：EXLECT  *  FROM students  WHERE num=2  ORDER  BY  gender  DESC;</code></p>
+<p><code>3.eg：EXLECT  *  FROM students  WHERE num=2  ORDER  BY  gender  DESC  ，score</code>；</p>
 <p>解释：1.ORDER BY  : 排序；若加上DESC,表倒序；在逗号，表次级排序</p>
 <p>小结，用一个例子：</p>
 <p>SELECT id, name, gender, score<br>FROM students<br>WHERE class_id&#x3D;1<br>ORDER BY score DESC;</p>
 <h2 id="三：分页查询"><a href="#三：分页查询" class="headerlink" title="三：分页查询"></a>三：分页查询</h2><p>1.eg：</p>
-<p>SELECT id, name, gender, score<br>FROM students<br>ORDER BY score DESC<br>LIMIT 3 OFFSET 0;</p>
+<p><code>SELECT id, name, gender, score</code><br><code>FROM students</code><br><code>ORDER BY score DESC</code><br><code>LIMIT 3 OFFSET 0;</code></p>
 <p>解读：1.本指令没有 WHERE </p>
 <p>​           2.LIMIT：表示一次最多拿几条；OFFSET：设想要从第n条开始看，OFFSET 后面的数字为n-1</p>
 <p>小结：</p>
 <p>​          使用<code>LIMIT &lt;M&gt; OFFSET &lt;N&gt;</code>可以对结果集进行分页，每次查询返回结果集的一部分；</p>
 <p>​          分页查询需要先确定每页的数量和当前页数，然后确定<code>LIMIT</code>和<code>OFFSET</code>的值。</p>
-<h2 id="四：聚合查询"><a href="#四：聚合查询" class="headerlink" title="四：聚合查询"></a>四：聚合查询</h2><p>1.eg：SELECT COUNT(*) boys FROM students WHERE gender &#x3D; ‘M’;</p>
+<h2 id="四：聚合查询"><a href="#四：聚合查询" class="headerlink" title="四：聚合查询"></a>四：聚合查询</h2><p>1.eg：<code>SELECT COUNT(*) boys FROM students WHERE gender = &#39;M&#39;;</code></p>
 <p>解读：1.COUNT：统计条数</p>
 <p>附：还有其他的聚合函数：</p>
 <p>SUM（）：计算某一列的合计值，该列必须为数值类型；</p>
@@ -214,8 +214,8 @@
 <li><p>SELECT CEILING(COUNT(*)&#x2F;3) FROM students；</p>
 </li>
 </ul>
-<h3 id="接四：分组聚合"><a href="#接四：分组聚合" class="headerlink" title="接四：分组聚合"></a>接四：分组聚合</h3><p>2.eg：SELECT COUNT(*) num FROM students GROUP BY class_id;</p>
-<p>3.eg：SELECT class_id, COUNT(*) num FROM students GROUP BY class_id;</p>
+<h3 id="接四：分组聚合"><a href="#接四：分组聚合" class="headerlink" title="接四：分组聚合"></a>接四：分组聚合</h3><p><code>2.eg：SELECT COUNT(*) num FROM students GROUP BY class_id;</code></p>
+<p><code>3.eg：SELECT class_id, COUNT(*) num FROM students GROUP BY class_id;</code></p>
 <p>解读：1.GROUP BY：分组指令</p>
 <p>​           2.SELECT class_id, COUNT(*)：将class_id一一列出来</p>
 <p>如图：</p>
@@ -239,6 +239,34 @@
 <td align="left">3</td>
 </tr>
 </tbody></table>
+<h2 id="五：多表查询"><a href="#五：多表查询" class="headerlink" title="五：多表查询"></a>五：多表查询</h2><p>1.eg:</p>
+<p><code>SELECT s.id, s.name, s.class_id, c.name class_name, s.gender, s.score</code><br><code>FROM students s</code><br><code>INNER JOIN classes c</code><br><code>ON s.class_id = c.id;</code></p>
+<p>解读：students s：后面的s是别名，简化表格；</p>
+<p>​           INNER JOIN：属于连接查询，最常用的一种内连接——INNER JOIN；</p>
+<p>​           ON：建立两列联系；</p>
+<p> <em>下面摘一段原文：</em></p>
+<p>注意INNER JOIN查询的写法是：</p>
+<ol>
+<li>先确定主表，仍然使用<code>FROM &lt;表1&gt;</code>的语法；</li>
+<li>再确定需要连接的表，使用<code>INNER JOIN &lt;表2&gt;</code>的语法；</li>
+<li>然后确定连接条件，使用<code>ON &lt;条件...&gt;</code>，这里的条件是<code>s.class_id = c.id</code>，表示<code>students</code>表的<code>class_id</code>列与<code>classes</code>表的<code>id</code>列相同的行需要连接；</li>
+<li>可选：加上<code>WHERE</code>子句、<code>ORDER BY</code>等子句。</li>
+</ol>
+<p>使用别名不是必须的，但可以更好地简化查询语句。</p>
+<p>接五：</p>
+<p>有内连接，就有外连接，全连接，我将大量引用原文：（可认为左表为主表，右表为副表）</p>
+<p>我们把tableA看作左表，把tableB看成右表，那么INNER JOIN是选出两张表都存在的记录：</p>
+<p><img src="https://www.liaoxuefeng.com/files/attachments/1246892164662976/l" alt="inner-join"></p>
+<p>LEFT OUTER JOIN是选出左表存在的记录：</p>
+<p><img src="https://www.liaoxuefeng.com/files/attachments/1246893588481376/l" alt="left-outer-join"></p>
+<p>RIGHT OUTER JOIN是选出右表存在的记录：</p>
+<p><img src="https://www.liaoxuefeng.com/files/attachments/1246893609222688/l" alt="right-outer-join"></p>
+<p>FULL OUTER JOIN则是选出左右表都存在的记录：</p>
+<p><img src="https://www.liaoxuefeng.com/files/attachments/1246893632359424/l" alt="full-outer-join"></p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>JOIN查询需要先确定主表，然后把另一个表的数据“附加”到结果集上；</p>
+<p>INNER JOIN是最常用的一种JOIN查询，它的语法是<code>SELECT ... FROM &lt;表1&gt; INNER JOIN &lt;表2&gt; ON &lt;条件...&gt;</code>；</p>
+<p>JOIN查询仍然可以使用<code>WHERE</code>条件和<code>ORDER BY</code>排序。</p>
+<p>总结：“查询”写完了，总体没难度。</p>
 
             
         </div>
