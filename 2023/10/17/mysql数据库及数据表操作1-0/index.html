@@ -3,7 +3,7 @@
 <html lang="zh-Hans">
 <head>
     <meta charset="utf-8" />
-    <title>Archives | 春风少年郎的博客</title>
+    <title>mysql数据库及数据表操作1.0 | 春风少年郎的博客</title>
     <meta name="author" content="春风语" />
     <meta name="description" content="十八年来霜与雪，幸得满怀春风香" />
     <meta name="keywords" content="" />
@@ -31,6 +31,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -144,110 +148,42 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            
-<div id="archives">
-    
-    <div id="timeline-wrap" ref="timeline">
+            <div class="article">
+    <div>
+        <h1>mysql数据库及数据表操作1.0</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/17
+        </span>
         
-        <div class="timeline" data-title="helloworld">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/5</div>
-                <a href="/2023/10/05/hello-world/">
-                    <h3>Hello World</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="天下第一">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/7</div>
-                <a href="/2023/10/07/%E5%A4%A9%E4%B8%8B%E7%AC%AC%E4%B8%80/">
-                    <h3>天下第一</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/8</div>
-                <a href="/2023/10/08/SQL%E7%AC%94%E8%AE%B01-0%E6%9F%A5%E8%AF%A2/">
-                    <h3></h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="sql笔记2.0修改">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/10</div>
-                <a href="/2023/10/10/SQL%E7%AC%94%E8%AE%B02-0%E4%BF%AE%E6%94%B9/">
-                    <h3>SQL笔记2.0修改</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="c语言感想.1">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/11</div>
-                <a href="/2023/10/11/C%E8%AF%AD%E8%A8%80%E6%84%9F%E6%83%B3-1/">
-                    <h3>C语言感想.1</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="图片">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/12</div>
-                <a href="/2023/10/12/%E5%9B%BE%E7%89%87/">
-                    <h3>图片</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="mysql数据库及数据表操作1.0">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/17</div>
-                <a href="/2023/10/17/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%8A%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%93%8D%E4%BD%9C1-0/">
-                    <h3>mysql数据库及数据表操作1.0</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
         
     </div>
+    
+    <div class="content" v-pre>
+        <h1 id="mysql数据库及数据表操作"><a href="#mysql数据库及数据表操作" class="headerlink" title="mysql数据库及数据表操作"></a>mysql数据库及数据表操作</h1><h2 id="1-登入"><a href="#1-登入" class="headerlink" title="1.登入"></a>1.登入</h2><p>win+r  &#x3D;&gt;  cmd  &#x3D;&gt;  mysql -u root -r  &#x3D;&gt; 回车</p>
+<h2 id="2-查询数据库及数据表"><a href="#2-查询数据库及数据表" class="headerlink" title="2.查询数据库及数据表"></a>2.查询数据库及数据表</h2><h3 id="a-查询所有数据库"><a href="#a-查询所有数据库" class="headerlink" title="a.查询所有数据库"></a>a.查询所有数据库</h3><h4 id="show-database"><a href="#show-database" class="headerlink" title="show database;"></a>show database;</h4><h3 id="b-查询当前数据库的所有表"><a href="#b-查询当前数据库的所有表" class="headerlink" title="b.查询当前数据库的所有表"></a>b.查询当前数据库的所有表</h3><h4 id="show-tables"><a href="#show-tables" class="headerlink" title="show tables;"></a>show tables;</h4><p>c.查看一个表的结构</p>
+<h4 id="desc-name-表名"><a href="#desc-name-表名" class="headerlink" title="desc name(表名)"></a>desc name(表名)</h4><h2 id="3-创建数据库和数据表"><a href="#3-创建数据库和数据表" class="headerlink" title="3.创建数据库和数据表"></a>3.创建数据库和数据表</h2><h3 id="a-创建数据库"><a href="#a-创建数据库" class="headerlink" title="a.创建数据库"></a>a.创建数据库</h3><p>create database name（库名）</p>
+<h3 id="b-创建数据表"><a href="#b-创建数据表" class="headerlink" title="b.创建数据表"></a>b.创建数据表</h3><p>create  table name (</p>
+<p>列名1  数据类型1,</p>
+<p>….</p>
+<p>列名n  数据类型n,</p>
+<p>);</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SHOW CREATE TABLE students;</span><br><span class="line">+----------+-------------------------------------------------------+</span><br><span class="line">| students | CREATE TABLE `students` (                             |</span><br><span class="line">|          |   `id` bigint(20) NOT NULL AUTO_INCREMENT,            |</span><br><span class="line">|          |   `class_id` bigint(20) NOT NULL,                     |</span><br><span class="line">|          |   `name` varchar(100) NOT NULL,                       |</span><br><span class="line">|          |   `gender` varchar(1) NOT NULL,                       |</span><br><span class="line">|          |   `score` int(11) NOT NULL,                           |</span><br><span class="line">|          |   PRIMARY KEY (`id`)                                  |</span><br><span class="line">|          | ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 |</span><br><span class="line">+----------+-------------------------------------------------------+</span><br></pre></td></tr></table></figure>
+
+<p>上图表明了怎么写表；</p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="-1"><a href="#-1" class="headerlink" title=""></a></h1><h1 id="-2"><a href="#-2" class="headerlink" title=""></a></h1>
+    </div>
+    
+    
+    
+    
+    
+    
+    
 </div>
 
             <footer id="footer">
@@ -278,6 +214,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>
