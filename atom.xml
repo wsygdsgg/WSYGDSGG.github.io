@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>春风少年郎的博客</title>
+  
+  <subtitle>众生如光影，吾辈皆旅人</subtitle>
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2023-10-17T09:41:03.644Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>春风语</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mysql数据库及数据表操作1.0</title>
+    <link href="http://example.com/2023/10/17/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%8A%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%93%8D%E4%BD%9C1-0/"/>
+    <id>http://example.com/2023/10/17/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%8A%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%93%8D%E4%BD%9C1-0/</id>
+    <published>2023-10-17T08:34:17.000Z</published>
+    <updated>2023-10-17T09:41:03.644Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="mysql数据库及数据表操作"><a href="#mysql数据库及数据表操作" class="headerlink" title="mysql数据库及数据表操作"></a>mysql数据库及数据表操作</h1><h2 id="1-登入"><a href="#1-登入" class="headerlink" title="1.登入"></a>1.登入</h2><p><code>win+r  =&gt;  cmd  =&gt;  mysql -u root -r  =&gt; 回车</code></p><h2 id="2-查询数据库及数据表"><a href="#2-查询数据库及数据表" class="headerlink" title="2.查询数据库及数据表"></a>2.查询数据库及数据表</h2><h3 id="a-查询所有数据库"><a href="#a-查询所有数据库" class="headerlink" title="a.查询所有数据库"></a>a.查询所有数据库</h3><h4 id="show-database"><a href="#show-database" class="headerlink" title="show database;"></a><code>show database;</code></h4><h3 id="b-查询当前数据库的所有表"><a href="#b-查询当前数据库的所有表" class="headerlink" title="b.查询当前数据库的所有表"></a>b.查询当前数据库的所有表</h3><h4 id="show-tables"><a href="#show-tables" class="headerlink" title="show tables;"></a><code>show tables;</code></h4><p>c.查看一个表的结构</p><h4 id="desc-name-表名"><a href="#desc-name-表名" class="headerlink" title="desc name(表名)"></a><code>desc name(表名)</code></h4><h2 id="3-创建数据库和数据表"><a href="#3-创建数据库和数据表" class="headerlink" title="3.创建数据库和数据表"></a>3.创建数据库和数据表</h2><h3 id="a-创建数据库"><a href="#a-创建数据库" class="headerlink" title="a.创建数据库"></a>a.创建数据库</h3><p><code>create database name（库名）</code></p><h3 id="b-创建数据表"><a href="#b-创建数据表" class="headerlink" title="b.创建数据表"></a>b.创建数据表</h3><p><code>create  table name (</code></p><p>列名1  数据类型1,</p><p>….</p><p>列名n  数据类型n,</p><p>);</p><p>mysql&gt; SHOW CREATE TABLE students;<br>+———-+——————————————————-+<br>| students | CREATE TABLE <code>students</code> (                             |<br>|          |   <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT,            |<br>|          |   <code>class_id</code> bigint(20) NOT NULL,                     |<br>|          |   <code>name</code> varchar(100) NOT NULL,                       |<br>|          |   <code>gender</code> varchar(1) NOT NULL,                       |<br>|          |   <code>score</code> int(11) NOT NULL,                           |<br>|          |   PRIMARY KEY (<code>id</code>)                                  |<br>|          | ) ENGINE&#x3D;InnoDB AUTO_INCREMENT&#x3D;1 DEFAULT CHARSET&#x3D;utf8 |<br>+———-+——————————————————-+</p><p>上图表明了怎么写表；</p><h2 id="4-使用数据库"><a href="#4-使用数据库" class="headerlink" title="4.使用数据库"></a>4.使用数据库</h2><h3 id="use-name-库名"><a href="#use-name-库名" class="headerlink" title="use name(库名);"></a>use name(库名);</h3><h2 id="5-修改数据表-代码上，作用下"><a href="#5-修改数据表-代码上，作用下" class="headerlink" title="5.修改数据表(代码上，作用下 )"></a>5.修改数据表(代码上，作用下 )</h2><h4 id="提醒-无特殊说明时，name即是表名"><a href="#提醒-无特殊说明时，name即是表名" class="headerlink" title="提醒(无特殊说明时，name即是表名)"></a>提醒(无特殊说明时，name即是表名)</h4><p>   <code>alter table name rename to newname;</code></p><h3 id="改表名"><a href="#改表名" class="headerlink" title="(改表名)"></a>(改表名)</h3><p>a<code>lter table name character set 字符集名称;</code>  </p><h3 id="修改表的字符集"><a href="#修改表的字符集" class="headerlink" title="(修改表的字符集)"></a>(修改表的字符集)</h3><p><code>alter table name add name(列名) 数据类型;</code>   </p><h3 id="添加一列"><a href="#添加一列" class="headerlink" title="(添加一列)"></a>(添加一列)</h3><p><code>alter table name change name(列名) newname(新列别) 新数据类型;</code>   </p><h3 id="修改列名称-类型1"><a href="#修改列名称-类型1" class="headerlink" title="(修改列名称 类型1)"></a>(修改列名称 类型1)</h3><p><code>alter table name modify name(列名) 新数据类型;</code> </p><h3 id="修改列名称-类型2"><a href="#修改列名称-类型2" class="headerlink" title="(修改列名称 类型2)"></a>(修改列名称 类型2)</h3><p><code>alter table name drop name(列名)</code></p><h3 id="删除列"><a href="#删除列" class="headerlink" title="(删除列)"></a>(删除列)</h3><h2 id="6-删除数据库及数据表"><a href="#6-删除数据库及数据表" class="headerlink" title="6.删除数据库及数据表"></a>6.删除数据库及数据表</h2><h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><p><code>drop database if exists name(库名);</code></p><h3 id="删除数据表"><a href="#删除数据表" class="headerlink" title="删除数据表"></a>删除数据表</h3><p><code>drop table if exists name(表名);</code></p><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;mysql数据库及数据表操作&quot;&gt;&lt;a href=&quot;#mysql数据库及数据表操作&quot; class=&quot;headerlink&quot; title=&quot;mysql数据库及数据表操作&quot;&gt;&lt;/a&gt;mysql数据库及数据表操作&lt;/h1&gt;&lt;h2 id=&quot;1-登入&quot;&gt;&lt;a href=&quot;#1</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>图片</title>
+    <link href="http://example.com/2023/10/12/%E5%9B%BE%E7%89%87/"/>
+    <id>http://example.com/2023/10/12/%E5%9B%BE%E7%89%87/</id>
+    <published>2023-10-12T10:36:16.000Z</published>
+    <updated>2023-10-12T15:42:04.747Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="D:/11.jpg" alt="tupian"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;D:/11.jpg&quot; alt=&quot;tupian&quot;&gt;&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>C语言感想.1</title>
+    <link href="http://example.com/2023/10/11/C%E8%AF%AD%E8%A8%80%E6%84%9F%E6%83%B3-1/"/>
+    <id>http://example.com/2023/10/11/C%E8%AF%AD%E8%A8%80%E6%84%9F%E6%83%B3-1/</id>
+    <published>2023-10-10T23:30:57.000Z</published>
+    <updated>2023-10-11T04:54:47.704Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="C语言感想-1"><a href="#C语言感想-1" class="headerlink" title="C语言感想.1"></a>C语言感想.1</h1><h2 id="一-看下面三个代码"><a href="#一-看下面三个代码" class="headerlink" title="一.看下面三个代码"></a>一.看下面三个代码</h2><ol><li></li></ol><p><code>#include &lt;stdio.h&gt;</code></p><p><code>int Me( int i)</code><br><code>&#123;</code><br>    <code>int a = 0;</code><br>    <code>int ret = 1;</code><br>    <code>for(a=1;a&lt;=i;a++)</code><br>    <code>&#123;</code><br>        <code>ret = a * ret;</code><br>    <code>&#125;</code><br>    <code>return ret;</code><br><code>&#125;</code></p><h6 id="int-main"><a href="#int-main" class="headerlink" title="int main()"></a><code>int main()</code></h6><h3 id=""><a href="#" class="headerlink" title="{"></a><code>&#123;</code></h3><h6 id="int-x-sum-n"><a href="#int-x-sum-n" class="headerlink" title="int x, sum, n;"></a><code>int x, sum, n;</code></h6><p>​<code>sum = 0;</code><br>​<code>scanf(&quot;%d&quot;,&amp;n);</code><br>​<code>for(x=1; x&lt;=n; x++)</code><br>​<code>&#123;</code><br>​<code>sum = sum + Me(x);</code><br>​<code>&#125;</code><br>​<code>printf(&quot;%d\n&quot;,sum);</code><br>​<code>return 0;</code><br><code>&#125;</code></p><ol start="2"><li></li></ol><p><code>#include &lt;stdio.h&gt;</code></p><h6 id="int-main-1"><a href="#int-main-1" class="headerlink" title="int main()"></a><code>int main()</code></h6><p><code>&#123;</code><br>    <code>int a, n, ret, i;</code><br>    <code>int sum = 0;</code><br>    <code>scanf(&quot;%d&quot;,&amp;n);</code><br>    <code>for(a=1; a&lt;=n; a++)</code><br>    <code>&#123;</code><br>        <code>ret = 1;</code><br>        <code>for(i=1; i&lt;=a; i++)</code><br>        <code>&#123;</code><br>            <code>ret = ret * i;</code><br>        <code>&#125;</code><br>        <code>sum = sum + ret;</code><br>    <code>&#125;</code><br>       <code>printf(&quot;%d&quot;,sum);</code><br>    <code>return 0;</code><br> <code>&#125;</code> </p><ol start="3"><li></li></ol><p><code>#include &lt;stdio.h&gt;</code></p><p><code>int main()</code><br><code>&#123;</code><br>    <code>int a, n, ret, i;</code><br>    <code>int sum = 0;</code><br>    <code>scanf(&quot;%d&quot;,&amp;n);</code><br>    <code>for(a=1; a&lt;=n; a++)</code><br>    <code>&#123;</code><br>        <code>ret = ret * a;</code><br>        <code>sum = ret + sum;</code><br>    <code>&#125;</code><br>       <code>printf(&quot;%d&quot;,sum);</code><br>    <code>return 0;</code><br> <code>&#125;</code> </p><p>二.感想：</p><p>​            同样的效果，代码不同。如何用最方便，最简单，最合适的代码编写程序是我今后努力的方向。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;C语言感想-1&quot;&gt;&lt;a href=&quot;#C语言感想-1&quot; class=&quot;headerlink&quot; title=&quot;C语言感想.1&quot;&gt;&lt;/a&gt;C语言感想.1&lt;/h1&gt;&lt;h2 id=&quot;一-看下面三个代码&quot;&gt;&lt;a href=&quot;#一-看下面三个代码&quot; class=&quot;header</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>SQL笔记2.0修改</title>
+    <link href="http://example.com/2023/10/10/SQL%E7%AC%94%E8%AE%B02-0%E4%BF%AE%E6%94%B9/"/>
+    <id>http://example.com/2023/10/10/SQL%E7%AC%94%E8%AE%B02-0%E4%BF%AE%E6%94%B9/</id>
+    <published>2023-10-10T08:29:50.000Z</published>
+    <updated>2023-10-10T09:21:10.378Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="SQL笔记2-0修改"><a href="#SQL笔记2-0修改" class="headerlink" title="SQL笔记2.0修改"></a>SQL笔记2.0修改</h1><h2 id="一-INSERT（添加数据）"><a href="#一-INSERT（添加数据）" class="headerlink" title="一.INSERT（添加数据）"></a>一.INSERT（添加数据）</h2><p>INSERT语法：</p><h3 id="INSERT-INTO-字段1-字段2-VALUES-值1-值2"><a href="#INSERT-INTO-字段1-字段2-VALUES-值1-值2" class="headerlink" title="INSERT INTO &lt;表名&gt; (字段1, 字段2, ...) VALUES (值1, 值2, ...);"></a><code>INSERT INTO &lt;表名&gt; (字段1, 字段2, ...) VALUES (值1, 值2, ...);</code></h3><p>1.eg：</p><p><code>INSERT INTO students (class_id, name, gender, score) VALUES (2, &#39;大牛&#39;, &#39;M&#39;, 80);</code></p><p><code>SELECT * FROM students;</code></p><table><thead><tr><th align="left">id</th><th align="left">class_id</th><th align="left">name</th><th align="left">gender</th><th align="left">score</th></tr></thead><tbody><tr><td align="left">1</td><td align="left">1</td><td align="left">小明</td><td align="left">M</td><td align="left">90</td></tr><tr><td align="left">2</td><td align="left">1</td><td align="left">小红</td><td align="left">F</td><td align="left">95</td></tr><tr><td align="left">3</td><td align="left">1</td><td align="left">小军</td><td align="left">M</td><td align="left">88</td></tr><tr><td align="left">4</td><td align="left">1</td><td align="left">小米</td><td align="left">F</td><td align="left">73</td></tr><tr><td align="left">5</td><td align="left">2</td><td align="left">小白</td><td align="left">F</td><td align="left">81</td></tr><tr><td align="left">6</td><td align="left">2</td><td align="left">小兵</td><td align="left">M</td><td align="left">55</td></tr><tr><td align="left">7</td><td align="left">2</td><td align="left">小林</td><td align="left">M</td><td align="left">85</td></tr><tr><td align="left">8</td><td align="left">3</td><td align="left">小新</td><td align="left">F</td><td align="left">91</td></tr><tr><td align="left">9</td><td align="left">3</td><td align="left">小王</td><td align="left">M</td><td align="left">89</td></tr><tr><td align="left">10</td><td align="left">3</td><td align="left">小丽</td><td align="left">F</td><td align="left">88</td></tr><tr><td align="left">11</td><td align="left">1</td><td align="left">大宝</td><td align="left">M</td><td align="left">87</td></tr><tr><td align="left">12</td><td align="left">2</td><td align="left">二宝</td><td align="left">M</td><td align="left">81</td></tr><tr><td align="left">13</td><td align="left">2</td><td align="left">大牛</td><td align="left">M</td><td align="left">80</td></tr></tbody></table><p>解读：1. 我们没有列出 id ，因为id是自主增键，其可自动生成；</p><p>​           2.字段顺序不必和数据库表的字段顺序一致，但值的顺序必须和字段顺序一致；</p><h4 id="3-巧记：INSERT-INTO-VALUE"><a href="#3-巧记：INSERT-INTO-VALUE" class="headerlink" title="3.巧记：INSERT  INTO   VALUE;"></a>3.巧记：INSERT  INTO   VALUE;</h4><p>2.eg：</p><p>INSERT INTO students (class_id, name, gender, score) VALUES<br>  (1, ‘大宝’, ‘M’, 87),<br>  (2, ‘二宝’, ‘M’, 81);</p><p>SELECT * FROM students;</p><p>解读：加入多个数据，无需多言。</p><h2 id="二-UPDATE（更新数据）"><a href="#二-UPDATE（更新数据）" class="headerlink" title="二.UPDATE（更新数据）"></a>二.UPDATE（更新数据）</h2><p>UPDATE语法：</p><h3 id="UPDATE-SET-字段1-值1-字段2-值2-WHERE"><a href="#UPDATE-SET-字段1-值1-字段2-值2-WHERE" class="headerlink" title="UPDATE &lt;表名&gt; SET 字段1=值1, 字段2=值2, ... WHERE ...;"></a><code>UPDATE &lt;表名&gt; SET 字段1=值1, 字段2=值2, ... WHERE ...;</code></h3><p>1.egs：</p><p><code>UPDATE students SET name=&#39;大牛&#39;， score=66 WHERE id=1;</code></p><p>解读：</p><ol><li><h6 id="WHERE后面有很大的操作空间，不做赘叙，如：id-5-AND-id"><a href="#WHERE后面有很大的操作空间，不做赘叙，如：id-5-AND-id" class="headerlink" title="WHERE后面有很大的操作空间，不做赘叙，如：id&gt;&#x3D;5   AND   id&lt;&#x3D; 7UPDATE"></a>WHERE后面有很大的操作空间，不做赘叙，如：id&gt;&#x3D;5   AND   id&lt;&#x3D; 7UPDATE</h6></li></ol><h4 id="2-巧记：UPDATE-SET-WHERE"><a href="#2-巧记：UPDATE-SET-WHERE" class="headerlink" title="2.巧记：UPDATE  SET   WHERE;"></a>2.巧记：UPDATE  SET   WHERE;</h4><h2 id="三-DELETE-删除数据"><a href="#三-DELETE-删除数据" class="headerlink" title="三.DELETE(删除数据)"></a>三.DELETE(删除数据)</h2><p>DELETE语法：</p><h3 id="DELETE-FROM-WHERE"><a href="#DELETE-FROM-WHERE" class="headerlink" title="DELETE FROM &lt;表名&gt; WHERE ...;"></a><code>DELETE FROM &lt;表名&gt; WHERE ...;</code></h3><p>1.eg:</p><p>​          <code>DELETE FROM students WHERE id&gt;=5 AND id&lt;=7;</code><br>​           <code>-- 查询并观察结果:</code><br>​          <code>SELECT * FROM students;</code></p><p>解读：1.WHERE：本语法的核心就在于 WHERE , 其有很大的操作空间，如 UPDATE。</p><h4 id="2-巧记：DELETE-FROM-WHERE"><a href="#2-巧记：DELETE-FROM-WHERE" class="headerlink" title="2.巧记：DELETE  FROM   WHERE;"></a>2.巧记：DELETE  FROM   WHERE;</h4><p>总结：难度不大。</p><p>​          </p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;SQL笔记2-0修改&quot;&gt;&lt;a href=&quot;#SQL笔记2-0修改&quot; class=&quot;headerlink&quot; title=&quot;SQL笔记2.0修改&quot;&gt;&lt;/a&gt;SQL笔记2.0修改&lt;/h1&gt;&lt;h2 id=&quot;一-INSERT（添加数据）&quot;&gt;&lt;a href=&quot;#一-INSER</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://example.com/2023/10/08/SQL%E7%AC%94%E8%AE%B01-0%E6%9F%A5%E8%AF%A2/"/>
+    <id>http://example.com/2023/10/08/SQL%E7%AC%94%E8%AE%B01-0%E6%9F%A5%E8%AF%A2/</id>
+    <published>2023-10-08T11:40:06.000Z</published>
+    <updated>2023-10-10T09:23:37.782Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="SQL笔记-1-0-查询"><a href="#SQL笔记-1-0-查询" class="headerlink" title="SQL笔记 1.0.查询"></a>SQL笔记 1.0.查询</h1><h2 id="一：基本（关键字必须大写，用分号结束）"><a href="#一：基本（关键字必须大写，用分号结束）" class="headerlink" title="一：基本（关键字必须大写，用分号结束）"></a>一：基本（关键字必须大写，用分号结束）</h2><p>1: EXLECT  &lt;列，*表全部&gt; FROM &lt;表格名&gt; WHERE &lt;条件&gt;;</p><p>​        A                    B                 C            D           F           E</p><p>B：eg：score  point  解释：引用时将score改名为point</p><h2 id="二：排序"><a href="#二：排序" class="headerlink" title="二：排序"></a>二：排序</h2><p><code>1.eg：EXLECT  *  FROM students WHERE num=2  ORDER  BY  gender;</code></p><p><code>2.eg：EXLECT  *  FROM students  WHERE num=2  ORDER  BY  gender  DESC;</code></p><p><code>3.eg：EXLECT  *  FROM students  WHERE num=2  ORDER  BY  gender  DESC  ，score</code>；</p><p>解释：1.ORDER BY  : 排序；若加上DESC,表倒序；在逗号，表次级排序</p><p>小结，用一个例子：</p><p>SELECT id, name, gender, score<br>FROM students<br>WHERE class_id&#x3D;1<br>ORDER BY score DESC;</p><h2 id="三：分页查询"><a href="#三：分页查询" class="headerlink" title="三：分页查询"></a>三：分页查询</h2><p>1.eg：</p><p><code>SELECT id, name, gender, score</code><br><code>FROM students</code><br><code>ORDER BY score DESC</code><br><code>LIMIT 3 OFFSET 0;</code></p><p>解读：1.本指令没有 WHERE </p><p>​           2.LIMIT：表示一次最多拿几条；OFFSET：设想要从第n条开始看，OFFSET 后面的数字为n-1</p><p>小结：</p><p>​          使用<code>LIMIT &lt;M&gt; OFFSET &lt;N&gt;</code>可以对结果集进行分页，每次查询返回结果集的一部分；</p><p>​          分页查询需要先确定每页的数量和当前页数，然后确定<code>LIMIT</code>和<code>OFFSET</code>的值。</p><h2 id="四：聚合查询"><a href="#四：聚合查询" class="headerlink" title="四：聚合查询"></a>四：聚合查询</h2><p>1.eg：<code>SELECT COUNT(*) boys FROM students WHERE gender = &#39;M&#39;;</code></p><p>解读：1.COUNT：统计条数</p><p>附：还有其他的聚合函数：</p><p>SUM（）：计算某一列的合计值，该列必须为数值类型；</p><p>AVG（）：计算某一列的平均值，该列必须为数值类型；</p><p>MAX（）：计算某一列的最大值；</p><p>MIN（）：计算某一列的最小值；</p><p>提醒：1.<code>MAX()</code>和<code>MIN()</code>函数并不限于数值类型。如果是字符类型，<code>MAX()</code>和<code>MIN()</code>会返回排序最后和排序最前的字符。</p><p>​           2.如果聚合查询的<code>WHERE</code>条件没有匹配到任何行，<code>COUNT()</code>会返回0，而<code>SUM()</code>、<code>AVG()</code>、<code>MAX()</code>和<code>MIN()</code>会返回<code>NULL</code></p><ul><li><h3 id="提升：每页3条记录，如何通过聚合查询获得总页数？"><a href="#提升：每页3条记录，如何通过聚合查询获得总页数？" class="headerlink" title="提升：每页3条记录，如何通过聚合查询获得总页数？"></a>提升：每页3条记录，如何通过聚合查询获得总页数？</h3></li><li><p>SELECT CEILING(COUNT(*)&#x2F;3) FROM students；</p></li></ul><h3 id="接四："><a href="#接四：" class="headerlink" title="接四："></a>接四：</h3><p><code>2.eg：SELECT COUNT(*) num FROM students GROUP BY class_id;</code></p><p><code>3.eg：SELECT class_id, COUNT(*) num FROM students GROUP BY class_id;</code></p><p>解读：1.GROUP BY：分组指令</p><p>​           2.SELECT class_id, COUNT(*)：将class_id一一列出来</p><p>如图：</p><table><thead><tr><th align="left">class_id</th><th align="left">num</th></tr></thead><tbody><tr><td align="left">1</td><td align="left">4</td></tr><tr><td align="left">2</td><td align="left">3</td></tr><tr><td align="left">3</td><td align="left">3</td></tr></tbody></table><h2 id="五：多表查询"><a href="#五：多表查询" class="headerlink" title="五：多表查询"></a>五：多表查询</h2><p>1.eg:</p><p><code>SELECT s.id, s.name, s.class_id, c.name class_name, s.gender, s.score</code><br><code>FROM students s</code><br><code>INNER JOIN classes c</code><br><code>ON s.class_id = c.id;</code></p><p>解读：students s：后面的s是别名，简化表格；</p><p>​           INNER JOIN：属于连接查询，最常用的一种内连接——INNER JOIN；</p><p>​           ON：建立两列联系；</p><p> <em>下面摘一段原文：</em></p><p>注意INNER JOIN查询的写法是：</p><ol><li>先确定主表，仍然使用<code>FROM &lt;表1&gt;</code>的语法；</li><li>再确定需要连接的表，使用<code>INNER JOIN &lt;表2&gt;</code>的语法；</li><li>然后确定连接条件，使用<code>ON &lt;条件...&gt;</code>，这里的条件是<code>s.class_id = c.id</code>，表示<code>students</code>表的<code>class_id</code>列与<code>classes</code>表的<code>id</code>列相同的行需要连接；</li><li>可选：加上<code>WHERE</code>子句、<code>ORDER BY</code>等子句。</li></ol><p>使用别名不是必须的，但可以更好地简化查询语句。</p><h3 id="接五："><a href="#接五：" class="headerlink" title="接五："></a>接五：</h3><p>有内连接，就有外连接，全连接，我将大量引用原文：（可认为左表为主表，右表为副表）</p><p>我们把tableA看作左表，把tableB看成右表，那么INNER JOIN是选出两张表都存在的记录：</p><p><img src="https://www.liaoxuefeng.com/files/attachments/1246892164662976/l" alt="inner-join"></p><p>LEFT OUTER JOIN是选出左表存在的记录：</p><p><img src="https://www.liaoxuefeng.com/files/attachments/1246893588481376/l" alt="left-outer-join"></p><p>RIGHT OUTER JOIN是选出右表存在的记录：</p><p><img src="https://www.liaoxuefeng.com/files/attachments/1246893609222688/l" alt="right-outer-join"></p><p>FULL OUTER JOIN则是选出左右表都存在的记录：</p><p><img src="https://www.liaoxuefeng.com/files/attachments/1246893632359424/l" alt="full-outer-join"></p><h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>JOIN查询需要先确定主表，然后把另一个表的数据“附加”到结果集上；</p><p>INNER JOIN是最常用的一种JOIN查询，它的语法是<code>SELECT ... FROM &lt;表1&gt; INNER JOIN &lt;表2&gt; ON &lt;条件...&gt;</code>；</p><p>JOIN查询仍然可以使用<code>WHERE</code>条件和<code>ORDER BY</code>排序。</p><p>总结：“查询”写完了，总体没难度。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;SQL笔记-1-0-查询&quot;&gt;&lt;a href=&quot;#SQL笔记-1-0-查询&quot; class=&quot;headerlink&quot; title=&quot;SQL笔记 1.0.查询&quot;&gt;&lt;/a&gt;SQL笔记 1.0.查询&lt;/h1&gt;&lt;h2 id=&quot;一：基本（关键字必须大写，用分号结束）&quot;&gt;&lt;a h</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>天下第一</title>
+    <link href="http://example.com/2023/10/07/%E5%A4%A9%E4%B8%8B%E7%AC%AC%E4%B8%80/"/>
+    <id>http://example.com/2023/10/07/%E5%A4%A9%E4%B8%8B%E7%AC%AC%E4%B8%80/</id>
+    <published>2023-10-07T08:49:46.000Z</published>
+    <updated>2023-10-08T11:34:29.650Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天终于发了一篇博客啦啦啦啦啦！！！！！！！！</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;今天终于发了一篇博客啦啦啦啦啦！！！！！！！！&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://example.com/2023/10/05/hello-world/"/>
+    <id>http://example.com/2023/10/05/hello-world/</id>
+    <published>2023-10-05T06:26:44.237Z</published>
+    <updated>2023-10-05T06:26:44.237Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
