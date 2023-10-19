@@ -3,1079 +3,713 @@
 <head>
   <meta charset="utf-8">
   
-  <title>春风少年郎的博客</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="十八年来霜与雪，幸得满怀春风香">
-<meta property="og:type" content="website">
-<meta property="og:title" content="春风少年郎的博客">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="春风少年郎的博客">
-<meta property="og:description" content="十八年来霜与雪，幸得满怀春风香">
-<meta property="og:locale">
-<meta property="article:author" content="春风语">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternative" href="/atom.xml" title="春风少年郎的博客" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/http://oayoilchh.bkt.clouddn.com/2016/07/27/18:05:26%20">
-  
-  
-      
-<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <title>我的技术与生活——小站首页 | 春风少年郎的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href="/imgs/shortcut-icon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/public.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/iconfont.css" />
+  <link rel="stylesheet" href="/css/APlayer.min.css" />
+  <script src="/js/APlayer.min.js"></script>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.pjax.min.js"></script>
 
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
-    
-    
-  
-  
-      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  
-  <!-- 加载特效 -->
-    <script src="/js/pace.js"></script>
-    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
   <script>
-      var yiliaConfig = {
-          rootUrl: '/',
-          fancybox: true,
-          animate: true,
-          isHome: true,
-          isPost: false,
-          isArchive: false,
-          isTag: false,
-          isCategory: false,
-          open_in_new: false
-      }
+    document.title = `我的技术与生活——小站首页`
   </script>
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="春风少年郎的博客" type="application/atom+xml">
+</head>
+
+<style>
+  .load {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(37, 35, 40);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 9999;
+  }
+  .load-circle {
+    width: 80px;
+    height: 80px;
+    border: 8px solid orange;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: rotate 1s linear infinite;
+    filter: drop-shadow(0 0 3px orange);
+  }
+  .load-circle-inner {
+    width: 40px;
+    height: 40px;
+    border: 8px solid orange;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: rotate-reverse .5s linear infinite;
+  }
+  .load-text {
+    margin-top: 20px;
+    font-size: 24px;
+    color: orange;
+    display: flex;
+  }
+  .load-text span {
+    margin: 0 5px;
+    text-shadow: 5px 5px 5px orange;
+    animation: move 1s linear infinite;
+  }
+  .load-text span:nth-child(1) {
+    animation-delay: -0.6s;
+  }
+  .load-text span:nth-child(2) {
+    animation-delay: -0.5s;
+  }
+  .load-text span:nth-child(3) {
+    animation-delay: -0.4s;
+  }
+  .load-text span:nth-child(4) {
+    animation-delay: -0.3s;
+  }
+  .load-text span:nth-child(5) {
+    animation-delay: -0.2s;
+  }
+  .load-text span:nth-child(6) {
+    animation-delay: -0.1s;
+  }
+  @keyframes rotate {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
+  }
+  @keyframes rotate-reverse {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(-360deg); }
+  }
+  @keyframes move {
+    0% { transform: translateY(0%) rotate(0) scale(1); }
+    20% { transform: translateY(20%) rotate(10deg) scale(1.2); }
+    80% { transform: translateY(-10%) rotate(-20deg) scale(.8);}
+    100% { transform: translateY(0) rotate(0) scale(1); }
+  }
+
+  .progress {
+    position: fixed;
+    left: 0; top: 0;
+    width: 0;
+    height: 3px;
+    background-color: green;
+    transition: all cubic-bezier(0.215, 0.610, 0.355, 1) .1s;
+    z-index: 9999;
+  }
+
+  .to-up {
+    animation: toUp .5s 1;
+  }
+  .gray {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    display: none;
+    pointer-events: none;
+    background-color: #000;
+    mix-blend-mode: color;
+  }
+  @keyframes toUp {
+    from { transform: translateY(15px); opacity: 0; }
+    to { transform: translateY(0) ; opacity: 1; }
+  }
+</style>
 <body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-        <a href="/" class="profilepic">
-            
-            <img lazy-src="img/head.jpg" class="js-avatar">
-            
-        </a>
-        <hgroup>
-          <h1 class="header-author"><a href="/"></a></h1>
-        </hgroup>
-        
-        
-            <form>
-                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
-            </form>
-            <div id="local-search-result"></div>
-        
-        
-            <script type="text/javascript">
-                (function() {
-                    'use strict';
-                    function getMatchData(keyword, data) {
-                        var matchData = [];
-                        for(var i =0;i<data.length;i++){
-                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
-                                matchData.push(data[i])
-                        }
-                        return matchData;
-                    }
-                    var $input = $('#local-search-input');
-                    var $resultContent = $('#local-search-result');
-                    $input.keyup(function(){
-                        $.ajax({
-                            url: '/search.json',
-                            dataType: "json",
-                            success: function( json ) {
-                                var str='<ul class=\"search-result-list\">';                
-                                var keyword = $input.val().trim().toLowerCase();
-                                $resultContent.innerHTML = "";
-                                if ($input.val().trim().length <= 0) {
-                                    $resultContent.empty();
-                                    $('#switch-area').show();
-                                    return;
-                                }
-                                var results = getMatchData(keyword, json);
-                                if(results.length === 0){
-                                    $resultContent.empty();
-                                    $('#switch-area').show();
-                                    return;
-                                } 
-                                for(var i =0; i<results.length; i++){
-                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
-                                }
-                                str += "</ul>";
-                                $resultContent.empty();
-                                $resultContent.append(str);
-                                $('#switch-area').hide();
-                            }
-                        });
-                    });
-                })();
-            </script>
-        
-        
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
-                        
-                        <li>友情链接</li>
-                        
-                        
-                        <li>关于我</li>
-                        
-                    </ul>
-                </div>
-            </div>
-        
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a  target="_blank" rel="noopener" href="http://bestwing.me">博客首页</a></li>
-                        
-                            <li><a  href="/archives">文章归档</a></li>
-                        
-                            <li><a  href="/CTFStudy">学习导航</a></li>
-                        
-                            <li><a  href="/PWNABLE">PWNABLE</a></li>
-                        
-                            <li><a  href="/resume">个人简历</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fl mail"  target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=kvH99PT39-Dn_efS5PvivOPjvPH9-w" title="mail">mail</a>
-                            
-                                <a class="fl github"  target="_blank" href="https://github.com/WinMin" title="github">github</a>
-                            
-                                <a class="fl zhihu"  target="_blank" href="https://www.zhihu.com/people/Swings" title="zhihu">zhihu</a>
-                            
-                                <a class="fl weibo"  target="_blank" href="http://weibo.com/2672317963/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
-                            
-                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        
-                    </div>
-                </section>
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://ring3.xyz/">Yllen</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://mxny.org/">麦香浓郁</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://whereisk0shl.top/">K0sh1</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.ycjcl.cc/">信鑫</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://bystudent.com/">ByStundet表哥</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://www.jarviswang.me/">汪神_Jarvis</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://sh3ll.me/">Chu</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://www.hackfun.org/">4ido10n</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/iamstudy">L3m0n</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://o0xmuhe.me/">muhe</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.nuptzj.cn/">_画船听雨</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.virzz.com/index.html">Virink</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.sqlsec.com/">国光</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.bodkin.ren/">老锥</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.cizel.cn/">C1zel</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://1phan.cc">1phan</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://www.liuil.top/">liuil</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/Ox9A82/">Ox9A82</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://burnegg.com/">burnegg</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://jwrsec.cn/">jwr-sec</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://sudalover.cn/">苏打</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.binklac.com">VeroFess</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.bendawang.site/">bendawang</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://weeklyalgo.codes/">hook</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.flier.net.cn/">Flier&#39;blog</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.mutepig.club">mutepig</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://blog.iret.xyz/list.aspx">Silver</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://simp1e.leanote.com/">Simple</a>
-                    
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://processor.pub/">Processor</a>
-                    
-                    </div>
-                </section>
-                
-                
-                
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">一只淹死在二进制海洋里的二进制狗</div>
-                </section>
-                
-            </div>
-        </div>
-    </header>
-</div>
-
+  <div id="load" class="load">
+    <div class="load-circle">
+      <div class="load-circle-inner"></div>
     </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me"></a></h1>
+    <p class="load-text">
+      <span>L</span>
+      <span>O</span>
+      <span>A</span>
+      <span>D</span>
+      <span>I</span>
+      <span>N</span>
+      <span>G</span>
+    </p>
+  </div>
+  <div id="container" class="container w-100 vh-100" style="display: none;">
+    <header class="header">
+  <div class="header-wrapper">
+    <div class="header-left">
+      <div class="header-search">
+        <input id="search-input" type="text" class="header-search--input" placeholder="请输入要检索的文章标题" />
+        <span id="search-btn" class="header-search--icon"><i class="iconfont icon-sousuo"></i></span>
       </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                
-                    <img lazy-src="/img/head.jpg" class="js-avatar">
-                
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="Me"></a></h1>
-            </hgroup>
-            
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a target="_blank" rel="noopener" href="http://bestwing.me">博客首页</a></li>
-                
-                    <li><a href="/archives">文章归档</a></li>
-                
-                    <li><a href="/CTFStudy">学习导航</a></li>
-                
-                    <li><a href="/PWNABLE">PWNABLE</a></li>
-                
-                    <li><a href="/resume">个人简历</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                <div class="social">
-                    
-                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=kvH99PT39-Dn_efS5PvivOPjvPH9-w" title="mail">mail</a>
-                    
-                        <a class="github" target="_blank" href="https://github.com/WinMin" title="github">github</a>
-                    
-                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/Swings" title="zhihu">zhihu</a>
-                    
-                        <a class="weibo" target="_blank" href="http://weibo.com/2672317963/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
-                    
-                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
-                    
-                </div>
-            </nav>
-        </header>                
+      <div id="search-layer" class="header-search--layer hidden">
+        <p class="title">
+          <span>以下是搜索内容：</span>
+          <span id="close-layer-btn">关闭</span>
+        </p>
+        <ul>
+        </ul>
+      </div>
     </div>
-</nav>
-      <div class="body-wrap">
-  
-    <article id="post-mysql数据库及数据表操作1-0" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2023/10/17/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%8A%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%93%8D%E4%BD%9C1-0/" class="article-date">
-      <time datetime="2023-10-17T08:34:17.000Z" itemprop="datePublished">2023-10-17</time>
-</a>
+    <div class="header-right">
+      <ul class="header-menu">
+        <li>
+          <a href="http://example.com/">
+            <i class="header-menu--icon iconfont icon-shouye"></i>
+            <span class="header-menu--span">首页</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://example.com/log">
+            <i class="header-menu--icon iconfont icon-rizhi"></i>
+            <span class="header-menu--span">日志</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://example.com/link">
+            <i class="header-menu--icon iconfont icon-youqinglianjie"></i>
+            <span class="header-menu--span">友情链接</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://example.com/about">
+            <i class="header-menu--icon iconfont icon-guanyuwomen"></i>
+            <span class="header-menu--span">关于我</span>
+          </a>
+        </li>
+      </ul>
     </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/10/17/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%8A%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%93%8D%E4%BD%9C1-0/">mysql数据库及数据表操作1.0</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="mysql数据库及数据表操作"><a href="#mysql数据库及数据表操作" class="headerlink" title="mysql数据库及数据表操作"></a>mysql数据库及数据表操作</h1><h2 id="1-登入"><a href="#1-登入" class="headerlink" title="1.登入"></a>1.登入</h2><p><code>win+r  =&gt;  cmd  =&gt;  mysql -u root -r  =&gt; 回车</code></p>
-<h2 id="2-查询数据库及数据表"><a href="#2-查询数据库及数据表" class="headerlink" title="2.查询数据库及数据表"></a>2.查询数据库及数据表</h2><h3 id="a-查询所有数据库"><a href="#a-查询所有数据库" class="headerlink" title="a.查询所有数据库"></a>a.查询所有数据库</h3><h4 id="show-database"><a href="#show-database" class="headerlink" title="show database;"></a><code>show database;</code></h4><h3 id="b-查询当前数据库的所有表"><a href="#b-查询当前数据库的所有表" class="headerlink" title="b.查询当前数据库的所有表"></a>b.查询当前数据库的所有表</h3><h4 id="show-tables"><a href="#show-tables" class="headerlink" title="show tables;"></a><code>show tables;</code></h4><p>c.查看一个表的结构</p>
-<h4 id="desc-name-表名"><a href="#desc-name-表名" class="headerlink" title="desc name(表名)"></a><code>desc name(表名)</code></h4><h2 id="3-创建数据库和数据表"><a href="#3-创建数据库和数据表" class="headerlink" title="3.创建数据库和数据表"></a>3.创建数据库和数据表</h2><h3 id="a-创建数据库"><a href="#a-创建数据库" class="headerlink" title="a.创建数据库"></a>a.创建数据库</h3><p><code>create database name（库名）</code></p>
-<h3 id="b-创建数据表"><a href="#b-创建数据表" class="headerlink" title="b.创建数据表"></a>b.创建数据表</h3><p><code>create  table name (</code></p>
-<p>列名1  数据类型1,</p>
-<p>….</p>
-<p>列名n  数据类型n,</p>
-<p>);</p>
-<p>mysql&gt; SHOW CREATE TABLE students;<br>+———-+——————————————————-+<br>| students | CREATE TABLE <code>students</code> (                             |<br>|          |   <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT,            |<br>|          |   <code>class_id</code> bigint(20) NOT NULL,                     |<br>|          |   <code>name</code> varchar(100) NOT NULL,                       |<br>|          |   <code>gender</code> varchar(1) NOT NULL,                       |<br>|          |   <code>score</code> int(11) NOT NULL,                           |<br>|          |   PRIMARY KEY (<code>id</code>)                                  |<br>|          | ) ENGINE&#x3D;InnoDB AUTO_INCREMENT&#x3D;1 DEFAULT CHARSET&#x3D;utf8 |<br>+———-+——————————————————-+</p>
-<p>上图表明了怎么写表；</p>
-<h2 id="4-使用数据库"><a href="#4-使用数据库" class="headerlink" title="4.使用数据库"></a>4.使用数据库</h2><h3 id="use-name-库名"><a href="#use-name-库名" class="headerlink" title="use name(库名);"></a>use name(库名);</h3><h2 id="5-修改数据表-代码上，作用下"><a href="#5-修改数据表-代码上，作用下" class="headerlink" title="5.修改数据表(代码上，作用下 )"></a>5.修改数据表(代码上，作用下 )</h2><h4 id="提醒-无特殊说明时，name即是表名"><a href="#提醒-无特殊说明时，name即是表名" class="headerlink" title="提醒(无特殊说明时，name即是表名)"></a>提醒(无特殊说明时，name即是表名)</h4><p>   <code>alter table name rename to newname;</code></p>
-<h3 id="改表名"><a href="#改表名" class="headerlink" title="(改表名)"></a>(改表名)</h3><p>a<code>lter table name character set 字符集名称;</code>  </p>
-<h3 id="修改表的字符集"><a href="#修改表的字符集" class="headerlink" title="(修改表的字符集)"></a>(修改表的字符集)</h3><p><code>alter table name add name(列名) 数据类型;</code>   </p>
-<h3 id="添加一列"><a href="#添加一列" class="headerlink" title="(添加一列)"></a>(添加一列)</h3><p><code>alter table name change name(列名) newname(新列别) 新数据类型;</code>   </p>
-<h3 id="修改列名称-类型1"><a href="#修改列名称-类型1" class="headerlink" title="(修改列名称 类型1)"></a>(修改列名称 类型1)</h3><p><code>alter table name modify name(列名) 新数据类型;</code> </p>
-<h3 id="修改列名称-类型2"><a href="#修改列名称-类型2" class="headerlink" title="(修改列名称 类型2)"></a>(修改列名称 类型2)</h3><p><code>alter table name drop name(列名)</code></p>
-<h3 id="删除列"><a href="#删除列" class="headerlink" title="(删除列)"></a>(删除列)</h3><h2 id="6-删除数据库及数据表"><a href="#6-删除数据库及数据表" class="headerlink" title="6.删除数据库及数据表"></a>6.删除数据库及数据表</h2><h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><p><code>drop database if exists name(库名);</code></p>
-<h3 id="删除数据表"><a href="#删除数据表" class="headerlink" title="删除数据表"></a>删除数据表</h3><p><code>drop table if exists name(表名);</code></p>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
-  
-</article>
+</header>
 
-
-
-
-
-
-
-
-
-  
-    <article id="post-图片" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2023/10/12/%E5%9B%BE%E7%89%87/" class="article-date">
-      <time datetime="2023-10-12T10:36:16.000Z" itemprop="datePublished">2023-10-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/10/12/%E5%9B%BE%E7%89%87/">图片</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><img src="D:/11.jpg" alt="tupian"></p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-C语言感想-1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2023/10/11/C%E8%AF%AD%E8%A8%80%E6%84%9F%E6%83%B3-1/" class="article-date">
-      <time datetime="2023-10-10T23:30:57.000Z" itemprop="datePublished">2023-10-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/10/11/C%E8%AF%AD%E8%A8%80%E6%84%9F%E6%83%B3-1/">C语言感想.1</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="C语言感想-1"><a href="#C语言感想-1" class="headerlink" title="C语言感想.1"></a>C语言感想.1</h1><h2 id="一-看下面三个代码"><a href="#一-看下面三个代码" class="headerlink" title="一.看下面三个代码"></a>一.看下面三个代码</h2><ol>
-<li></li>
-</ol>
-<p><code>#include &lt;stdio.h&gt;</code></p>
-<p><code>int Me( int i)</code><br><code>&#123;</code><br>    <code>int a = 0;</code><br>    <code>int ret = 1;</code><br>    <code>for(a=1;a&lt;=i;a++)</code><br>    <code>&#123;</code><br>        <code>ret = a * ret;</code><br>    <code>&#125;</code><br>    <code>return ret;</code><br><code>&#125;</code></p>
-<h6 id="int-main"><a href="#int-main" class="headerlink" title="int main()"></a><code>int main()</code></h6><h3 id=""><a href="#" class="headerlink" title="{"></a><code>&#123;</code></h3><h6 id="int-x-sum-n"><a href="#int-x-sum-n" class="headerlink" title="int x, sum, n;"></a><code>int x, sum, n;</code></h6><p>​	<code>sum = 0;</code><br>​	<code>scanf(&quot;%d&quot;,&amp;n);</code><br>​	<code>for(x=1; x&lt;=n; x++)</code><br>​	<code>&#123;</code><br>​		<code>sum = sum + Me(x);</code><br>​	<code>&#125;</code><br>​	<code>printf(&quot;%d\n&quot;,sum);</code><br>​	<code>return 0;</code><br><code>&#125;</code></p>
-<ol start="2">
-<li></li>
-</ol>
-<p><code>#include &lt;stdio.h&gt;</code></p>
-<h6 id="int-main-1"><a href="#int-main-1" class="headerlink" title="int main()"></a><code>int main()</code></h6><p><code>&#123;</code><br>    <code>int a, n, ret, i;</code><br>    <code>int sum = 0;</code><br>    <code>scanf(&quot;%d&quot;,&amp;n);</code><br>    <code>for(a=1; a&lt;=n; a++)</code><br>    <code>&#123;</code><br>        <code>ret = 1;</code><br>        <code>for(i=1; i&lt;=a; i++)</code><br>        <code>&#123;</code><br>            <code>ret = ret * i;</code><br>        <code>&#125;</code><br>        <code>sum = sum + ret;</code><br>    <code>&#125;</code><br>       <code>printf(&quot;%d&quot;,sum);</code><br>    <code>return 0;</code><br> <code>&#125;</code> </p>
-<ol start="3">
-<li></li>
-</ol>
-<p><code>#include &lt;stdio.h&gt;</code></p>
-<p><code>int main()</code><br><code>&#123;</code><br>    <code>int a, n, ret, i;</code><br>    <code>int sum = 0;</code><br>    <code>scanf(&quot;%d&quot;,&amp;n);</code><br>    <code>for(a=1; a&lt;=n; a++)</code><br>    <code>&#123;</code><br>        <code>ret = ret * a;</code><br>        <code>sum = ret + sum;</code><br>    <code>&#125;</code><br>       <code>printf(&quot;%d&quot;,sum);</code><br>    <code>return 0;</code><br> <code>&#125;</code> </p>
-<p>二.感想：</p>
-<p>​            同样的效果，代码不同。如何用最方便，最简单，最合适的代码编写程序是我今后努力的方向。</p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-SQL笔记2-0修改" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2023/10/10/SQL%E7%AC%94%E8%AE%B02-0%E4%BF%AE%E6%94%B9/" class="article-date">
-      <time datetime="2023-10-10T08:29:50.000Z" itemprop="datePublished">2023-10-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/10/10/SQL%E7%AC%94%E8%AE%B02-0%E4%BF%AE%E6%94%B9/">SQL笔记2.0修改</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="SQL笔记2-0修改"><a href="#SQL笔记2-0修改" class="headerlink" title="SQL笔记2.0修改"></a>SQL笔记2.0修改</h1><h2 id="一-INSERT（添加数据）"><a href="#一-INSERT（添加数据）" class="headerlink" title="一.INSERT（添加数据）"></a>一.INSERT（添加数据）</h2><p>INSERT语法：</p>
-<h3 id="INSERT-INTO-字段1-字段2-VALUES-值1-值2"><a href="#INSERT-INTO-字段1-字段2-VALUES-值1-值2" class="headerlink" title="INSERT INTO &lt;表名&gt; (字段1, 字段2, ...) VALUES (值1, 值2, ...);"></a><code>INSERT INTO &lt;表名&gt; (字段1, 字段2, ...) VALUES (值1, 值2, ...);</code></h3><p>1.eg：</p>
-<p><code>INSERT INTO students (class_id, name, gender, score) VALUES (2, &#39;大牛&#39;, &#39;M&#39;, 80);</code></p>
-<p><code>SELECT * FROM students;</code></p>
-<table>
-<thead>
-<tr>
-<th align="left">id</th>
-<th align="left">class_id</th>
-<th align="left">name</th>
-<th align="left">gender</th>
-<th align="left">score</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">1</td>
-<td align="left">1</td>
-<td align="left">小明</td>
-<td align="left">M</td>
-<td align="left">90</td>
-</tr>
-<tr>
-<td align="left">2</td>
-<td align="left">1</td>
-<td align="left">小红</td>
-<td align="left">F</td>
-<td align="left">95</td>
-</tr>
-<tr>
-<td align="left">3</td>
-<td align="left">1</td>
-<td align="left">小军</td>
-<td align="left">M</td>
-<td align="left">88</td>
-</tr>
-<tr>
-<td align="left">4</td>
-<td align="left">1</td>
-<td align="left">小米</td>
-<td align="left">F</td>
-<td align="left">73</td>
-</tr>
-<tr>
-<td align="left">5</td>
-<td align="left">2</td>
-<td align="left">小白</td>
-<td align="left">F</td>
-<td align="left">81</td>
-</tr>
-<tr>
-<td align="left">6</td>
-<td align="left">2</td>
-<td align="left">小兵</td>
-<td align="left">M</td>
-<td align="left">55</td>
-</tr>
-<tr>
-<td align="left">7</td>
-<td align="left">2</td>
-<td align="left">小林</td>
-<td align="left">M</td>
-<td align="left">85</td>
-</tr>
-<tr>
-<td align="left">8</td>
-<td align="left">3</td>
-<td align="left">小新</td>
-<td align="left">F</td>
-<td align="left">91</td>
-</tr>
-<tr>
-<td align="left">9</td>
-<td align="left">3</td>
-<td align="left">小王</td>
-<td align="left">M</td>
-<td align="left">89</td>
-</tr>
-<tr>
-<td align="left">10</td>
-<td align="left">3</td>
-<td align="left">小丽</td>
-<td align="left">F</td>
-<td align="left">88</td>
-</tr>
-<tr>
-<td align="left">11</td>
-<td align="left">1</td>
-<td align="left">大宝</td>
-<td align="left">M</td>
-<td align="left">87</td>
-</tr>
-<tr>
-<td align="left">12</td>
-<td align="left">2</td>
-<td align="left">二宝</td>
-<td align="left">M</td>
-<td align="left">81</td>
-</tr>
-<tr>
-<td align="left">13</td>
-<td align="left">2</td>
-<td align="left">大牛</td>
-<td align="left">M</td>
-<td align="left">80</td>
-</tr>
-</tbody></table>
-<p>解读：1. 我们没有列出 id ，因为id是自主增键，其可自动生成；</p>
-<p>​           2.字段顺序不必和数据库表的字段顺序一致，但值的顺序必须和字段顺序一致；</p>
-<h4 id="3-巧记：INSERT-INTO-VALUE"><a href="#3-巧记：INSERT-INTO-VALUE" class="headerlink" title="3.巧记：INSERT  INTO   VALUE;"></a>3.巧记：INSERT  INTO   VALUE;</h4><p>2.eg：</p>
-<p>INSERT INTO students (class_id, name, gender, score) VALUES<br>  (1, ‘大宝’, ‘M’, 87),<br>  (2, ‘二宝’, ‘M’, 81);</p>
-<p>SELECT * FROM students;</p>
-<p>解读：加入多个数据，无需多言。</p>
-<h2 id="二-UPDATE（更新数据）"><a href="#二-UPDATE（更新数据）" class="headerlink" title="二.UPDATE（更新数据）"></a>二.UPDATE（更新数据）</h2><p>UPDATE语法：</p>
-<h3 id="UPDATE-SET-字段1-值1-字段2-值2-WHERE"><a href="#UPDATE-SET-字段1-值1-字段2-值2-WHERE" class="headerlink" title="UPDATE &lt;表名&gt; SET 字段1=值1, 字段2=值2, ... WHERE ...;"></a><code>UPDATE &lt;表名&gt; SET 字段1=值1, 字段2=值2, ... WHERE ...;</code></h3><p>1.egs：</p>
-<p><code>UPDATE students SET name=&#39;大牛&#39;， score=66 WHERE id=1;</code></p>
-<p>解读：</p>
-<ol>
-<li><h6 id="WHERE后面有很大的操作空间，不做赘叙，如：id-5-AND-id"><a href="#WHERE后面有很大的操作空间，不做赘叙，如：id-5-AND-id" class="headerlink" title="WHERE后面有很大的操作空间，不做赘叙，如：id&gt;&#x3D;5   AND   id&lt;&#x3D; 7UPDATE"></a>WHERE后面有很大的操作空间，不做赘叙，如：id&gt;&#x3D;5   AND   id&lt;&#x3D; 7UPDATE</h6></li>
-</ol>
-<h4 id="2-巧记：UPDATE-SET-WHERE"><a href="#2-巧记：UPDATE-SET-WHERE" class="headerlink" title="2.巧记：UPDATE  SET   WHERE;"></a>2.巧记：UPDATE  SET   WHERE;</h4><h2 id="三-DELETE-删除数据"><a href="#三-DELETE-删除数据" class="headerlink" title="三.DELETE(删除数据)"></a>三.DELETE(删除数据)</h2><p>DELETE语法：</p>
-<h3 id="DELETE-FROM-WHERE"><a href="#DELETE-FROM-WHERE" class="headerlink" title="DELETE FROM &lt;表名&gt; WHERE ...;"></a><code>DELETE FROM &lt;表名&gt; WHERE ...;</code></h3><p>1.eg:</p>
-<p>​          <code>DELETE FROM students WHERE id&gt;=5 AND id&lt;=7;</code><br>​           <code>-- 查询并观察结果:</code><br>​          <code>SELECT * FROM students;</code></p>
-<p>解读：1.WHERE：本语法的核心就在于 WHERE , 其有很大的操作空间，如 UPDATE。</p>
-<h4 id="2-巧记：DELETE-FROM-WHERE"><a href="#2-巧记：DELETE-FROM-WHERE" class="headerlink" title="2.巧记：DELETE  FROM   WHERE;"></a>2.巧记：DELETE  FROM   WHERE;</h4><p>总结：难度不大。</p>
-<p>​          </p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-SQL笔记1-0查询" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2023/10/08/SQL%E7%AC%94%E8%AE%B01-0%E6%9F%A5%E8%AF%A2/" class="article-date">
-      <time datetime="2023-10-08T11:40:06.000Z" itemprop="datePublished">2023-10-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="SQL笔记-1-0-查询"><a href="#SQL笔记-1-0-查询" class="headerlink" title="SQL笔记 1.0.查询"></a>SQL笔记 1.0.查询</h1><h2 id="一：基本（关键字必须大写，用分号结束）"><a href="#一：基本（关键字必须大写，用分号结束）" class="headerlink" title="一：基本（关键字必须大写，用分号结束）"></a>一：基本（关键字必须大写，用分号结束）</h2><p>1: EXLECT  &lt;列，*表全部&gt; FROM &lt;表格名&gt; WHERE &lt;条件&gt;;</p>
-<p>​        A                    B                 C            D           F           E</p>
-<p>B：eg：score  point  解释：引用时将score改名为point</p>
-<h2 id="二：排序"><a href="#二：排序" class="headerlink" title="二：排序"></a>二：排序</h2><p><code>1.eg：EXLECT  *  FROM students WHERE num=2  ORDER  BY  gender;</code></p>
-<p><code>2.eg：EXLECT  *  FROM students  WHERE num=2  ORDER  BY  gender  DESC;</code></p>
-<p><code>3.eg：EXLECT  *  FROM students  WHERE num=2  ORDER  BY  gender  DESC  ，score</code>；</p>
-<p>解释：1.ORDER BY  : 排序；若加上DESC,表倒序；在逗号，表次级排序</p>
-<p>小结，用一个例子：</p>
-<p>SELECT id, name, gender, score<br>FROM students<br>WHERE class_id&#x3D;1<br>ORDER BY score DESC;</p>
-<h2 id="三：分页查询"><a href="#三：分页查询" class="headerlink" title="三：分页查询"></a>三：分页查询</h2><p>1.eg：</p>
-<p><code>SELECT id, name, gender, score</code><br><code>FROM students</code><br><code>ORDER BY score DESC</code><br><code>LIMIT 3 OFFSET 0;</code></p>
-<p>解读：1.本指令没有 WHERE </p>
-<p>​           2.LIMIT：表示一次最多拿几条；OFFSET：设想要从第n条开始看，OFFSET 后面的数字为n-1</p>
-<p>小结：</p>
-<p>​          使用<code>LIMIT &lt;M&gt; OFFSET &lt;N&gt;</code>可以对结果集进行分页，每次查询返回结果集的一部分；</p>
-<p>​          分页查询需要先确定每页的数量和当前页数，然后确定<code>LIMIT</code>和<code>OFFSET</code>的值。</p>
-<h2 id="四：聚合查询"><a href="#四：聚合查询" class="headerlink" title="四：聚合查询"></a>四：聚合查询</h2><p>1.eg：<code>SELECT COUNT(*) boys FROM students WHERE gender = &#39;M&#39;;</code></p>
-<p>解读：1.COUNT：统计条数</p>
-<p>附：还有其他的聚合函数：</p>
-<p>SUM（）：计算某一列的合计值，该列必须为数值类型；</p>
-<p>AVG（）：计算某一列的平均值，该列必须为数值类型；</p>
-<p>MAX（）：计算某一列的最大值；</p>
-<p>MIN（）：计算某一列的最小值；</p>
-<p>提醒：1.<code>MAX()</code>和<code>MIN()</code>函数并不限于数值类型。如果是字符类型，<code>MAX()</code>和<code>MIN()</code>会返回排序最后和排序最前的字符。</p>
-<p>​           2.如果聚合查询的<code>WHERE</code>条件没有匹配到任何行，<code>COUNT()</code>会返回0，而<code>SUM()</code>、<code>AVG()</code>、<code>MAX()</code>和<code>MIN()</code>会返回<code>NULL</code></p>
-<ul>
-<li><h3 id="提升：每页3条记录，如何通过聚合查询获得总页数？"><a href="#提升：每页3条记录，如何通过聚合查询获得总页数？" class="headerlink" title="提升：每页3条记录，如何通过聚合查询获得总页数？"></a>提升：每页3条记录，如何通过聚合查询获得总页数？</h3></li>
-<li><p>SELECT CEILING(COUNT(*)&#x2F;3) FROM students；</p>
-</li>
-</ul>
-<h3 id="接四："><a href="#接四：" class="headerlink" title="接四："></a>接四：</h3><p><code>2.eg：SELECT COUNT(*) num FROM students GROUP BY class_id;</code></p>
-<p><code>3.eg：SELECT class_id, COUNT(*) num FROM students GROUP BY class_id;</code></p>
-<p>解读：1.GROUP BY：分组指令</p>
-<p>​           2.SELECT class_id, COUNT(*)：将class_id一一列出来</p>
-<p>如图：</p>
-<table>
-<thead>
-<tr>
-<th align="left">class_id</th>
-<th align="left">num</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">1</td>
-<td align="left">4</td>
-</tr>
-<tr>
-<td align="left">2</td>
-<td align="left">3</td>
-</tr>
-<tr>
-<td align="left">3</td>
-<td align="left">3</td>
-</tr>
-</tbody></table>
-<h2 id="五：多表查询"><a href="#五：多表查询" class="headerlink" title="五：多表查询"></a>五：多表查询</h2><p>1.eg:</p>
-<p><code>SELECT s.id, s.name, s.class_id, c.name class_name, s.gender, s.score</code><br><code>FROM students s</code><br><code>INNER JOIN classes c</code><br><code>ON s.class_id = c.id;</code></p>
-<p>解读：students s：后面的s是别名，简化表格；</p>
-<p>​           INNER JOIN：属于连接查询，最常用的一种内连接——INNER JOIN；</p>
-<p>​           ON：建立两列联系；</p>
-<p> <em>下面摘一段原文：</em></p>
-<p>注意INNER JOIN查询的写法是：</p>
-<ol>
-<li>先确定主表，仍然使用<code>FROM &lt;表1&gt;</code>的语法；</li>
-<li>再确定需要连接的表，使用<code>INNER JOIN &lt;表2&gt;</code>的语法；</li>
-<li>然后确定连接条件，使用<code>ON &lt;条件...&gt;</code>，这里的条件是<code>s.class_id = c.id</code>，表示<code>students</code>表的<code>class_id</code>列与<code>classes</code>表的<code>id</code>列相同的行需要连接；</li>
-<li>可选：加上<code>WHERE</code>子句、<code>ORDER BY</code>等子句。</li>
-</ol>
-<p>使用别名不是必须的，但可以更好地简化查询语句。</p>
-<h3 id="接五："><a href="#接五：" class="headerlink" title="接五："></a>接五：</h3><p>有内连接，就有外连接，全连接，我将大量引用原文：（可认为左表为主表，右表为副表）</p>
-<p>我们把tableA看作左表，把tableB看成右表，那么INNER JOIN是选出两张表都存在的记录：</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/1246892164662976/l" alt="inner-join"></p>
-<p>LEFT OUTER JOIN是选出左表存在的记录：</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/1246893588481376/l" alt="left-outer-join"></p>
-<p>RIGHT OUTER JOIN是选出右表存在的记录：</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/1246893609222688/l" alt="right-outer-join"></p>
-<p>FULL OUTER JOIN则是选出左右表都存在的记录：</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/1246893632359424/l" alt="full-outer-join"></p>
-<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>JOIN查询需要先确定主表，然后把另一个表的数据“附加”到结果集上；</p>
-<p>INNER JOIN是最常用的一种JOIN查询，它的语法是<code>SELECT ... FROM &lt;表1&gt; INNER JOIN &lt;表2&gt; ON &lt;条件...&gt;</code>；</p>
-<p>JOIN查询仍然可以使用<code>WHERE</code>条件和<code>ORDER BY</code>排序。</p>
-<p>总结：“查询”写完了，总体没难度。</p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-天下第一" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2023/10/07/%E5%A4%A9%E4%B8%8B%E7%AC%AC%E4%B8%80/" class="article-date">
-      <time datetime="2023-10-07T08:49:46.000Z" itemprop="datePublished">2023-10-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/10/07/%E5%A4%A9%E4%B8%8B%E7%AC%AC%E4%B8%80/">天下第一</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>今天终于发了一篇博客啦啦啦啦啦！！！！！！！！</p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2023/10/05/hello-world/" class="article-date">
-      <time datetime="2023-10-05T06:26:44.237Z" itemprop="datePublished">2023-10-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/10/05/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-  
-</div>
-      <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                &copy; 2023 春风语
-            </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="http://bestwing.me" target="_blank">Sw'blog</a> by Swing
-            </div>
-        </div>
-        
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >海贼到访数: 
-                            <span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>, </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit">本页阅读量: 
-                            <span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
-            </div>
-        
-    </div>
-</footer>
-
-    </div>
-    
-<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-
-
-<script src="/js/main.js"></script>
-
-
-    <script>
-        $(document).ready(function() {
-            var backgroundnum = 24;
-            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
-            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
-        })
-    </script>
-
-
-
-
-
-<div class="scroll" id="scroll">
-    <a href="#"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
-</div>
 <script>
-    $(document).ready(function() {
-        if ($("#comments").length < 1) {
-            $("#scroll > a:nth-child(2)").hide();
-        };
+  const ipt = document.querySelector('#search-input')
+  const btn = document.querySelector('#search-btn')
+  const layer = document.querySelector('#search-layer')
+  const posts = JSON.parse(`[{"title":"C语言感想.1","path":"2023/10/11/C语言感想-1/"},{"title":"SQL笔记2.0修改","path":"2023/10/10/SQL笔记2-0修改/"},{"title":"Hello World","path":"2023/10/05/hello-world/"},{"title":"","path":"2023/10/08/SQL笔记1-0查询/"},{"title":"mysql数据库及数据表操作1.0","path":"2023/10/17/mysql数据库及数据表操作1-0/"},{"title":"天下第一","path":"2023/10/07/天下第一/"},{"title":"图片","path":"2023/10/12/图片/"}]`)
+  ipt.addEventListener('keyup', e => {
+    if (e.key === 'Enter') {
+      handleSearch()
+    }
+  })
+  btn.addEventListener('click', () => {
+    handleSearch()
+  })
+
+  document.querySelector('#close-layer-btn').addEventListener('click', () => {
+    layer.classList.toggle('hidden')
+  })
+
+  function handleSearch() {
+    if (ipt.value.trim() === '') {
+      return
+    }
+    let html = ''
+    const targetPosts = posts.filter(post => post.title.includes(ipt.value))
+    targetPosts.forEach(post => {
+      html += `
+        <li>
+          <div>
+            <a href="/${post.path}">${post.title.replace(new RegExp(ipt.value), `<span>${ipt.value}</span>`)}</a>
+          </div>
+          <img src="${post.cover || '/imgs/default-cover.webp' }" />
+        </li>
+      `
     })
-</script>
+    if (html.trim () === '') {
+      html += '<p class="empty">没有搜索到内容</p>'
+    }
+    layer.querySelector('ul').innerHTML = html
+    layer.classList.remove('hidden')
+  }
+</script> 
+    <section id="main" class="main">
+      <div class="main-left-wrapper">
+<div class="main-left">
+  <div class="main-left--block">
+    <div class="main-left--info">
+      <img src="/imgs/avatar.jpg"" class="main-left--avatar" />
+      <div class="main-left--intro">
+        <p class="main-left--name">Cola.</p>
+        <div class="main-left--tags">
+          <span class="main-left--tag">中二</span>
+          <span class="main-left--tag">宅</span>
+        </div>
+      </div>
+    </div>
+  
+    <div>
+      <div class="main-left--motto">
+        <p>“花有重开日，人无再少年”</p>
+        <p>“一个简单普通的男孩”</p>
+      </div>
+      <div class="main-left--github">
+        <span class="line"></span>
+        <a target="_blank" rel="noopener" href="https://github.com/Aizener"><i class="logo iconfont icon-github-fill"></i></a>
+        <span class="line"></span>
+      </div>
+      <div class="main-left--statics">
+        <a href="/categories">
+          <div>
+            <span>0</span>
+            <span>分类</span>
+          </div>
+        </a>
+        <a href="/tags">
+          <div>
+            <span>0</span>
+            <span>标签</span>
+          </div>
+        </a>
+        <a href="/archives">
+          <div>
+            <span>1 </span>
+            <span>归档</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+  <div class="main-left--block">
+    <ul class="main-left--menu">
+      
+        <li>
+          <a href="/">
+            <span class="header-menu--span">小站首页</span>
+            <i class="header-menu--icon iconfont icon-shouye"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a href="/log">
+            <span class="header-menu--span">个人日志</span>
+            <i class="header-menu--icon iconfont icon-rizhi"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a href="/link">
+            <span class="header-menu--span">友情链接</span>
+            <i class="header-menu--icon iconfont icon-youqinglianjie"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a href="/about">
+            <span class="header-menu--span">关于自己</span>
+            <i class="header-menu--icon iconfont icon-guanyuwomen"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a href="/tools">
+            <span class="header-menu--span">我的工具</span>
+            <i class="header-menu--icon iconfont icon-gongju"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
 
-  <script language="javascript">
-    $(function() {
-        $("a[title]").each(function() {
-            var a = $(this);
-            var title = a.attr('title');
-            if (title == undefined || title == "") return;
-            a.data('title', title).removeAttr('title').hover(
+  <div class="main-left--block">
+    <div class="main-left--site">
+      <h5 class="main-left--title">
+        <span>站点信息</span>
+        <i class="iconfont icon-zhandian"></i>
+      </h5>
+      <p class="main-left--subtitle">
+        <span>文章数目：</span>
+        <span>7 篇</span>
+      </p>
+      <p class="main-left--subtitle">
+        <span>最近动态：</span>
+        <span>昨天</span>
+      </p>
+      <p class="main-left--subtitle">
+        <span>上线时间：</span>
+        <span>611天</span>
+      </p>
+      <p class="main-left--subtitle">
+        <span>当前版本：</span>
+        <span>v1.0.2</span>
+      </p>
+    </div>
+  </div>
+</div></div>
+      <div id="main-container" class="main-container"><link rel="stylesheet" href="/css/partial/index.css" />
 
-            function() {
-                var offset = a.offset();
-                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
-                    top: offset.top - a.outerHeight() - 15,
-                    left: offset.left + a.outerWidth()/2 + 1
-                }).fadeIn(function() {
-                    var pop = $(this);
-                    setTimeout(function() {
-                        pop.remove();
-                    }, pop.text().length * 800);
-                });
-            }, function() {
-                $("#anchortitlecontainer").remove();
-            });
-        });
-    });
-</script>
 
 
-    <script type="text/javascript">
-      window.onload = function(){
-        document.getElementById("search").onclick = function(){
-            console.log("search")
-            search();
+<div class="index">
+  <div class="index-left">
+    
+      <div class="index-article">
+        <!-- <img class="index-article--cover" src="/imgs/default-cover.webp" alt=""> -->
+        <div class="index-article--box">
+          <img class="index-article--cover" data-cover="imgs/default-cover.webp" alt="mysql数据库及数据表操作1.0" />
+        </div>
+        <div class="index-article--content">
+          <a href="/2023/10/17/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%8A%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%93%8D%E4%BD%9C1-0/">mysql数据库及数据表操作1.0 </a>
+          <div>
+            
+            
+          </div>
+          <div class="bg"></div>
+        </div>
+      </div>
+    
+      <div class="index-article">
+        <!-- <img class="index-article--cover" src="/imgs/default-cover.webp" alt=""> -->
+        <div class="index-article--box">
+          <img class="index-article--cover" data-cover="imgs/default-cover.webp" alt="C语言感想.1" />
+        </div>
+        <div class="index-article--content">
+          <a href="/2023/10/11/C%E8%AF%AD%E8%A8%80%E6%84%9F%E6%83%B3-1/">C语言感想.1 </a>
+          <div>
+            
+            
+          </div>
+          <div class="bg"></div>
+        </div>
+      </div>
+    
+      <div class="index-article">
+        <!-- <img class="index-article--cover" src="/imgs/default-cover.webp" alt=""> -->
+        <div class="index-article--box">
+          <img class="index-article--cover" data-cover="imgs/default-cover.webp" alt="" />
+        </div>
+        <div class="index-article--content">
+          <a href="/2023/10/08/SQL%E7%AC%94%E8%AE%B01-0%E6%9F%A5%E8%AF%A2/"> </a>
+          <div>
+            
+            
+          </div>
+          <div class="bg"></div>
+        </div>
+      </div>
+    
+      <div class="index-article">
+        <!-- <img class="index-article--cover" src="/imgs/default-cover.webp" alt=""> -->
+        <div class="index-article--box">
+          <img class="index-article--cover" data-cover="imgs/default-cover.webp" alt="Hello World" />
+        </div>
+        <div class="index-article--content">
+          <a href="/2023/10/05/hello-world/">Hello World </a>
+          <div>
+            
+            
+          </div>
+          <div class="bg"></div>
+        </div>
+      </div>
+    
+  </div>
+  <div class="index-center">
+    
+      <div class="index-article">
+        <!-- <img class="index-article--cover" data-cover="" src="/imgs/default-cover.webp" alt=""> -->
+        <div class="index-article--box">
+          <img class="index-article--cover" data-cover="imgs/default-cover.webp" alt="图片" />
+        </div>
+        <div class="index-article--content">
+          <a href="/2023/10/12/%E5%9B%BE%E7%89%87/">图片 </a>
+          <div>
+            
+            
+          </div>
+          <div class="bg"></div>
+        </div>
+      </div>
+    
+      <div class="index-article">
+        <!-- <img class="index-article--cover" data-cover="" src="/imgs/default-cover.webp" alt=""> -->
+        <div class="index-article--box">
+          <img class="index-article--cover" data-cover="imgs/default-cover.webp" alt="SQL笔记2.0修改" />
+        </div>
+        <div class="index-article--content">
+          <a href="/2023/10/10/SQL%E7%AC%94%E8%AE%B02-0%E4%BF%AE%E6%94%B9/">SQL笔记2.0修改 </a>
+          <div>
+            
+            
+          </div>
+          <div class="bg"></div>
+        </div>
+      </div>
+    
+      <div class="index-article">
+        <!-- <img class="index-article--cover" data-cover="" src="/imgs/default-cover.webp" alt=""> -->
+        <div class="index-article--box">
+          <img class="index-article--cover" data-cover="imgs/default-cover.webp" alt="天下第一" />
+        </div>
+        <div class="index-article--content">
+          <a href="/2023/10/07/%E5%A4%A9%E4%B8%8B%E7%AC%AC%E4%B8%80/">天下第一 </a>
+          <div>
+            
+            
+          </div>
+          <div class="bg"></div>
+        </div>
+      </div>
+    
+  </div>
+  <div class="index-right">
+    <div class="index-right-wrapper">
+      
+      
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">2023年10月</a><span class="archive-list-count">7</span></li></ul>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  var allImgBoxs = document.querySelectorAll('.index-article--box');
+  var windowHeight = window.innerHeight;
+  var boxs = Array.from(allImgBoxs);
+  var timer = null;
+  boxs.forEach((box, idx) => {
+    if (!window.loadImageSet || !window.loadImageSet.includes(idx)) {
+      box.classList.add('img-loading');
+    } else {
+      const imgDom = box.querySelector('img');
+      imgDom.src = imgDom.dataset.cover;
+    }
+  });
+
+  function scrollFn() {
+    if (timer) {
+      return;
+    }
+    timer = setTimeout(() => {
+      loadImage();
+      timer = null;
+    }, 100)
+  }
+
+  setTimeout(() => {
+    loadImage();
+  }, 100);
+  if (!window.loadedImage) {
+    document.addEventListener('scroll', scrollFn);
+  }
+
+  function loadImage() {
+    const doc = document.documentElement;
+    const scrollTop = doc.scrollTop;
+    if (boxs.every(box => box.loadedImage)) {
+      document.removeEventListener('scroll', scrollFn);
+      window.loadedImage = 1;
+      return;
+    }
+    boxs.forEach((box, idx) => {
+      if (box.loadedImage) {
+        return;
+      }
+      if (box.getBoundingClientRect().top < windowHeight) {
+        const imgDom = box.querySelector('img');
+        imgDom.src = imgDom.dataset.cover;
+        // 图片成功加载
+        imgDom.onload = () => {
+          box.classList.remove('img-loading');
+          box.loadedImage = true;
+          if (!window.loadImageSet) {
+            window.loadImageSet = [];
+          }
+          window.loadImageSet.push(idx);
+        }
+        // 图片加载失败
+        imgDom.onerror = () => {
+          box.classList.remove('img-loading');
+          box.classList.add('img-error');
+          imgDom.src = '/imgs/404.png';
         }
       }
-      function search(){
-        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-        _st('install','A1Pz-LKMXbrzcFg2FWi6','2.0.0');
-      }
-    </script>
-
+    });
+  }
+</script> </div>
+      <div class="main-right-wrapper"><div class="main-right">
+  <div class="main-right--board">
+    <div class="main-right--title">
+      <h5>公告栏</h5>
+      <i class="iconfont icon-gonggao"></i>
+    </div>
+    <div class="main-right--content">
+      Hello~大噶好。唔系可乐爱宅着，欢迎你们来到我的博客小站，希望能在这里收获到有用的东西哦！ 
+    </div>
   </div>
+
+  <div id="aplayer" class="main-right--music"></div>
+
+  <div class="operate-items">
+    <div class="operate-item backtop">
+      <i class="iconfont icon-huidaodingbu"></i>
+      <span>回到顶部</span>
+    </div>
+    
+    <div class="operate-item turn-comment hidden">
+      <i class="iconfont icon-pinglun"></i>
+      <span>查看评论</span>
+    </div>
+    
+  </div>
+
+  <div class="main-right--site">
+    <div class="main-right--power">
+      <p>Power By <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a>.</p>
+      <p>Theme：<a target="_blank" rel="noopener" href="https://github.com/Aizener/hexo-theme-cola">Cola.</a></p>
+    </div>
+    <p class="main-right--refer"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/#/Integrated/index">蜀ICP备2022005384号-1</a> </p>
+  </div>
+</div>
+
+<script>
+  function setOperateItem () {
+    const reg = /\d{4}\/\d{2}\/\d{2}\/.+/
+    const path = location.pathname
+    const operateDom = document.querySelector('.main-right .operate-items')
+    const commentDom = document.querySelector('.turn-comment')
+    const cateloguDom = document.querySelector('.article-catelogue > .article-catelogue--wrapper');
+
+    if (commentDom) {
+      if (reg.test(path) || path.match(/\/log\/.+/)) {
+        commentDom.classList.remove('hidden')
+        const newDom = operateDom.cloneNode(true);
+        const _backtopDom = newDom.querySelector('.backtop');
+        const _commentDom = newDom.querySelector('.turn-comment');
+        _backtopDom.addEventListener('click', () => backTopEvent());
+        _commentDom.addEventListener('click', () => commentDomEvent());
+        cateloguDom.appendChild(newDom);
+      } else {
+        commentDom.classList.add('hidden')
+      }
+    }
+  }
+
+  setOperateItem()
+  const musics = JSON.parse(`[{"name":"安河桥","artist":"宋冬野","url":"http://ting6.yymp3.net:82/new25/songdongye/11.mp3","cover":"https://img2.baidu.com/it/u=1260056724,1076343118&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"},{"name":"卡布达","artist":"暂无","url":"music/kabuda.mp3","cover":"https://img2.baidu.com/it/u=705831265,2862720033&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"}]`)
+  const ap = new APlayer({
+    container: document.querySelector('#aplayer'),
+    audio: musics,
+  })
+
+  $(document).on('pjax:complete', function() {
+    setOperateItem()
+  })
+
+  document.querySelector('.backtop').addEventListener('click', () => {
+    backTopEvent();
+  })
+  const dom = document.querySelector('.turn-comment')
+  dom && dom.addEventListener('click', () => {
+    commentDomEvent();
+  })
+
+  function backTopEvent() {
+    document.documentElement.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
+  function commentDomEvent() {
+    const commentDom = document.querySelector('.comments-intro')
+    if (!commentDom) return
+    const top = commentDom.offsetTop, height = commentDom.offsetHeight
+    document.documentElement.scrollTo({
+      top: top - 2 * height,
+      behavior: 'smooth'
+    })
+  }
+</script></div>
+    </section>
+  </div>
+  <div id="progress" class="progress"></div>
+  <div id="gray" class="gray"></div>
+
+  <script>
+    function initScroll () {
+      document.addEventListener('scroll', () => {
+        const doc = document.documentElement
+        const scrollTop = doc.scrollTop
+        const pageHeight = doc.offsetHeight
+        const clientHeight = doc.clientHeight
+        const ratio = scrollTop / (pageHeight - clientHeight)
+        const progress = document.querySelector('#progress')
+        const avatarImg = document.querySelector('.main-left--avatar')
+        progress.style.width = (100 * ratio) + '%'
+        avatarImg.style.transform = `rotate(${360 * ratio}deg)`
+      })
+    }
+
+    const rootPath = "/"
+
+    const checkAndSetArticlePageLayout = () => {
+      const path = location.pathname.replace(rootPath, '');
+      if (
+        /^\/?\d{4}\/\d{2}\/\d{2}\/.*/.test(path) ||
+        /^log\/.+/.test(path)
+      ) {
+        $('.main-container, .main-right, .main-right-wrapper').addClass('is-article')
+      } else {
+        $('.main-container, .main-right, .main-right-wrapper').removeClass('is-article')
+      }
+    }
+
+    const gray = "none"
+    const setGrayStyle = () => {
+      if (gray === 'none') {
+        return
+      } else if (gray === 'index') {
+        location.pathname === '/' ? $('#gray').show() : $('#gray').hide()
+      } else if (gray === 'all') {
+        $('#gray').show()
+      }
+    }
+    setGrayStyle()
+
+
+    window.onload = function () {
+      checkAndSetArticlePageLayout()
+      setTimeout(() => {
+        $('#load').slideUp()
+        $('#container').slideToggle()
+        setTimeout(() => {
+          initScroll();
+        }, 500)
+      }, 500)
+    }
+    
+    let status = 0
+    // 对所有链接跳转事件绑定pjax容器container
+    $(document).pjax('a[target!=_blank]', '#main-container', {
+      container: '#main-container',
+      fragment: '#main-container',
+      timeout: 8000
+    })
+
+    $(document).on('pjax:start', function() {
+    })
+    $(document).on('pjax:complete', function() {
+      status = 0
+      $('.main-container').addClass('to-up').on('animationend', function() {
+        $(this).removeClass('to-up')
+      })
+      setGrayStyle()
+      checkAndSetArticlePageLayout()
+    })
+    $(document).on('pjax:popstate', function() {
+      status = -1
+      checkAndSetArticlePageLayout()
+    });
+  </script>
 </body>
 </html>
