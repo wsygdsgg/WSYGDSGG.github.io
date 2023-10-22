@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>我的技术与生活——暴力破解及明文攻击1.0 | 春风少年郎的博客</title>
+  <title>我的技术与生活——口令破译方式1.0 | 春风少年郎的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="shortcut icon" href="/imgs/shortcut-icon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/css/public.css" />
@@ -16,7 +16,7 @@
 
   <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
   <script>
-    document.title = `我的技术与生活——暴力破解及明文攻击1.0`
+    document.title = `我的技术与生活——口令破译方式1.0`
   </script>
 <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="春风少年郎的博客" type="application/atom+xml">
 </head>
@@ -194,7 +194,7 @@
   const ipt = document.querySelector('#search-input')
   const btn = document.querySelector('#search-btn')
   const layer = document.querySelector('#search-layer')
-  const posts = JSON.parse(`[{"title":"","path":"2023/10/08/SQL笔记1-0查询/"},{"title":"C语言感想.1","path":"2023/10/11/C语言感想-1/"},{"title":"SQL笔记2.0修改","path":"2023/10/10/SQL笔记2-0修改/"},{"title":"Hello World","path":"2023/10/05/hello-world/"},{"title":"mysql数据库及数据表操作1.0","path":"2023/10/17/mysql数据库及数据表操作1-0/"},{"title":"图片","path":"2023/10/12/图片/"},{"title":"天下第一","path":"2023/10/07/天下第一/"},{"title":"暴力破解及明文攻击1.0","path":"2023/10/22/暴力破解及明文攻击1-0/"},{"title":"mysql查询细节补录","path":"2023/10/21/mysql查询细节补录/"}]`)
+  const posts = JSON.parse(`[{"title":"C语言感想.1","path":"2023/10/11/C语言感想-1/"},{"title":"","path":"2023/10/08/SQL笔记1-0查询/"},{"title":"SQL笔记2.0修改","path":"2023/10/10/SQL笔记2-0修改/"},{"title":"Hello World","path":"2023/10/05/hello-world/"},{"title":"口令破译方式1.0","path":"2023/10/22/暴力破解及明文攻击1-0/"},{"title":"mysql数据库及数据表操作1.0","path":"2023/10/17/mysql数据库及数据表操作1-0/"},{"title":"mysql查询细节补录","path":"2023/10/21/mysql查询细节补录/"}]`)
   ipt.addEventListener('keyup', e => {
     if (e.key === 'Enter') {
       handleSearch()
@@ -328,7 +328,7 @@
       </h5>
       <p class="main-left--subtitle">
         <span>文章数目：</span>
-        <span>9 篇</span>
+        <span>7 篇</span>
       </p>
       <p class="main-left--subtitle">
         <span>最近动态：</span>
@@ -352,7 +352,7 @@
 
 <div class="article-container">
   <div class="article">
-    <h1 class="article-title">暴力破解及明文攻击1.0</h1>
+    <h1 class="article-title">口令破译方式1.0</h1>
     <div class="article-info">
       <div class="article-info--item">
         <div class="article-info--info">
@@ -374,7 +374,7 @@
       </div>
     </div>
     <article class="article-content markdown-body">
-      <h1 id="暴力破解及明文攻击1-0"><a href="#暴力破解及明文攻击1-0" class="headerlink" title="暴力破解及明文攻击1.0"></a>暴力破解及明文攻击1.0</h1><h2 id="一-暴力破解"><a href="#一-暴力破解" class="headerlink" title="一. 暴力破解"></a>一. 暴力破解</h2><p>采用穷举法来试出口令。本人目前采用 Ziperello 来实现暴力破解。具体没有什么可讲的。</p>
+      <h1 id="口令破译方式1-0"><a href="#口令破译方式1-0" class="headerlink" title="口令破译方式1.0"></a>口令破译方式1.0</h1><h2 id="一-暴力破解"><a href="#一-暴力破解" class="headerlink" title="一. 暴力破解"></a>一. 暴力破解</h2><p>采用穷举法来试出口令。本人目前采用 Ziperello 来实现暴力破解。具体没有什么可讲的。</p>
 <h2 id="二-明文攻击"><a href="#二-明文攻击" class="headerlink" title="二. 明文攻击"></a>二. 明文攻击</h2><p>原理不知，方法如下：</p>
 <p>实验需要工具：WinRaR , ARCHPR；</p>
 <p>需要文件等：明文，目的包压缩包（必须含有明文）；</p>
@@ -382,7 +382,9 @@
 <p>第二步：运用多种压缩方式压缩明文，得到与目的包压缩包一致的压缩明文包；附：观察两压缩包明文的 crc32 是否一致，可确认第二步是否正确。</p>
 <p>第三步：运用工具实现明文攻击，得到目的文件。</p>
 <h3 id="实例：（自己构建明文和目的包进行实验）"><a href="#实例：（自己构建明文和目的包进行实验）" class="headerlink" title="实例：（自己构建明文和目的包进行实验）"></a>实例：（自己构建明文和目的包进行实验）</h3><p>运用 WinRaR 得到压缩明文和压缩目的包（都是zip），再运用 WinRaR 观察两包 crc32 是否一致（一般一致），再运用 ARCHPR 进行明文攻击。</p>
-<h4 id="该实验细节补充："><a href="#该实验细节补充：" class="headerlink" title="该实验细节补充："></a>该实验细节补充：</h4><h4 id="1-压缩目的包时，设置密码进去有一个-zip-传统加密，必须要点。"><a href="#1-压缩目的包时，设置密码进去有一个-zip-传统加密，必须要点。" class="headerlink" title="1.压缩目的包时，设置密码进去有一个 zip 传统加密，必须要点。"></a>1.压缩目的包时，设置密码进去有一个 zip 传统加密，必须要点。</h4><h4 id="2-运用-APCHPR-明文攻击时，一般先选择明文压缩包，然后是目的包压缩包。"><a href="#2-运用-APCHPR-明文攻击时，一般先选择明文压缩包，然后是目的包压缩包。" class="headerlink" title="2.运用 APCHPR 明文攻击时，一般先选择明文压缩包，然后是目的包压缩包。"></a>2.运用 APCHPR 明文攻击时，一般先选择明文压缩包，然后是目的包压缩包。</h4>
+<h4 id="该实验细节补充："><a href="#该实验细节补充：" class="headerlink" title="该实验细节补充："></a>该实验细节补充：</h4><h4 id="1-压缩目的包时，设置密码进去有一个-zip-传统加密，必须要点。"><a href="#1-压缩目的包时，设置密码进去有一个-zip-传统加密，必须要点。" class="headerlink" title="1.压缩目的包时，设置密码进去有一个 zip 传统加密，必须要点。"></a>1.压缩目的包时，设置密码进去有一个 zip 传统加密，必须要点。</h4><h4 id="2-运用-APCHPR-明文攻击时，一般先选择明文压缩包，然后是目的包压缩包。"><a href="#2-运用-APCHPR-明文攻击时，一般先选择明文压缩包，然后是目的包压缩包。" class="headerlink" title="2.运用 APCHPR 明文攻击时，一般先选择明文压缩包，然后是目的包压缩包。"></a>2.运用 APCHPR 明文攻击时，一般先选择明文压缩包，然后是目的包压缩包。</h4><h2 id="三-字典"><a href="#三-字典" class="headerlink" title="三. 字典"></a>三. 字典</h2><p>目前不知原理</p>
+<h3 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h3><p>与明文攻击实例类似，不过对于复杂的口令，可以制作一个 txt 文本（包含密码或者部分密码）作为字典，速度非常快。</p>
+
     </article>
     
     <div class="read-nums">
@@ -403,7 +405,7 @@
     <div class="article-catelogue--wrapper">
       <div class="catelogue catelogue-1">
         <h3>目录</h3>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3%E5%8F%8A%E6%98%8E%E6%96%87%E6%94%BB%E5%87%BB1-0"><span class="toc-number">1.</span> <span class="toc-text">暴力破解及明文攻击1.0</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">一. 暴力破解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E6%98%8E%E6%96%87%E6%94%BB%E5%87%BB"><span class="toc-number">1.2.</span> <span class="toc-text">二. 明文攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E6%B3%95%E6%B5%81%E7%A8%8B%EF%BC%9A"><span class="toc-number">1.2.1.</span> <span class="toc-text">通法流程：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%EF%BC%9A%EF%BC%88%E8%87%AA%E5%B7%B1%E6%9E%84%E5%BB%BA%E6%98%8E%E6%96%87%E5%92%8C%E7%9B%AE%E7%9A%84%E5%8C%85%E8%BF%9B%E8%A1%8C%E5%AE%9E%E9%AA%8C%EF%BC%89"><span class="toc-number">1.2.2.</span> <span class="toc-text">实例：（自己构建明文和目的包进行实验）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%A5%E5%AE%9E%E9%AA%8C%E7%BB%86%E8%8A%82%E8%A1%A5%E5%85%85%EF%BC%9A"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">该实验细节补充：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%8E%8B%E7%BC%A9%E7%9B%AE%E7%9A%84%E5%8C%85%E6%97%B6%EF%BC%8C%E8%AE%BE%E7%BD%AE%E5%AF%86%E7%A0%81%E8%BF%9B%E5%8E%BB%E6%9C%89%E4%B8%80%E4%B8%AA-zip-%E4%BC%A0%E7%BB%9F%E5%8A%A0%E5%AF%86%EF%BC%8C%E5%BF%85%E9%A1%BB%E8%A6%81%E7%82%B9%E3%80%82"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">1.压缩目的包时，设置密码进去有一个 zip 传统加密，必须要点。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%BF%90%E7%94%A8-APCHPR-%E6%98%8E%E6%96%87%E6%94%BB%E5%87%BB%E6%97%B6%EF%BC%8C%E4%B8%80%E8%88%AC%E5%85%88%E9%80%89%E6%8B%A9%E6%98%8E%E6%96%87%E5%8E%8B%E7%BC%A9%E5%8C%85%EF%BC%8C%E7%84%B6%E5%90%8E%E6%98%AF%E7%9B%AE%E7%9A%84%E5%8C%85%E5%8E%8B%E7%BC%A9%E5%8C%85%E3%80%82"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">2.运用 APCHPR 明文攻击时，一般先选择明文压缩包，然后是目的包压缩包。</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%A3%E4%BB%A4%E7%A0%B4%E8%AF%91%E6%96%B9%E5%BC%8F1-0"><span class="toc-number">1.</span> <span class="toc-text">口令破译方式1.0</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">一. 暴力破解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E6%98%8E%E6%96%87%E6%94%BB%E5%87%BB"><span class="toc-number">1.2.</span> <span class="toc-text">二. 明文攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E6%B3%95%E6%B5%81%E7%A8%8B%EF%BC%9A"><span class="toc-number">1.2.1.</span> <span class="toc-text">通法流程：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%EF%BC%9A%EF%BC%88%E8%87%AA%E5%B7%B1%E6%9E%84%E5%BB%BA%E6%98%8E%E6%96%87%E5%92%8C%E7%9B%AE%E7%9A%84%E5%8C%85%E8%BF%9B%E8%A1%8C%E5%AE%9E%E9%AA%8C%EF%BC%89"><span class="toc-number">1.2.2.</span> <span class="toc-text">实例：（自己构建明文和目的包进行实验）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%A5%E5%AE%9E%E9%AA%8C%E7%BB%86%E8%8A%82%E8%A1%A5%E5%85%85%EF%BC%9A"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">该实验细节补充：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%8E%8B%E7%BC%A9%E7%9B%AE%E7%9A%84%E5%8C%85%E6%97%B6%EF%BC%8C%E8%AE%BE%E7%BD%AE%E5%AF%86%E7%A0%81%E8%BF%9B%E5%8E%BB%E6%9C%89%E4%B8%80%E4%B8%AA-zip-%E4%BC%A0%E7%BB%9F%E5%8A%A0%E5%AF%86%EF%BC%8C%E5%BF%85%E9%A1%BB%E8%A6%81%E7%82%B9%E3%80%82"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">1.压缩目的包时，设置密码进去有一个 zip 传统加密，必须要点。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%BF%90%E7%94%A8-APCHPR-%E6%98%8E%E6%96%87%E6%94%BB%E5%87%BB%E6%97%B6%EF%BC%8C%E4%B8%80%E8%88%AC%E5%85%88%E9%80%89%E6%8B%A9%E6%98%8E%E6%96%87%E5%8E%8B%E7%BC%A9%E5%8C%85%EF%BC%8C%E7%84%B6%E5%90%8E%E6%98%AF%E7%9B%AE%E7%9A%84%E5%8C%85%E5%8E%8B%E7%BC%A9%E5%8C%85%E3%80%82"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">2.运用 APCHPR 明文攻击时，一般先选择明文压缩包，然后是目的包压缩包。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E5%AD%97%E5%85%B8"><span class="toc-number">1.3.</span> <span class="toc-text">三. 字典</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%EF%BC%9A"><span class="toc-number">1.3.1.</span> <span class="toc-text">实例：</span></a></li></ol></li></ol></li></ol>
       </div>
       
         <div class="catelogue catelogue-2">
