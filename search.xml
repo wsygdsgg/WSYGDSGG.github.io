@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>MySQL单行处理函数1.0</title>
+      <link href="/2023/10/22/MySQL%E5%8D%95%E8%A1%8C%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B01-0/"/>
+      <url>/2023/10/22/MySQL%E5%8D%95%E8%A1%8C%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B01-0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="MySQL单行处理函数1-0"><a href="#MySQL单行处理函数1-0" class="headerlink" title="MySQL单行处理函数1.0"></a>MySQL单行处理函数1.0</h1><h2 id="一-lower-转换小写"><a href="#一-lower-转换小写" class="headerlink" title="一. lower 转换小写"></a>一. lower 转换小写</h2><h3 id="select-lower-name1-name2-from-name-表名"><a href="#select-lower-name1-name2-from-name-表名" class="headerlink" title="select  lower(name1)  name2  from  name(表名);"></a><code>select  lower(name1)  name2  from  name(表名);</code></h3><h2 id="二-upper-转换大写"><a href="#二-upper-转换大写" class="headerlink" title="二. upper 转换大写"></a>二. upper 转换大写</h2><h3 id="select-upper-name1-name2-from-name-表名"><a href="#select-upper-name1-name2-from-name-表名" class="headerlink" title="select  upper(name1)  name2  from  name(表名);"></a><code>select  upper(name1)  name2  from  name(表名);</code></h3><h2 id="三-substr-取子串（substr-被截取的字符串-起始下标-截取的长度-）"><a href="#三-substr-取子串（substr-被截取的字符串-起始下标-截取的长度-）" class="headerlink" title="三. substr 取子串（substr( 被截取的字符串, 起始下标,截取的长度)）"></a>三. substr 取子串（substr( 被截取的字符串, 起始下标,截取的长度)）</h2><h3 id="select-substr-name1-n-m-name2-from-name-表名"><a href="#select-substr-name1-n-m-name2-from-name-表名" class="headerlink" title="select substr(name1,n,m) name2 from name(表名);"></a><code>select substr(name1,n,m) name2 from name(表名);</code></h3><p>n&gt;&#x3D;1, m&gt;&#x3D;1；name1 是列名。</p><h3 id="附带例子："><a href="#附带例子：" class="headerlink" title="附带例子："></a>附带例子：</h3><h4 id="找出员工名字第一个字母是A的员工信息？"><a href="#找出员工名字第一个字母是A的员工信息？" class="headerlink" title="找出员工名字第一个字母是A的员工信息？"></a>找出员工名字第一个字母是A的员工信息？</h4><h5 id="第一种方式：模糊查询"><a href="#第一种方式：模糊查询" class="headerlink" title="第一种方式：模糊查询"></a>第一种方式：模糊查询</h5><p>​<code>select ename from emp where ename like &#39;A%&#39;;</code></p><h5 id="第二种方式：substr函数"><a href="#第二种方式：substr函数" class="headerlink" title="第二种方式：substr函数"></a>第二种方式：substr函数</h5><p>​<code>select ename from emp where substr(ename,1,1) = &#39;A&#39;;</code></p><h3 id="拓展例子："><a href="#拓展例子：" class="headerlink" title="拓展例子："></a>拓展例子：</h3><h4 id="实现首字母大写"><a href="#实现首字母大写" class="headerlink" title="实现首字母大写"></a>实现首字母大写</h4><p><code>select concat(upper(substr(name,1,1)),substr(name,2,length(name) - 1)) as result from t_student;</code></p><h4 id="补充：concat-：进行字符串的拼接"><a href="#补充：concat-：进行字符串的拼接" class="headerlink" title="补充：concat ：进行字符串的拼接"></a>补充：concat ：进行字符串的拼接</h4><h5 id="select-concat-name1-name2-name3-from-name-表名"><a href="#select-concat-name1-name2-name3-from-name-表名" class="headerlink" title="select  concat  (name1,name2) name3 from  name(表名);"></a><code>select  concat  (name1,name2) name3 from  name(表名);</code></h5><h2 id="四-length-取长度"><a href="#四-length-取长度" class="headerlink" title="四. length 取长度"></a>四. length 取长度</h2><h3 id="select-length-name-lengthname-from-name-表名"><a href="#select-length-name-lengthname-from-name-表名" class="headerlink" title="select  length(name)  lengthname  from name(表名);"></a><code>select  length(name)  lengthname  from name(表名);</code></h3>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>mysql查询细节补录2</title>
       <link href="/2023/10/22/mysql%E6%9F%A5%E8%AF%A2%E7%BB%86%E8%8A%82%E8%A1%A5%E5%BD%952/"/>
       <url>/2023/10/22/mysql%E6%9F%A5%E8%AF%A2%E7%BB%86%E8%8A%82%E8%A1%A5%E5%BD%952/</url>

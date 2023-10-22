@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>我的技术与生活——categories | 春风少年郎的博客</title>
+  <title>我的技术与生活——MySQL单行处理函数1.0 | 春风少年郎的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="shortcut icon" href="/imgs/shortcut-icon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/css/public.css" />
@@ -16,7 +16,7 @@
 
   <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
   <script>
-    document.title = `我的技术与生活——categories`
+    document.title = `我的技术与生活——MySQL单行处理函数1.0`
   </script>
 <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="春风少年郎的博客" type="application/atom+xml">
 </head>
@@ -348,14 +348,112 @@
       <div id="main-container" class="main-container">
 
 
-  <link rel="stylesheet" href="/css/partial/categories.css" />
+  <link rel="stylesheet" href="/css/partial/article.css" />
 
-<div class="categories">
-  <h2 class="categories-title">小站分类</h2>
-  <div class="categories-list">
+<div class="article-container">
+  <div class="article">
+    <h1 class="article-title">MySQL单行处理函数1.0</h1>
+    <div class="article-info">
+      <div class="article-info--item">
+        <div class="article-info--info">
+          
+          <div class="article-info--categories">
+            <span>分类：</span>
+            
+          </div>
+          
+          
+          <div class="article-info--tags">
+            <span>标签：</span>
+            
+          </div>
+          
+          <p class="article-info--date">日期：2023-10-22 23:25:28</p>
+        </div>
+        <img src="/imgs/default-cover.webp" alt="" class="article-cover">
+      </div>
+    </div>
+    <article class="article-content markdown-body">
+      <h1 id="MySQL单行处理函数1-0"><a href="#MySQL单行处理函数1-0" class="headerlink" title="MySQL单行处理函数1.0"></a>MySQL单行处理函数1.0</h1><h2 id="一-lower-转换小写"><a href="#一-lower-转换小写" class="headerlink" title="一. lower 转换小写"></a>一. lower 转换小写</h2><h3 id="select-lower-name1-name2-from-name-表名"><a href="#select-lower-name1-name2-from-name-表名" class="headerlink" title="select  lower(name1)  name2  from  name(表名);"></a><code>select  lower(name1)  name2  from  name(表名);</code></h3><h2 id="二-upper-转换大写"><a href="#二-upper-转换大写" class="headerlink" title="二. upper 转换大写"></a>二. upper 转换大写</h2><h3 id="select-upper-name1-name2-from-name-表名"><a href="#select-upper-name1-name2-from-name-表名" class="headerlink" title="select  upper(name1)  name2  from  name(表名);"></a><code>select  upper(name1)  name2  from  name(表名);</code></h3><h2 id="三-substr-取子串（substr-被截取的字符串-起始下标-截取的长度-）"><a href="#三-substr-取子串（substr-被截取的字符串-起始下标-截取的长度-）" class="headerlink" title="三. substr 取子串（substr( 被截取的字符串, 起始下标,截取的长度)）"></a>三. substr 取子串（substr( 被截取的字符串, 起始下标,截取的长度)）</h2><h3 id="select-substr-name1-n-m-name2-from-name-表名"><a href="#select-substr-name1-n-m-name2-from-name-表名" class="headerlink" title="select substr(name1,n,m) name2 from name(表名);"></a><code>select substr(name1,n,m) name2 from name(表名);</code></h3><p>n&gt;&#x3D;1, m&gt;&#x3D;1；name1 是列名。</p>
+<h3 id="附带例子："><a href="#附带例子：" class="headerlink" title="附带例子："></a>附带例子：</h3><h4 id="找出员工名字第一个字母是A的员工信息？"><a href="#找出员工名字第一个字母是A的员工信息？" class="headerlink" title="找出员工名字第一个字母是A的员工信息？"></a>找出员工名字第一个字母是A的员工信息？</h4><h5 id="第一种方式：模糊查询"><a href="#第一种方式：模糊查询" class="headerlink" title="第一种方式：模糊查询"></a>第一种方式：模糊查询</h5><p>​				<code>select ename from emp where ename like &#39;A%&#39;;</code></p>
+<h5 id="第二种方式：substr函数"><a href="#第二种方式：substr函数" class="headerlink" title="第二种方式：substr函数"></a>第二种方式：substr函数</h5><p>​				<code>select ename from emp where substr(ename,1,1) = &#39;A&#39;;</code></p>
+<h3 id="拓展例子："><a href="#拓展例子：" class="headerlink" title="拓展例子："></a>拓展例子：</h3><h4 id="实现首字母大写"><a href="#实现首字母大写" class="headerlink" title="实现首字母大写"></a>实现首字母大写</h4><p><code>select concat(upper(substr(name,1,1)),substr(name,2,length(name) - 1)) as result from t_student;</code></p>
+<h4 id="补充：concat-：进行字符串的拼接"><a href="#补充：concat-：进行字符串的拼接" class="headerlink" title="补充：concat ：进行字符串的拼接"></a>补充：concat ：进行字符串的拼接</h4><h5 id="select-concat-name1-name2-name3-from-name-表名"><a href="#select-concat-name1-name2-name3-from-name-表名" class="headerlink" title="select  concat  (name1,name2) name3 from  name(表名);"></a><code>select  concat  (name1,name2) name3 from  name(表名);</code></h5><h2 id="四-length-取长度"><a href="#四-length-取长度" class="headerlink" title="四. length 取长度"></a>四. length 取长度</h2><h3 id="select-length-name-lengthname-from-name-表名"><a href="#select-length-name-lengthname-from-name-表名" class="headerlink" title="select  length(name)  lengthname  from name(表名);"></a><code>select  length(name)  lengthname  from name(表名);</code></h3>
+    </article>
+    
+    <div class="read-nums">
+      <!-- id 将作为查询条件 -->
+      <span id="2023/10/22/MySQL单行处理函数1-0/" class="leancloud_visitors" data-flag-title="Your Article Title">
+        <em class="post-meta-item-text">浏览量</em>
+        <i class="leancloud-visitors-count"></i>
+      </span>
+    </div>
+    <div class="comments-intro">
+      <h2>评论区</h2>
+      <p>欢迎你留下宝贵的意见，昵称输入QQ号会显示QQ头像哦~</p>
+    </div>
+    <div id="vcomments" class="vcomments"></div>
     
   </div>
+  <div class="article-catelogue">
+    <div class="article-catelogue--wrapper">
+      <div class="catelogue catelogue-1">
+        <h3>目录</h3>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL%E5%8D%95%E8%A1%8C%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B01-0"><span class="toc-number">1.</span> <span class="toc-text">MySQL单行处理函数1.0</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-lower-%E8%BD%AC%E6%8D%A2%E5%B0%8F%E5%86%99"><span class="toc-number">1.1.</span> <span class="toc-text">一. lower 转换小写</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#select-lower-name1-name2-from-name-%E8%A1%A8%E5%90%8D"><span class="toc-number">1.1.1.</span> <span class="toc-text">select  lower(name1)  name2  from  name(表名);</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-upper-%E8%BD%AC%E6%8D%A2%E5%A4%A7%E5%86%99"><span class="toc-number">1.2.</span> <span class="toc-text">二. upper 转换大写</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#select-upper-name1-name2-from-name-%E8%A1%A8%E5%90%8D"><span class="toc-number">1.2.1.</span> <span class="toc-text">select  upper(name1)  name2  from  name(表名);</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-substr-%E5%8F%96%E5%AD%90%E4%B8%B2%EF%BC%88substr-%E8%A2%AB%E6%88%AA%E5%8F%96%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2-%E8%B5%B7%E5%A7%8B%E4%B8%8B%E6%A0%87-%E6%88%AA%E5%8F%96%E7%9A%84%E9%95%BF%E5%BA%A6-%EF%BC%89"><span class="toc-number">1.3.</span> <span class="toc-text">三. substr 取子串（substr( 被截取的字符串, 起始下标,截取的长度)）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#select-substr-name1-n-m-name2-from-name-%E8%A1%A8%E5%90%8D"><span class="toc-number">1.3.1.</span> <span class="toc-text">select substr(name1,n,m) name2 from name(表名);</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%84%E5%B8%A6%E4%BE%8B%E5%AD%90%EF%BC%9A"><span class="toc-number">1.3.2.</span> <span class="toc-text">附带例子：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%BE%E5%87%BA%E5%91%98%E5%B7%A5%E5%90%8D%E5%AD%97%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AD%97%E6%AF%8D%E6%98%AFA%E7%9A%84%E5%91%98%E5%B7%A5%E4%BF%A1%E6%81%AF%EF%BC%9F"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">找出员工名字第一个字母是A的员工信息？</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%9A%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.3.2.1.1.</span> <span class="toc-text">第一种方式：模糊查询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%9Asubstr%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.2.1.2.</span> <span class="toc-text">第二种方式：substr函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%93%E5%B1%95%E4%BE%8B%E5%AD%90%EF%BC%9A"><span class="toc-number">1.3.3.</span> <span class="toc-text">拓展例子：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E9%A6%96%E5%AD%97%E6%AF%8D%E5%A4%A7%E5%86%99"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">实现首字母大写</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9Aconcat-%EF%BC%9A%E8%BF%9B%E8%A1%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8B%BC%E6%8E%A5"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">补充：concat ：进行字符串的拼接</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#select-concat-name1-name2-name3-from-name-%E8%A1%A8%E5%90%8D"><span class="toc-number">1.3.3.2.1.</span> <span class="toc-text">select  concat  (name1,name2) name3 from  name(表名);</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-length-%E5%8F%96%E9%95%BF%E5%BA%A6"><span class="toc-number">1.4.</span> <span class="toc-text">四. length 取长度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#select-length-name-lengthname-from-name-%E8%A1%A8%E5%90%8D"><span class="toc-number">1.4.1.</span> <span class="toc-text">select  length(name)  lengthname  from name(表名);</span></a></li></ol></li></ol></li></ol>
+      </div>
+      
+        <div class="catelogue catelogue-2">
+           
+          
+            <p>
+              <span>下一篇</span>
+              <a href="/2023/10/22/mysql查询细节补录2/">mysql查询细节补录2</a>
+            </p>
+          
+        </div>
+      
+    </div>
+  </div>
 </div>
+
+
+<script>
+  // var定义，避免pjax重新进来造成的重复声明错误
+  var config = JSON.parse('{"enable":true,"appId":"Pf8zCXGEH1qsprnWfikVVujL-gzGzoHsz","appKey":"qOqoiUHhH1TGtLRUYURkLRQX","placeholder":"你确定你不说几句~来嘛~","meta":["nick"],"recordIP":true,"visitor":true,"enableQQ":true}')
+  new Valine({
+    el: '#vcomments',
+    appId: config.appId,
+    appKey: config.appKey,
+    placeholder: config.placeholder,
+    meta: config.meta,
+    recordIP: config.recordIP,
+    visitor: config.visitor,
+    enableQQ: config.enableQQ,
+    path: '2023/10/22/MySQL单行处理函数1-0/'
+  })
+</script>
+
+
+<script>
+  $(document).on('pjax:complete', function() {
+    const tocs = document.querySelector('.toc')
+    const links = tocs ? tocs.querySelectorAll('a') : []
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        const href = decodeURIComponent(e.href)
+        href.search(/#(.*)/)
+        const id = RegExp.$1
+        const target = document.querySelector('#' + id)
+        const top = target.offsetTop
+        document.documentElement.scrollTo({
+          top: top - 100,
+          behavior: 'smooth'
+        })
+        e.preventDefault()
+      })
+    })
+  })
+</script> 
 
 </div>
       <div class="main-right-wrapper"><div class="main-right">
