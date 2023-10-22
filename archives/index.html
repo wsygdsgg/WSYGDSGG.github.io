@@ -194,7 +194,7 @@
   const ipt = document.querySelector('#search-input')
   const btn = document.querySelector('#search-btn')
   const layer = document.querySelector('#search-layer')
-  const posts = JSON.parse(`[{"title":"C语言感想.1","path":"2023/10/11/C语言感想-1/"},{"title":"","path":"2023/10/08/SQL笔记1-0查询/"},{"title":"SQL笔记2.0修改","path":"2023/10/10/SQL笔记2-0修改/"},{"title":"Hello World","path":"2023/10/05/hello-world/"},{"title":"口令破译方式1.0","path":"2023/10/22/暴力破解及明文攻击1-0/"},{"title":"mysql数据库及数据表操作1.0","path":"2023/10/17/mysql数据库及数据表操作1-0/"},{"title":"mysql查询细节补录","path":"2023/10/21/mysql查询细节补录/"}]`)
+  const posts = JSON.parse(`[{"title":"","path":"2023/10/08/SQL笔记1-0查询/"},{"title":"C语言感想.1","path":"2023/10/11/C语言感想-1/"},{"title":"SQL笔记2.0修改","path":"2023/10/10/SQL笔记2-0修改/"},{"title":"Hello World","path":"2023/10/05/hello-world/"},{"title":"mysql查询细节补录","path":"2023/10/21/mysql查询细节补录/"},{"title":"口令破译方式1.0","path":"2023/10/22/破译口令方式1-0/"},{"title":"mysql数据库及数据表操作1.0","path":"2023/10/17/mysql数据库及数据表操作1-0/"}]`)
   ipt.addEventListener('keyup', e => {
     if (e.key === 'Enter') {
       handleSearch()
@@ -363,15 +363,15 @@
                                     
                                         <li class="archive-list__post">
                                             <div>
-                                                <a href="/2023/10/11/C语言感想-1/">C语言感想.1</a>
-                                                <span>10月11日</span>
+                                                <a href="/2023/10/08/SQL笔记1-0查询/"></a>
+                                                <span>10月08日</span>
                                             </div>
                                         </li>
                                     
                                         <li class="archive-list__post">
                                             <div>
-                                                <a href="/2023/10/08/SQL笔记1-0查询/"></a>
-                                                <span>10月08日</span>
+                                                <a href="/2023/10/11/C语言感想-1/">C语言感想.1</a>
+                                                <span>10月11日</span>
                                             </div>
                                         </li>
                                     
@@ -391,7 +391,14 @@
                                     
                                         <li class="archive-list__post">
                                             <div>
-                                                <a href="/2023/10/22/暴力破解及明文攻击1-0/">口令破译方式1.0</a>
+                                                <a href="/2023/10/21/mysql查询细节补录/">mysql查询细节补录</a>
+                                                <span>10月21日</span>
+                                            </div>
+                                        </li>
+                                    
+                                        <li class="archive-list__post">
+                                            <div>
+                                                <a href="/2023/10/22/破译口令方式1-0/">口令破译方式1.0</a>
                                                 <span>10月22日</span>
                                             </div>
                                         </li>
@@ -400,13 +407,6 @@
                                             <div>
                                                 <a href="/2023/10/17/mysql数据库及数据表操作1-0/">mysql数据库及数据表操作1.0</a>
                                                 <span>10月17日</span>
-                                            </div>
-                                        </li>
-                                    
-                                        <li class="archive-list__post">
-                                            <div>
-                                                <a href="/2023/10/21/mysql查询细节补录/">mysql查询细节补录</a>
-                                                <span>10月21日</span>
                                             </div>
                                         </li>
                                     
