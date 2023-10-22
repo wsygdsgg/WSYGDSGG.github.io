@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-10-22T11:45:16.174Z</updated>
+  <updated>2023-10-22T12:47:28.975Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mysql查询细节补录2</title>
+    <link href="http://example.com/2023/10/22/mysql%E6%9F%A5%E8%AF%A2%E7%BB%86%E8%8A%82%E8%A1%A5%E5%BD%952/"/>
+    <id>http://example.com/2023/10/22/mysql%E6%9F%A5%E8%AF%A2%E7%BB%86%E8%8A%82%E8%A1%A5%E5%BD%952/</id>
+    <published>2023-10-22T12:32:16.000Z</published>
+    <updated>2023-10-22T12:47:28.975Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="mysql查询细节补录2"><a href="#mysql查询细节补录2" class="headerlink" title="mysql查询细节补录2"></a>mysql查询细节补录2</h1><h2 id="一-排序查询"><a href="#一-排序查询" class="headerlink" title="一. 排序查询"></a>一. 排序查询</h2><h3 id="a-select-from-name-表名-order-by-a-asc"><a href="#a-select-from-name-表名-order-by-a-asc" class="headerlink" title="a. select * from name(表名)  order by a (asc);"></a>a. <code>select * from name(表名)  order by a (asc);</code></h3><h3 id="b-select-from-name-表名-order-by-a-desc"><a href="#b-select-from-name-表名-order-by-a-desc" class="headerlink" title="b.  select * from name(表名)  order by a desc ;"></a>b.  <code>select * from name(表名)  order by a desc ;</code></h3><h3 id="c-select-from-name-表名-order-by-a-desc-b-desc"><a href="#c-select-from-name-表名-order-by-a-desc-b-desc" class="headerlink" title="c. select * from name(表名)  order by a desc, b desc;"></a>c. <code>select * from name(表名)  order by a desc, b desc;</code></h3><p>a 为默认，即升序。其实也可以多此一举，升序为 asc 。</p><p>b 有 desc ，为降序。</p><p>c. 多字段排序，先 a 后 b ，皆降序。只有 a 相等时，才会考虑 b 条件。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;mysql查询细节补录2&quot;&gt;&lt;a href=&quot;#mysql查询细节补录2&quot; class=&quot;headerlink&quot; title=&quot;mysql查询细节补录2&quot;&gt;&lt;/a&gt;mysql查询细节补录2&lt;/h1&gt;&lt;h2 id=&quot;一-排序查询&quot;&gt;&lt;a href=&quot;#一-排序查询&quot;</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>口令破译方式1.0</title>
