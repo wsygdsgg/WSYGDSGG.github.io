@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-10-24T11:56:46.480Z</updated>
+  <updated>2023-10-24T14:31:05.706Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,18 +21,20 @@
     <link href="http://example.com/2023/10/24/mysql%E8%A1%A8%E6%A0%BC%E5%A4%84%E7%90%86%E5%A4%A7%E6%80%BB%E7%BB%931-0/"/>
     <id>http://example.com/2023/10/24/mysql%E8%A1%A8%E6%A0%BC%E5%A4%84%E7%90%86%E5%A4%A7%E6%80%BB%E7%BB%931-0/</id>
     <published>2023-10-24T11:49:32.000Z</published>
-    <updated>2023-10-24T11:56:46.480Z</updated>
+    <updated>2023-10-24T14:31:05.706Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="mysql单表处理大总结1-0"><a href="#mysql单表处理大总结1-0" class="headerlink" title="mysql单表处理大总结1.0"></a>mysql单表处理大总结1.0</h1><p>一. 总体格式</p><p>select<br>        …<br>    from<br>        …<br>    where<br>        …<br>    group by<br>        …<br>    having<br>        …<br>    order by<br>        …</p><p>关键字顺序不能错</p><p>二. 执行顺序（执行逻辑）</p><ol><li>from</li><li>where</li><li>groub by</li><li>having</li><li>select</li><li>order by</li></ol><p>从某张表中查询数据，from</p><p>先经过where条件筛选出有价值的数据。where</p><p>对这些有价值的数据进行分组。group by</p><p>分组之后可以使用having继续筛选。having</p><p>select查询出来。select</p><p>最后排序输出！order by</p><p>eg.（数据库：bjpowernode）</p><p>找出每个岗位的平均薪资，要求显示平均薪资大于1500的，除MANAGER岗位之外，<br>要求按照平均薪资降序排。<br>        select<br>            job, avg(sal) as avgsal<br>        from<br>            emp<br>        where<br>            job &lt;&gt; ‘MANAGER’<br>        group by<br>            job<br>        having<br>            avg(sal) &gt; 1500<br>        order by<br>            avgsal desc;</p><pre><code>    +-----------+-------------+    | job       | avgsal      |    +-----------+-------------+    | PRESIDENT | 5000.000000 |    | ANALYST   | 3000.000000 |    +-----------+-------------+</code></pre>]]></content>
+    <content type="html"><![CDATA[<p>一. 总体格式</p><p>select<br>        …<br>    from<br>        …<br>    where<br>        …<br>    group by<br>        …<br>    having<br>        …<br>    order by<br>        …</p><p>关键字顺序不能错</p><p>二. 执行顺序（执行逻辑）</p><ol><li>from</li><li>where</li><li>groub by</li><li>having</li><li>select</li><li>order by</li></ol><p>从某张表中查询数据，from</p><p>先经过where条件筛选出有价值的数据。where</p><p>对这些有价值的数据进行分组。group by</p><p>分组之后可以使用having继续筛选。having</p><p>select查询出来。select</p><p>最后排序输出！order by</p><p>eg.（数据库：bjpowernode）</p><p>找出每个岗位的平均薪资，要求显示平均薪资大于1500的，除MANAGER岗位之外，<br>要求按照平均薪资降序排。<br>        select<br>            job, avg(sal) as avgsal<br>        from<br>            emp<br>        where<br>            job &lt;&gt; ‘MANAGER’<br>        group by<br>            job<br>        having<br>            avg(sal) &gt; 1500<br>        order by<br>            avgsal desc;</p><pre><code>    +-----------+-------------+    | job       | avgsal      |    +-----------+-------------+    | PRESIDENT | 5000.000000 |    | ANALYST   | 3000.000000 |    +-----------+-------------+</code></pre>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;mysql单表处理大总结1-0&quot;&gt;&lt;a href=&quot;#mysql单表处理大总结1-0&quot; class=&quot;headerlink&quot; title=&quot;mysql单表处理大总结1.0&quot;&gt;&lt;/a&gt;mysql单表处理大总结1.0&lt;/h1&gt;&lt;p&gt;一. 总体格式&lt;/p&gt;
-&lt;p&gt;sel</summary>
+    <summary type="html">&lt;p&gt;一. 总体格式&lt;/p&gt;
+&lt;p&gt;select&lt;br&gt;        …&lt;br&gt;    from&lt;br&gt;        …&lt;br&gt;    where&lt;br&gt;        …&lt;br&gt;    group by&lt;br&gt;        …&lt;br&gt;    having&lt;br&gt;     </summary>
       
     
     
+    
+    <category term="MySQL" scheme="http://example.com/categories/MySQL/"/>
     
     
   </entry>
