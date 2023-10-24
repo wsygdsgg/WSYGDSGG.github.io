@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>mysql单表处理大总结1.0</title>
+      <link href="/2023/10/24/mysql%E8%A1%A8%E6%A0%BC%E5%A4%84%E7%90%86%E5%A4%A7%E6%80%BB%E7%BB%931-0/"/>
+      <url>/2023/10/24/mysql%E8%A1%A8%E6%A0%BC%E5%A4%84%E7%90%86%E5%A4%A7%E6%80%BB%E7%BB%931-0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="mysql单表处理大总结1-0"><a href="#mysql单表处理大总结1-0" class="headerlink" title="mysql单表处理大总结1.0"></a>mysql单表处理大总结1.0</h1><p>一. 总体格式</p><p>select<br>        …<br>    from<br>        …<br>    where<br>        …<br>    group by<br>        …<br>    having<br>        …<br>    order by<br>        …</p><p>关键字顺序不能错</p><p>二. 执行顺序（执行逻辑）</p><ol><li>from</li><li>where</li><li>groub by</li><li>having</li><li>select</li><li>order by</li></ol><p>从某张表中查询数据，from</p><p>先经过where条件筛选出有价值的数据。where</p><p>对这些有价值的数据进行分组。group by</p><p>分组之后可以使用having继续筛选。having</p><p>select查询出来。select</p><p>最后排序输出！order by</p><p>eg.（数据库：bjpowernode）</p><p>找出每个岗位的平均薪资，要求显示平均薪资大于1500的，除MANAGER岗位之外，<br>要求按照平均薪资降序排。<br>        select<br>            job, avg(sal) as avgsal<br>        from<br>            emp<br>        where<br>            job &lt;&gt; ‘MANAGER’<br>        group by<br>            job<br>        having<br>            avg(sal) &gt; 1500<br>        order by<br>            avgsal desc;</p><pre><code>    +-----------+-------------+    | job       | avgsal      |    +-----------+-------------+    | PRESIDENT | 5000.000000 |    | ANALYST   | 3000.000000 |    +-----------+-------------+</code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>分组查询1.0</title>
       <link href="/2023/10/24/%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2%E8%A1%A5%E5%BD%951-0/"/>
       <url>/2023/10/24/%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2%E8%A1%A5%E5%BD%951-0/</url>

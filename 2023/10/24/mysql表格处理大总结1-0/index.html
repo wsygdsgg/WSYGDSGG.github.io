@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>我的技术与生活——小站首页 | 春风少年郎的博客</title>
+  <title>我的技术与生活——mysql单表处理大总结1.0 | 春风少年郎的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="shortcut icon" href="/imgs/shortcut-icon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/css/public.css" />
@@ -16,7 +16,7 @@
 
   <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
   <script>
-    document.title = `我的技术与生活——小站首页`
+    document.title = `我的技术与生活——mysql单表处理大总结1.0`
   </script>
 <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="春风少年郎的博客" type="application/atom+xml">
 </head>
@@ -352,7 +352,7 @@
 
 <div class="article-container">
   <div class="article">
-    <h1 class="article-title"></h1>
+    <h1 class="article-title">mysql单表处理大总结1.0</h1>
     <div class="article-info">
       <div class="article-info--item">
         <div class="article-info--info">
@@ -368,100 +368,45 @@
             
           </div>
           
-          <p class="article-info--date">日期：2023-10-08 19:40:06</p>
+          <p class="article-info--date">日期：2023-10-24 19:49:32</p>
         </div>
         <img src="/imgs/default-cover.webp" alt="" class="article-cover">
       </div>
     </div>
     <article class="article-content markdown-body">
-      <h1 id="SQL笔记-1-0-查询"><a href="#SQL笔记-1-0-查询" class="headerlink" title="SQL笔记 1.0.查询"></a>SQL笔记 1.0.查询</h1><h2 id="一：基本（关键字必须大写，用分号结束）"><a href="#一：基本（关键字必须大写，用分号结束）" class="headerlink" title="一：基本（关键字必须大写，用分号结束）"></a>一：基本（关键字必须大写，用分号结束）</h2><p>1: EXLECT  &lt;列，*表全部&gt; FROM &lt;表格名&gt; WHERE &lt;条件&gt;;</p>
-<p>​        A                    B                 C            D           F           E</p>
-<p>B：eg：score  point  解释：引用时将score改名为point</p>
-<h2 id="二：排序"><a href="#二：排序" class="headerlink" title="二：排序"></a>二：排序</h2><p><code>1.eg：EXLECT  *  FROM students WHERE num=2  ORDER  BY  gender;</code></p>
-<p><code>2.eg：EXLECT  *  FROM students  WHERE num=2  ORDER  BY  gender  DESC;</code></p>
-<p><code>3.eg：EXLECT  *  FROM students  WHERE num=2  ORDER  BY  gender  DESC  ，score</code>；</p>
-<p>解释：1.ORDER BY  : 排序；若加上DESC,表倒序；在逗号，表次级排序</p>
-<p>小结，用一个例子：</p>
-<p>SELECT id, name, gender, score<br>FROM students<br>WHERE class_id&#x3D;1<br>ORDER BY score DESC;</p>
-<h2 id="三：分页查询"><a href="#三：分页查询" class="headerlink" title="三：分页查询"></a>三：分页查询</h2><p>1.eg：</p>
-<p><code>SELECT id, name, gender, score</code><br><code>FROM students</code><br><code>ORDER BY score DESC</code><br><code>LIMIT 3 OFFSET 0;</code></p>
-<p>解读：1.本指令没有 WHERE </p>
-<p>​           2.LIMIT：表示一次最多拿几条；OFFSET：设想要从第n条开始看，OFFSET 后面的数字为n-1</p>
-<p>小结：</p>
-<p>​          使用<code>LIMIT &lt;M&gt; OFFSET &lt;N&gt;</code>可以对结果集进行分页，每次查询返回结果集的一部分；</p>
-<p>​          分页查询需要先确定每页的数量和当前页数，然后确定<code>LIMIT</code>和<code>OFFSET</code>的值。</p>
-<h2 id="四：聚合查询"><a href="#四：聚合查询" class="headerlink" title="四：聚合查询"></a>四：聚合查询</h2><p>1.eg：<code>SELECT COUNT(*) boys FROM students WHERE gender = &#39;M&#39;;</code></p>
-<p>解读：1.COUNT：统计条数</p>
-<p>附：还有其他的聚合函数：</p>
-<p>SUM（）：计算某一列的合计值，该列必须为数值类型；</p>
-<p>AVG（）：计算某一列的平均值，该列必须为数值类型；</p>
-<p>MAX（）：计算某一列的最大值；</p>
-<p>MIN（）：计算某一列的最小值；</p>
-<p>提醒：1.<code>MAX()</code>和<code>MIN()</code>函数并不限于数值类型。如果是字符类型，<code>MAX()</code>和<code>MIN()</code>会返回排序最后和排序最前的字符。</p>
-<p>​           2.如果聚合查询的<code>WHERE</code>条件没有匹配到任何行，<code>COUNT()</code>会返回0，而<code>SUM()</code>、<code>AVG()</code>、<code>MAX()</code>和<code>MIN()</code>会返回<code>NULL</code></p>
-<ul>
-<li><h3 id="提升：每页3条记录，如何通过聚合查询获得总页数？"><a href="#提升：每页3条记录，如何通过聚合查询获得总页数？" class="headerlink" title="提升：每页3条记录，如何通过聚合查询获得总页数？"></a>提升：每页3条记录，如何通过聚合查询获得总页数？</h3></li>
-<li><p>SELECT CEILING(COUNT(*)&#x2F;3) FROM students；</p>
-</li>
-</ul>
-<h3 id="接四："><a href="#接四：" class="headerlink" title="接四："></a>接四：</h3><p><code>2.eg：SELECT COUNT(*) num FROM students GROUP BY class_id;</code></p>
-<p><code>3.eg：SELECT class_id, COUNT(*) num FROM students GROUP BY class_id;</code></p>
-<p>解读：1.GROUP BY：分组指令</p>
-<p>​           2.SELECT class_id, COUNT(*)：将class_id一一列出来</p>
-<p>如图：</p>
-<table>
-<thead>
-<tr>
-<th align="left">class_id</th>
-<th align="left">num</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">1</td>
-<td align="left">4</td>
-</tr>
-<tr>
-<td align="left">2</td>
-<td align="left">3</td>
-</tr>
-<tr>
-<td align="left">3</td>
-<td align="left">3</td>
-</tr>
-</tbody></table>
-<h2 id="五：多表查询"><a href="#五：多表查询" class="headerlink" title="五：多表查询"></a>五：多表查询</h2><p>1.eg:</p>
-<p><code>SELECT s.id, s.name, s.class_id, c.name class_name, s.gender, s.score</code><br><code>FROM students s</code><br><code>INNER JOIN classes c</code><br><code>ON s.class_id = c.id;</code></p>
-<p>解读：students s：后面的s是别名，简化表格；</p>
-<p>​           INNER JOIN：属于连接查询，最常用的一种内连接——INNER JOIN；</p>
-<p>​           ON：建立两列联系；</p>
-<p> <em>下面摘一段原文：</em></p>
-<p>注意INNER JOIN查询的写法是：</p>
+      <h1 id="mysql单表处理大总结1-0"><a href="#mysql单表处理大总结1-0" class="headerlink" title="mysql单表处理大总结1.0"></a>mysql单表处理大总结1.0</h1><p>一. 总体格式</p>
+<p>select<br>        …<br>    from<br>        …<br>    where<br>        …<br>    group by<br>        …<br>    having<br>        …<br>    order by<br>        …</p>
+<p>关键字顺序不能错</p>
+<p>二. 执行顺序（执行逻辑）</p>
 <ol>
-<li>先确定主表，仍然使用<code>FROM &lt;表1&gt;</code>的语法；</li>
-<li>再确定需要连接的表，使用<code>INNER JOIN &lt;表2&gt;</code>的语法；</li>
-<li>然后确定连接条件，使用<code>ON &lt;条件...&gt;</code>，这里的条件是<code>s.class_id = c.id</code>，表示<code>students</code>表的<code>class_id</code>列与<code>classes</code>表的<code>id</code>列相同的行需要连接；</li>
-<li>可选：加上<code>WHERE</code>子句、<code>ORDER BY</code>等子句。</li>
+<li>from</li>
+<li>where</li>
+<li>groub by</li>
+<li>having</li>
+<li>select</li>
+<li>order by</li>
 </ol>
-<p>使用别名不是必须的，但可以更好地简化查询语句。</p>
-<h3 id="接五："><a href="#接五：" class="headerlink" title="接五："></a>接五：</h3><p>有内连接，就有外连接，全连接，我将大量引用原文：（可认为左表为主表，右表为副表）</p>
-<p>我们把tableA看作左表，把tableB看成右表，那么INNER JOIN是选出两张表都存在的记录：</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/1246892164662976/l" alt="inner-join"></p>
-<p>LEFT OUTER JOIN是选出左表存在的记录：</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/1246893588481376/l" alt="left-outer-join"></p>
-<p>RIGHT OUTER JOIN是选出右表存在的记录：</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/1246893609222688/l" alt="right-outer-join"></p>
-<p>FULL OUTER JOIN则是选出左右表都存在的记录：</p>
-<p><img src="https://www.liaoxuefeng.com/files/attachments/1246893632359424/l" alt="full-outer-join"></p>
-<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>JOIN查询需要先确定主表，然后把另一个表的数据“附加”到结果集上；</p>
-<p>INNER JOIN是最常用的一种JOIN查询，它的语法是<code>SELECT ... FROM &lt;表1&gt; INNER JOIN &lt;表2&gt; ON &lt;条件...&gt;</code>；</p>
-<p>JOIN查询仍然可以使用<code>WHERE</code>条件和<code>ORDER BY</code>排序。</p>
-<p>总结：“查询”写完了，总体没难度。</p>
+<p>从某张表中查询数据，from</p>
+<p>先经过where条件筛选出有价值的数据。where</p>
+<p>对这些有价值的数据进行分组。group by</p>
+<p>分组之后可以使用having继续筛选。having</p>
+<p>select查询出来。select</p>
+<p>最后排序输出！order by</p>
+<p>eg.（数据库：bjpowernode）</p>
+<p>找出每个岗位的平均薪资，要求显示平均薪资大于1500的，除MANAGER岗位之外，<br>要求按照平均薪资降序排。<br>        select<br>            job, avg(sal) as avgsal<br>        from<br>            emp<br>        where<br>            job &lt;&gt; ‘MANAGER’<br>        group by<br>            job<br>        having<br>            avg(sal) &gt; 1500<br>        order by<br>            avgsal desc;</p>
+<pre><code>    +-----------+-------------+
+    | job       | avgsal      |
+    +-----------+-------------+
+    | PRESIDENT | 5000.000000 |
+    | ANALYST   | 3000.000000 |
+    +-----------+-------------+
+</code></pre>
 
     </article>
     
     <div class="read-nums">
       <!-- id 将作为查询条件 -->
-      <span id="2023/10/08/SQL笔记1-0查询/" class="leancloud_visitors" data-flag-title="Your Article Title">
+      <span id="2023/10/24/mysql表格处理大总结1-0/" class="leancloud_visitors" data-flag-title="Your Article Title">
         <em class="post-meta-item-text">浏览量</em>
         <i class="leancloud-visitors-count"></i>
       </span>
@@ -477,20 +422,15 @@
     <div class="article-catelogue--wrapper">
       <div class="catelogue catelogue-1">
         <h3>目录</h3>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL%E7%AC%94%E8%AE%B0-1-0-%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.</span> <span class="toc-text">SQL笔记 1.0.查询</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%EF%BC%9A%E5%9F%BA%E6%9C%AC%EF%BC%88%E5%85%B3%E9%94%AE%E5%AD%97%E5%BF%85%E9%A1%BB%E5%A4%A7%E5%86%99%EF%BC%8C%E7%94%A8%E5%88%86%E5%8F%B7%E7%BB%93%E6%9D%9F%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">一：基本（关键字必须大写，用分号结束）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%EF%BC%9A%E6%8E%92%E5%BA%8F"><span class="toc-number">1.2.</span> <span class="toc-text">二：排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%EF%BC%9A%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.3.</span> <span class="toc-text">三：分页查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%EF%BC%9A%E8%81%9A%E5%90%88%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.4.</span> <span class="toc-text">四：聚合查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E5%8D%87%EF%BC%9A%E6%AF%8F%E9%A1%B53%E6%9D%A1%E8%AE%B0%E5%BD%95%EF%BC%8C%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87%E8%81%9A%E5%90%88%E6%9F%A5%E8%AF%A2%E8%8E%B7%E5%BE%97%E6%80%BB%E9%A1%B5%E6%95%B0%EF%BC%9F"><span class="toc-number">1.4.1.</span> <span class="toc-text">提升：每页3条记录，如何通过聚合查询获得总页数？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%9B%9B%EF%BC%9A"><span class="toc-number">1.4.2.</span> <span class="toc-text">接四：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%EF%BC%9A%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.5.</span> <span class="toc-text">五：多表查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E4%BA%94%EF%BC%9A"><span class="toc-number">1.5.1.</span> <span class="toc-text">接五：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">小结</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#mysql%E5%8D%95%E8%A1%A8%E5%A4%84%E7%90%86%E5%A4%A7%E6%80%BB%E7%BB%931-0"><span class="toc-number">1.</span> <span class="toc-text">mysql单表处理大总结1.0</span></a></li></ol>
       </div>
       
         <div class="catelogue catelogue-2">
-          
-            <p>
-              <span>上一篇：</span>
-              <a href="/2023/10/10/SQL笔记2-0修改/">SQL笔记2.0修改</a>
-            </p>
            
           
             <p>
               <span>下一篇</span>
-              <a href="/2023/10/05/hello-world/">Hello World</a>
+              <a href="/2023/10/24/分组查询补录1-0/">分组查询1.0</a>
             </p>
           
         </div>
@@ -512,7 +452,7 @@
     recordIP: config.recordIP,
     visitor: config.visitor,
     enableQQ: config.enableQQ,
-    path: '2023/10/08/SQL笔记1-0查询/'
+    path: '2023/10/24/mysql表格处理大总结1-0/'
   })
 </script>
 
