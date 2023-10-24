@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>分组查询1.0</title>
+      <link href="/2023/10/24/%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2%E8%A1%A5%E5%BD%951-0/"/>
+      <url>/2023/10/24/%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2%E8%A1%A5%E5%BD%951-0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="分组查询1-0"><a href="#分组查询1-0" class="headerlink" title="分组查询1.0"></a>分组查询1.0</h1><h2 id="一"><a href="#一" class="headerlink" title="一."></a>一.</h2><ol><li>模板</li></ol><p>   ​                      select<br>   ​…<br>   ​from<br>   ​…<br>   ​group by<br>   ​…</p><ol start="2"><li><p>为什么分组函数不能直接使用在where后面？<br>   因为分组函数在使用的时候必须先分组之后才能使用。<br>   where执行的时候，还没有分组。所以where后面不能出现分组函数。</p></li><li><p>针对2. 的过滤 having</p><p>select name1, name2 from name(表名) group by name2 having name2&gt;a;</p><p>使用having可以对分完组之后的数据进一步过滤。<br>having不能单独使用，having不能代替where，having必须<br>和group by联合使用。<br>优化策略：<br>where和having，优先选择where，where实在完成不了了，再选择having。</p><h2 id="二"><a href="#二" class="headerlink" title="二."></a>二.</h2><p>多分组</p><p>select name1 name2 from name(表名) group by name1, name2;</p></li></ol>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MySQL多行处理函数1-0</title>
       <link href="/2023/10/23/MySQL%E5%A4%9A%E8%A1%8C%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B01-0/"/>
       <url>/2023/10/23/MySQL%E5%A4%9A%E8%A1%8C%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B01-0/</url>
