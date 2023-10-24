@@ -194,7 +194,7 @@
   const ipt = document.querySelector('#search-input')
   const btn = document.querySelector('#search-btn')
   const layer = document.querySelector('#search-layer')
-  const posts = JSON.parse(`[{"title":"C语言感想.1","path":"2023/10/11/C语言感想-1/"},{"title":"MySQL单行处理函数1.0","path":"2023/10/22/MySQL单行处理函数1-0/"},{"title":"Hello World","path":"2023/10/05/hello-world/"},{"title":"MySQL多行处理函数1-0","path":"2023/10/23/MySQL多行处理函数1-0/"},{"title":"SQL笔记2.0修改","path":"2023/10/10/SQL笔记2-0修改/"},{"title":"","path":"2023/10/08/SQL笔记1-0查询/"},{"title":"mysql数据库及数据表操作1.0","path":"2023/10/17/mysql数据库及数据表操作1-0/"},{"title":"mysql查询细节补录2","path":"2023/10/22/mysql查询细节补录2/"},{"title":"mysql查询细节补录","path":"2023/10/21/mysql查询细节补录/"},{"title":"口令破译方式1.0","path":"2023/10/22/破译口令方式1-0/"}]`)
+  const posts = JSON.parse(`[{"title":"C语言感想.1","path":"2023/10/11/C语言感想-1/"},{"title":"MySQL单行处理函数1.0","path":"2023/10/22/MySQL单行处理函数1-0/"},{"title":"MySQL多行处理函数1-0","path":"2023/10/23/MySQL多行处理函数1-0/"},{"title":"Hello World","path":"2023/10/05/hello-world/"},{"title":"SQL笔记2.0修改","path":"2023/10/10/SQL笔记2-0修改/"},{"title":"","path":"2023/10/08/SQL笔记1-0查询/"},{"title":"mysql数据库及数据表操作1.0","path":"2023/10/17/mysql数据库及数据表操作1-0/"},{"title":"mysql查询细节补录2","path":"2023/10/22/mysql查询细节补录2/"},{"title":"mysql查询细节补录","path":"2023/10/21/mysql查询细节补录/"},{"title":"口令破译方式1.0","path":"2023/10/22/破译口令方式1-0/"}]`)
   ipt.addEventListener('keyup', e => {
     if (e.key === 'Enter') {
       handleSearch()
@@ -336,7 +336,7 @@
       </p>
       <p class="main-left--subtitle">
         <span>上线时间：</span>
-        <span>615天</span>
+        <span>616天</span>
       </p>
       <p class="main-left--subtitle">
         <span>当前版本：</span>
@@ -645,7 +645,7 @@
   }
 
   setOperateItem()
-  const musics = JSON.parse(`[{"name":"盛夏与蝉鸣","artist":"hea2t","url":"music/hea2t - 盛夏与蝉鸣.flac","cover":"https://wsygdsgg.github.io/imgs/"},{"name":"山鬼（琵琶X古筝）","artist":"余天易,踏声涟","url":"music/余天易,踏声涟 - 山鬼（琵琶X古筝）.mp3","cover":"https://wsygdsgg.github.io/imgs/123.png"}]`)
+  const musics = JSON.parse(`[{"name":"盛夏与蝉鸣","artist":"hea2t","url":"music/hea2t - 盛夏与蝉鸣.flac","cover":"https://wsygdsgg.github.io/imgs/"},{"name":"山鬼（琵琶X古筝）","artist":"余天易,踏声涟","url":"music/余天易,踏声涟 - 山鬼（琵琶X古筝）.mp3","cover":"https://wsygdsgg.github.io/imgs/123.png"},{"name":"山眠","artist":"饭碗的彼岸","url":"music/山眠.mp3","cover":"https://wsygdsgg.github.io/imgs/"},{"name":"神姬","artist":"EinWil/Jayx","url":"music/神姬.mp3","cover":"https://wsygdsgg.github.io/imgs/"},{"name":"盛夏与蝉鸣2.0","artist":"hea2t","url":"music/盛夏与蝉鸣2.0.mp3","cover":"https://wsygdsgg.github.io/imgs/"},{"name":"这是我的梦吧，反正迟早会醒来","artist":"叶轻衣","url":"music/这是我的梦吧，反正迟早会醒来.mp3","cover":"https://wsygdsgg.github.io/imgs/"},{"name":"光风霁月","artist":"Funton","url":"music/光风霁月.mp3","cover":"https://wsygdsgg.github.io/imgs/"}]`)
   const ap = new APlayer({
     container: document.querySelector('#aplayer'),
     audio: musics,
