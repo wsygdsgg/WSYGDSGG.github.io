@@ -194,7 +194,7 @@
   const ipt = document.querySelector('#search-input')
   const btn = document.querySelector('#search-btn')
   const layer = document.querySelector('#search-layer')
-  const posts = JSON.parse(`[{"title":"C语言感想.1","path":"2023/10/11/C语言感想-1/"},{"title":"MySQL单行处理函数1.0","path":"2023/10/22/MySQL单行处理函数1-0/"},{"title":"MySQL多行处理函数1-0","path":"2023/10/23/MySQL多行处理函数1-0/"},{"title":"SQL笔记2.0修改","path":"2023/10/10/SQL笔记2-0修改/"},{"title":"","path":"2023/10/08/SQL笔记1-0查询/"},{"title":"Hello World","path":"2023/10/05/hello-world/"},{"title":"mysql数据库及数据表操作1.0","path":"2023/10/17/mysql数据库及数据表操作1-0/"},{"title":"mysql查询细节补录","path":"2023/10/21/mysql查询细节补录/"},{"title":"mysql查询细节补录2","path":"2023/10/22/mysql查询细节补录2/"},{"title":"mysql单表处理大总结1.0","path":"2023/10/24/mysql表格处理大总结1-0/"},{"title":"分组查询1.0","path":"2023/10/24/分组查询补录1-0/"},{"title":"口令破译方式1.0","path":"2023/10/22/破译口令方式1-0/"},{"title":"西电2023webhttp","path":"2023/10/25/西电2023webhttp/"},{"title":"请求头笔记及引用源记录","path":"2023/10/25/请求头笔记及引用源记录/"}]`)
+  const posts = JSON.parse(`[{"title":"C语言感想.1","path":"2023/10/11/C语言感想-1/"},{"title":"MySQL单行处理函数1.0","path":"2023/10/22/MySQL单行处理函数1-0/"},{"title":"","path":"2023/10/08/SQL笔记1-0查询/"},{"title":"MySQL多行处理函数1-0","path":"2023/10/23/MySQL多行处理函数1-0/"},{"title":"SQL笔记2.0修改","path":"2023/10/10/SQL笔记2-0修改/"},{"title":"mysql数据库及数据表操作1.0","path":"2023/10/17/mysql数据库及数据表操作1-0/"},{"title":"Hello World","path":"2023/10/05/hello-world/"},{"title":"mysql查询细节补录","path":"2023/10/21/mysql查询细节补录/"},{"title":"mysql查询细节补录2","path":"2023/10/22/mysql查询细节补录2/"},{"title":"mysql单表处理大总结1.0","path":"2023/10/24/mysql表格处理大总结1-0/"},{"title":"分组查询1.0","path":"2023/10/24/分组查询补录1-0/"},{"title":"口令破译方式1.0","path":"2023/10/22/破译口令方式1-0/"},{"title":"西电2023webhttp","path":"2023/10/25/西电2023webhttp/"},{"title":"请求头笔记及引用源记录","path":"2023/10/25/请求头笔记及引用源记录/"}]`)
   ipt.addEventListener('keyup', e => {
     if (e.key === 'Enter') {
       handleSearch()
@@ -374,7 +374,24 @@
       </div>
     </div>
     <article class="article-content markdown-body">
-      
+      <h1 id="西电-2023-web-http"><a href="#西电-2023-web-http" class="headerlink" title="西电 2023 web http"></a>西电 2023 web http</h1><h2 id="一-题目"><a href="#一-题目" class="headerlink" title="一. 题目"></a>一. 题目</h2><p>​                                      this is POST method,</p>
+<p>​                                       your mission:</p>
+<p>​                                      1.use parameter: UwU&#x3D;u<br>​                                      2.post <strong>form</strong>: Luv&#x3D;u<br>​                                      3.use admin character<br>​                                      4.request from 127.0.0.1<br>​                                      5.use browser ‘MoeBrowser’<br>​                                      Complete All Missions</p>
+<h2 id="二-下面一题一题讲解，并附上知识点"><a href="#二-下面一题一题讲解，并附上知识点" class="headerlink" title="二. 下面一题一题讲解，并附上知识点"></a>二. 下面一题一题讲解，并附上知识点</h2><ol>
+<li>use parameter(参数) : UwU&#x3D;u</li>
+</ol>
+<p>本题使用 get 传参，具体非常简单。MODE 模式 RAW 下呈现为</p>
+<p>​                                 GET &#x2F;?UwU&#x3D;u    HTTP&#x2F;1.1</p>
+<p>Basic 下呈现为</p>
+<p>​                          <a target="_blank" rel="noopener" href="http://124.70.99.199:3800/?UwU=u">http://124.70.99.199:3800/?UwU=u</a></p>
+<p>如果用POST ,RAW 下呈现为</p>
+<p>​                               POST &#x2F;?UwU&#x3D;u HTTP&#x2F;1.1</p>
+<p>Basic 呈现下为</p>
+<h3 id="http-124-70-99-199-3800-UwU-u"><a href="#http-124-70-99-199-3800-UwU-u" class="headerlink" title="http://124.70.99.199:3800/?UwU=u"></a><a target="_blank" rel="noopener" href="http://124.70.99.199:3800/?UwU=u">http://124.70.99.199:3800/?UwU=u</a></h3><p>很显然，极为相似</p>
+<ol start="2">
+<li>post <strong>form</strong>: Luv&#x3D;u</li>
+</ol>
+
     </article>
     
     <div class="read-nums">
@@ -395,7 +412,7 @@
     <div class="article-catelogue--wrapper">
       <div class="catelogue catelogue-1">
         <h3>目录</h3>
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A5%BF%E7%94%B5-2023-web-http"><span class="toc-number">1.</span> <span class="toc-text">西电 2023 web http</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E9%A2%98%E7%9B%AE"><span class="toc-number">1.1.</span> <span class="toc-text">一. 题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E4%B8%8B%E9%9D%A2%E4%B8%80%E9%A2%98%E4%B8%80%E9%A2%98%E8%AE%B2%E8%A7%A3%EF%BC%8C%E5%B9%B6%E9%99%84%E4%B8%8A%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-number">1.2.</span> <span class="toc-text">二. 下面一题一题讲解，并附上知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#http-124-70-99-199-3800-UwU-u"><span class="toc-number">1.2.1.</span> <span class="toc-text">http:&#x2F;&#x2F;124.70.99.199:3800&#x2F;?UwU&#x3D;u</span></a></li></ol></li></ol></li></ol>
       </div>
       
         <div class="catelogue catelogue-2">
