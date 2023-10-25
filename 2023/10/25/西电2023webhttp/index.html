@@ -194,7 +194,7 @@
   const ipt = document.querySelector('#search-input')
   const btn = document.querySelector('#search-btn')
   const layer = document.querySelector('#search-layer')
-  const posts = JSON.parse(`[{"title":"C语言感想.1","path":"2023/10/11/C语言感想-1/"},{"title":"MySQL单行处理函数1.0","path":"2023/10/22/MySQL单行处理函数1-0/"},{"title":"","path":"2023/10/08/SQL笔记1-0查询/"},{"title":"MySQL多行处理函数1-0","path":"2023/10/23/MySQL多行处理函数1-0/"},{"title":"SQL笔记2.0修改","path":"2023/10/10/SQL笔记2-0修改/"},{"title":"mysql数据库及数据表操作1.0","path":"2023/10/17/mysql数据库及数据表操作1-0/"},{"title":"Hello World","path":"2023/10/05/hello-world/"},{"title":"mysql查询细节补录","path":"2023/10/21/mysql查询细节补录/"},{"title":"mysql查询细节补录2","path":"2023/10/22/mysql查询细节补录2/"},{"title":"mysql单表处理大总结1.0","path":"2023/10/24/mysql表格处理大总结1-0/"},{"title":"分组查询1.0","path":"2023/10/24/分组查询补录1-0/"},{"title":"口令破译方式1.0","path":"2023/10/22/破译口令方式1-0/"},{"title":"西电2023webhttp","path":"2023/10/25/西电2023webhttp/"},{"title":"请求头笔记及引用源记录","path":"2023/10/25/请求头笔记及引用源记录/"}]`)
+  const posts = JSON.parse(`[{"title":"C语言感想.1","path":"2023/10/11/C语言感想-1/"},{"title":"MySQL单行处理函数1.0","path":"2023/10/22/MySQL单行处理函数1-0/"},{"title":"MySQL多行处理函数1-0","path":"2023/10/23/MySQL多行处理函数1-0/"},{"title":"","path":"2023/10/08/SQL笔记1-0查询/"},{"title":"SQL笔记2.0修改","path":"2023/10/10/SQL笔记2-0修改/"},{"title":"mysql数据库及数据表操作1.0","path":"2023/10/17/mysql数据库及数据表操作1-0/"},{"title":"Hello World","path":"2023/10/05/hello-world/"},{"title":"mysql查询细节补录2","path":"2023/10/22/mysql查询细节补录2/"},{"title":"mysql单表处理大总结1.0","path":"2023/10/24/mysql表格处理大总结1-0/"},{"title":"mysql查询细节补录","path":"2023/10/21/mysql查询细节补录/"},{"title":"口令破译方式1.0","path":"2023/10/22/破译口令方式1-0/"},{"title":"请求头笔记及引用源记录","path":"2023/10/25/请求头笔记及引用源记录/"},{"title":"西电2023webhttp","path":"2023/10/25/西电2023webhttp/"},{"title":"分组查询1.0","path":"2023/10/24/分组查询补录1-0/"}]`)
   ipt.addEventListener('keyup', e => {
     if (e.key === 'Enter') {
       handleSearch()
@@ -377,20 +377,53 @@
       <h1 id="西电-2023-web-http"><a href="#西电-2023-web-http" class="headerlink" title="西电 2023 web http"></a>西电 2023 web http</h1><h2 id="一-题目"><a href="#一-题目" class="headerlink" title="一. 题目"></a>一. 题目</h2><p>​                                      this is POST method,</p>
 <p>​                                       your mission:</p>
 <p>​                                      1.use parameter: UwU&#x3D;u<br>​                                      2.post <strong>form</strong>: Luv&#x3D;u<br>​                                      3.use admin character<br>​                                      4.request from 127.0.0.1<br>​                                      5.use browser ‘MoeBrowser’<br>​                                      Complete All Missions</p>
-<h2 id="二-下面一题一题讲解，并附上知识点"><a href="#二-下面一题一题讲解，并附上知识点" class="headerlink" title="二. 下面一题一题讲解，并附上知识点"></a>二. 下面一题一题讲解，并附上知识点</h2><ol>
-<li>use parameter(参数) : UwU&#x3D;u</li>
-</ol>
-<p>本题使用 get 传参，具体非常简单。MODE 模式 RAW 下呈现为</p>
+<h2 id="二-下面一题一题讲解，并附上知识点"><a href="#二-下面一题一题讲解，并附上知识点" class="headerlink" title="二. 下面一题一题讲解，并附上知识点"></a>二. 下面一题一题讲解，并附上知识点</h2><h3 id="1-use-parameter-参数-UwU-u"><a href="#1-use-parameter-参数-UwU-u" class="headerlink" title="1. use parameter(参数) : UwU&#x3D;u"></a>1. use parameter(参数) : UwU&#x3D;u</h3><p>本题使用 get 传参，具体非常简单。MODE 模式 RAW 下呈现为</p>
 <p>​                                 GET &#x2F;?UwU&#x3D;u    HTTP&#x2F;1.1</p>
 <p>Basic 下呈现为</p>
 <p>​                          <a target="_blank" rel="noopener" href="http://124.70.99.199:3800/?UwU=u">http://124.70.99.199:3800/?UwU=u</a></p>
 <p>如果用POST ,RAW 下呈现为</p>
 <p>​                               POST &#x2F;?UwU&#x3D;u HTTP&#x2F;1.1</p>
 <p>Basic 呈现下为</p>
-<h3 id="http-124-70-99-199-3800-UwU-u"><a href="#http-124-70-99-199-3800-UwU-u" class="headerlink" title="http://124.70.99.199:3800/?UwU=u"></a><a target="_blank" rel="noopener" href="http://124.70.99.199:3800/?UwU=u">http://124.70.99.199:3800/?UwU=u</a></h3><p>很显然，极为相似</p>
-<ol start="2">
-<li>post <strong>form</strong>: Luv&#x3D;u</li>
-</ol>
+<p><a target="_blank" rel="noopener" href="http://124.70.99.199:3800/?UwU=u">http://124.70.99.199:3800/?UwU=u</a></p>
+<p>很显然，极为相似</p>
+<h3 id="2-post-form-Luv-u"><a href="#2-post-form-Luv-u" class="headerlink" title="2. post form: Luv&#x3D;u"></a>2. post <strong>form</strong>: Luv&#x3D;u</h3><p>本题使用 POST 传表单，enctype（POST提交数据方式）是</p>
+<p>​                    application&#x2F;x-www-form-urlencoded</p>
+<p>POST 提交数据形式一共有四种，如下</p>
+<ul>
+<li>application&#x2F;x-www-form-urlencoded     专门传表单（URL encoded）</li>
+<li>multipart&#x2F;form-data （键值对型数据）  通常是用在客户端向服务端传送大文件数据，如：图片或者文件。</li>
+<li>application&#x2F;json (Json 类型数据)  数据以 Json 字符串的形式存在</li>
+<li>text&#x2F;xml （xml）一种使用 HTTP 作为传输协议，XML 作为编码方式的远程调用规范</li>
+</ul>
+<p>RAW 在最下方呈现为(将水平分割线视作下划线)</p>
+<p>Luv&#x3D;u</p>
+<hr>
+<p>Basic  在最下方呈现为(将水平分割线视作下划线)</p>
+<p>Body</p>
+<p>Luv&#x3D;u</p>
+<hr>
+<h3 id="3-use-admin-character"><a href="#3-use-admin-character" class="headerlink" title="3.use admin character"></a>3.use admin character</h3><p>使用  Cookie </p>
+<p>格式如下  </p>
+<p>RAW 下呈现为</p>
+<p>​                            Cookie: character&#x3D;admin</p>
+<p>Basic 下呈现过于简单，不讲</p>
+<h3 id="4-request-from-127-0-0-1"><a href="#4-request-from-127-0-0-1" class="headerlink" title="4.request from 127.0.0.1"></a>4.request from 127.0.0.1</h3><p>使用 xxf （X-Forwarded-For）</p>
+<p>格式如下  </p>
+<p>RAW 下呈现为</p>
+<p>​                            Cookie: character&#x3D;admin</p>
+<p>Basic 下呈现过于简单，不讲</p>
+<p>​                             X-Forwarded-For: 127.0.0.1</p>
+<h3 id="5-use-browser-‘MoeBrowser’"><a href="#5-use-browser-‘MoeBrowser’" class="headerlink" title="5.use browser ‘MoeBrowser’"></a>5.use browser ‘MoeBrowser’</h3><p>使用 User-Agent </p>
+<p>格式如下  </p>
+<p>RAW 下呈现为</p>
+<p>​                         User-Agent: MoeBrowser</p>
+<p>Basic 下呈现过于简单，不讲</p>
+<p>得到flag：Fl4g{w3lc0m3_t0_th3_w0rld_0f_http!!}</p>
+<h3 id="附-展示-RAW-完整模板"><a href="#附-展示-RAW-完整模板" class="headerlink" title="附 展示 RAW 完整模板"></a>附 展示 RAW 完整模板</h3><p>HTTP     124.70.99.199.3800</p>
+<hr>
+<p>POST &#x2F;?UwU&#x3D;u HTTP&#x2F;1.1<br>X-Forwarded-For: 127.0.0.1<br>Upgrade-Insecure-Requests: 1<br>Origin: <a target="_blank" rel="noopener" href="http://124.70.99.199:3800/">http://124.70.99.199:3800</a><br>Content-Type: application&#x2F;x-www-form-urlencoded<br>User-Agent: MoeBrowser<br>Accept: text&#x2F;html,application&#x2F;xhtml+xml,application&#x2F;xml;q&#x3D;0.9,image&#x2F;avif,image&#x2F;webp,image&#x2F;apng,<em>&#x2F;</em>;q&#x3D;0.8,application&#x2F;signed-exchange;v&#x3D;b3;q&#x3D;0.7<br>Referer: <a target="_blank" rel="noopener" href="http://124.70.99.199:3800/?UwU=u">http://124.70.99.199:3800/?UwU=u</a><br>Accept-Encoding: gzip, deflate<br>Accept-Language: zh-CN,zh;q&#x3D;0.9,en;q&#x3D;0.8<br>Cookie: character&#x3D;admin</p>
+<p>Luv&#x3D;u</p>
+<hr>
 
     </article>
     
@@ -412,7 +445,7 @@
     <div class="article-catelogue--wrapper">
       <div class="catelogue catelogue-1">
         <h3>目录</h3>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A5%BF%E7%94%B5-2023-web-http"><span class="toc-number">1.</span> <span class="toc-text">西电 2023 web http</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E9%A2%98%E7%9B%AE"><span class="toc-number">1.1.</span> <span class="toc-text">一. 题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E4%B8%8B%E9%9D%A2%E4%B8%80%E9%A2%98%E4%B8%80%E9%A2%98%E8%AE%B2%E8%A7%A3%EF%BC%8C%E5%B9%B6%E9%99%84%E4%B8%8A%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-number">1.2.</span> <span class="toc-text">二. 下面一题一题讲解，并附上知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#http-124-70-99-199-3800-UwU-u"><span class="toc-number">1.2.1.</span> <span class="toc-text">http:&#x2F;&#x2F;124.70.99.199:3800&#x2F;?UwU&#x3D;u</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A5%BF%E7%94%B5-2023-web-http"><span class="toc-number">1.</span> <span class="toc-text">西电 2023 web http</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E9%A2%98%E7%9B%AE"><span class="toc-number">1.1.</span> <span class="toc-text">一. 题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E4%B8%8B%E9%9D%A2%E4%B8%80%E9%A2%98%E4%B8%80%E9%A2%98%E8%AE%B2%E8%A7%A3%EF%BC%8C%E5%B9%B6%E9%99%84%E4%B8%8A%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-number">1.2.</span> <span class="toc-text">二. 下面一题一题讲解，并附上知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-use-parameter-%E5%8F%82%E6%95%B0-UwU-u"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. use parameter(参数) : UwU&#x3D;u</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-post-form-Luv-u"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. post form: Luv&#x3D;u</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-use-admin-character"><span class="toc-number">1.2.3.</span> <span class="toc-text">3.use admin character</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-request-from-127-0-0-1"><span class="toc-number">1.2.4.</span> <span class="toc-text">4.request from 127.0.0.1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-use-browser-%E2%80%98MoeBrowser%E2%80%99"><span class="toc-number">1.2.5.</span> <span class="toc-text">5.use browser ‘MoeBrowser’</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%84-%E5%B1%95%E7%A4%BA-RAW-%E5%AE%8C%E6%95%B4%E6%A8%A1%E6%9D%BF"><span class="toc-number">1.2.6.</span> <span class="toc-text">附 展示 RAW 完整模板</span></a></li></ol></li></ol></li></ol>
       </div>
       
         <div class="catelogue catelogue-2">
