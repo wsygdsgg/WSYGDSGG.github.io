@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>请求头笔记及引用源记录</title>
+      <link href="/2023/10/25/%E8%AF%B7%E6%B1%82%E5%A4%B4%E7%AC%94%E8%AE%B0%E5%8F%8A%E5%BC%95%E7%94%A8%E6%BA%90%E8%AE%B0%E5%BD%95/"/>
+      <url>/2023/10/25/%E8%AF%B7%E6%B1%82%E5%A4%B4%E7%AC%94%E8%AE%B0%E5%8F%8A%E5%BC%95%E7%94%A8%E6%BA%90%E8%AE%B0%E5%BD%95/</url>
+      
+        <content type="html"><![CDATA[<h1 id="请求头笔记及引用源记录"><a href="#请求头笔记及引用源记录" class="headerlink" title="请求头笔记及引用源记录"></a>请求头笔记及引用源记录</h1><h2 id="一-xff-与-referer"><a href="#一-xff-与-referer" class="headerlink" title="一. xff 与 referer"></a>一. xff 与 referer</h2><p>xff: </p><p>xff 全称 X-Forwarded-For ，是http的拓展头部，作用是使Web服务器获取访问用户的IP真实地址（可伪造）。由于很多用户通过代理服务器进行访问，服务器只能获取代理服务器的IP地址，而xff的作用在于记录用户的真实IP，以及代理服务器的IP。</p><p>运用格式       </p><p>​                                 X-Forwarded-For: 本机IP, 代理1IP, 代理2IP, 代理2IP</p><p>referer</p><p>referer 是http的拓展头部，作用是记录当前请求页面的来源页面的地址。服务器使用referer确认访问来源，如果referer内容不符合要求，服务器可以拦截或者重定向请求。</p><p>运用格式</p><p>​                                                Referer &#x3D; <a href="https://www.xxxx.com/">https://www.xxxx.com</a></p><p>引用源url：<a href="https://blog.csdn.net/qq_40481505/article/details/90114951">https://blog.csdn.net/qq_40481505/article/details/90114951</a></p><p>​                  <a href="https://www.cnblogs.com/huhu1020387597/p/11479468.html">HTTP协议头部REFERER用法及伪造 - 糊糊饭团 - 博客园 (cnblogs.com)</a></p><p>附：hackbar 使用方法：<a href="https://juejin.cn/post/6987217287941996580">https://juejin.cn/post/6987217287941996580</a></p><h2 id="二-cookie"><a href="#二-cookie" class="headerlink" title="二. cookie"></a>二. cookie</h2><p>格式</p><p>Set－Cookie: NAME&#x3D;VALUE；Expires&#x3D;DATE；Path&#x3D;PATH；Domain&#x3D;DOMAIN_NAME；SECURE</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>mysql单表处理大总结1.0</title>
       <link href="/2023/10/24/mysql%E8%A1%A8%E6%A0%BC%E5%A4%84%E7%90%86%E5%A4%A7%E6%80%BB%E7%BB%931-0/"/>
       <url>/2023/10/24/mysql%E8%A1%A8%E6%A0%BC%E5%A4%84%E7%90%86%E5%A4%A7%E6%80%BB%E7%BB%931-0/</url>

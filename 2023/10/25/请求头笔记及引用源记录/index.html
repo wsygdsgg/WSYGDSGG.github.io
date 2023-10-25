@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>我的技术与生活——小站首页 | 春风少年郎的博客</title>
+  <title>我的技术与生活——请求头笔记及引用源记录 | 春风少年郎的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="shortcut icon" href="/imgs/shortcut-icon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/css/public.css" />
@@ -16,7 +16,7 @@
 
   <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
   <script>
-    document.title = `我的技术与生活——小站首页`
+    document.title = `我的技术与生活——请求头笔记及引用源记录`
   </script>
 <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="春风少年郎的博客" type="application/atom+xml">
 </head>
@@ -345,119 +345,126 @@
     </div>
   </div>
 </div></div>
-      <div id="main-container" class="main-container"><link rel="stylesheet" href="/css/partial/index.css" />
+      <div id="main-container" class="main-container">
 
 
+  <link rel="stylesheet" href="/css/partial/article.css" />
 
-<div class="index">
-  <div class="index-left">
-    
-      <div class="index-article">
-        <!-- <img class="index-article--cover" src="/imgs/default-cover.webp" alt=""> -->
-        <div class="index-article--box">
-          <img class="index-article--cover" data-cover="imgs/default-cover.webp" alt="mysql数据库及数据表操作1.0" />
-        </div>
-        <div class="index-article--content">
-          <a href="/2023/10/17/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%8A%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%93%8D%E4%BD%9C1-0/">mysql数据库及数据表操作1.0 </a>
-          <div>
-            
-              <p>
-                <a class="post-category-link" href="/categories/MySQL/">MySQL</a>
-              </p>
-            
-            
-              <p>
-                <a class="-link" href="/tags/%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%8A%E6%95%B0%E6%8D%AE%E8%A1%A8%EF%BC%8C%E4%B8%8D%E6%98%AF%E6%95%B0%E6%8D%AE%E6%9C%AC%E8%BA%AB/" rel="tag">对象数据库及数据表，不是数据本身</a>
-              </p>
+<div class="article-container">
+  <div class="article">
+    <h1 class="article-title">请求头笔记及引用源记录</h1>
+    <div class="article-info">
+      <div class="article-info--item">
+        <div class="article-info--info">
+          
+          <div class="article-info--categories">
+            <span>分类：</span>
             
           </div>
-          <div class="bg"></div>
+          
+          
+          <div class="article-info--tags">
+            <span>标签：</span>
+            
+          </div>
+          
+          <p class="article-info--date">日期：2023-10-25 12:29:43</p>
         </div>
+        <img src="/imgs/default-cover.webp" alt="" class="article-cover">
       </div>
+    </div>
+    <article class="article-content markdown-body">
+      <h1 id="请求头笔记及引用源记录"><a href="#请求头笔记及引用源记录" class="headerlink" title="请求头笔记及引用源记录"></a>请求头笔记及引用源记录</h1><h2 id="一-xff-与-referer"><a href="#一-xff-与-referer" class="headerlink" title="一. xff 与 referer"></a>一. xff 与 referer</h2><p>xff: </p>
+<p>xff 全称 X-Forwarded-For ，是http的拓展头部，作用是使Web服务器获取访问用户的IP真实地址（可伪造）。由于很多用户通过代理服务器进行访问，服务器只能获取代理服务器的IP地址，而xff的作用在于记录用户的真实IP，以及代理服务器的IP。</p>
+<p>运用格式       </p>
+<p>​                                 X-Forwarded-For: 本机IP, 代理1IP, 代理2IP, 代理2IP</p>
+<p>referer</p>
+<p>referer 是http的拓展头部，作用是记录当前请求页面的来源页面的地址。服务器使用referer确认访问来源，如果referer内容不符合要求，服务器可以拦截或者重定向请求。</p>
+<p>运用格式</p>
+<p>​                                                Referer &#x3D; <a target="_blank" rel="noopener" href="https://www.xxxx.com/">https://www.xxxx.com</a></p>
+<p>引用源url：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40481505/article/details/90114951">https://blog.csdn.net/qq_40481505/article/details/90114951</a></p>
+<p>​                  <a target="_blank" rel="noopener" href="https://www.cnblogs.com/huhu1020387597/p/11479468.html">HTTP协议头部REFERER用法及伪造 - 糊糊饭团 - 博客园 (cnblogs.com)</a></p>
+<p>附：hackbar 使用方法：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6987217287941996580">https://juejin.cn/post/6987217287941996580</a></p>
+<h2 id="二-cookie"><a href="#二-cookie" class="headerlink" title="二. cookie"></a>二. cookie</h2><p>格式</p>
+<p>Set－Cookie: NAME&#x3D;VALUE；Expires&#x3D;DATE；Path&#x3D;PATH；Domain&#x3D;DOMAIN_NAME；SECURE</p>
+
+    </article>
+    
+    <div class="read-nums">
+      <!-- id 将作为查询条件 -->
+      <span id="2023/10/25/请求头笔记及引用源记录/" class="leancloud_visitors" data-flag-title="Your Article Title">
+        <em class="post-meta-item-text">浏览量</em>
+        <i class="leancloud-visitors-count"></i>
+      </span>
+    </div>
+    <div class="comments-intro">
+      <h2>评论区</h2>
+      <p>欢迎你留下宝贵的意见，昵称输入QQ号会显示QQ头像哦~</p>
+    </div>
+    <div id="vcomments" class="vcomments"></div>
     
   </div>
-  <div class="index-center">
-    
-  </div>
-  <div class="index-right">
-    <div class="index-right-wrapper">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li></ul>
-      <ul class="tags" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A6%82%E8%BF%B0/" rel="tag">概述</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F%E6%9F%A5%E8%AF%A2%EF%BC%8C%E5%8E%BB%E9%87%8D/" rel="tag">排序查询，去重</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%BB%E4%BD%93%E8%A7%84%E5%BE%8B/" rel="tag">总体规律</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%8A%E6%95%B0%E6%8D%AE%E8%A1%A8%EF%BC%8C%E4%B8%8D%E6%98%AF%E6%95%B0%E6%8D%AE%E6%9C%AC%E8%BA%AB/" rel="tag">对象数据库及数据表，不是数据本身</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%AB%E5%90%8D%E5%B8%A6%E7%A9%BA%E6%A0%BC%E6%88%96%E4%B8%AD%E6%96%87%EF%BC%8C%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2/" rel="tag">别名带空格或中文，模糊查询</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/where%E4%B8%8D%E9%80%82%E7%94%A8%E5%8F%8Ahaving%E8%BF%87%E6%BB%A4/" rel="tag">where不适用及having过滤</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lower-upper-substr-concat-length-trim-round-rand/" rel="tag">lower upper substr concat length trim round rand</a></li></ul>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">2023年10月</a><span class="archive-list-count">13</span></li></ul>
+  <div class="article-catelogue">
+    <div class="article-catelogue--wrapper">
+      <div class="catelogue catelogue-1">
+        <h3>目录</h3>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E5%A4%B4%E7%AC%94%E8%AE%B0%E5%8F%8A%E5%BC%95%E7%94%A8%E6%BA%90%E8%AE%B0%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">请求头笔记及引用源记录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-xff-%E4%B8%8E-referer"><span class="toc-number">1.1.</span> <span class="toc-text">一. xff 与 referer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-cookie"><span class="toc-number">1.2.</span> <span class="toc-text">二. cookie</span></a></li></ol></li></ol>
+      </div>
+      
+        <div class="catelogue catelogue-2">
+           
+          
+            <p>
+              <span>下一篇</span>
+              <a href="/2023/10/24/mysql表格处理大总结1-0/">mysql单表处理大总结1.0</a>
+            </p>
+          
+        </div>
+      
     </div>
   </div>
 </div>
 
-  <div class="page">
-    <span class="page-number current">1</span>
-  </div>
+
+<script>
+  // var定义，避免pjax重新进来造成的重复声明错误
+  var config = JSON.parse('{"enable":true,"appId":"Pf8zCXGEH1qsprnWfikVVujL-gzGzoHsz","appKey":"qOqoiUHhH1TGtLRUYURkLRQX","placeholder":"你确定你不说几句~来嘛~","meta":["nick"],"recordIP":true,"visitor":true,"enableQQ":true}')
+  new Valine({
+    el: '#vcomments',
+    appId: config.appId,
+    appKey: config.appKey,
+    placeholder: config.placeholder,
+    meta: config.meta,
+    recordIP: config.recordIP,
+    visitor: config.visitor,
+    enableQQ: config.enableQQ,
+    path: '2023/10/25/请求头笔记及引用源记录/'
+  })
+</script>
 
 
 <script>
-  var allImgBoxs = document.querySelectorAll('.index-article--box');
-  var windowHeight = window.innerHeight;
-  var boxs = Array.from(allImgBoxs);
-  var timer = null;
-  boxs.forEach((box, idx) => {
-    if (!window.loadImageSet || !window.loadImageSet.includes(idx)) {
-      box.classList.add('img-loading');
-    } else {
-      const imgDom = box.querySelector('img');
-      imgDom.src = imgDom.dataset.cover;
-    }
-  });
+  $(document).on('pjax:complete', function() {
+    const tocs = document.querySelector('.toc')
+    const links = tocs ? tocs.querySelectorAll('a') : []
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        const href = decodeURIComponent(e.href)
+        href.search(/#(.*)/)
+        const id = RegExp.$1
+        const target = document.querySelector('#' + id)
+        const top = target.offsetTop
+        document.documentElement.scrollTo({
+          top: top - 100,
+          behavior: 'smooth'
+        })
+        e.preventDefault()
+      })
+    })
+  })
+</script> 
 
-  function scrollFn() {
-    if (timer) {
-      return;
-    }
-    timer = setTimeout(() => {
-      loadImage();
-      timer = null;
-    }, 100)
-  }
-
-  setTimeout(() => {
-    loadImage();
-  }, 100);
-  if (!window.loadedImage) {
-    document.addEventListener('scroll', scrollFn);
-  }
-
-  function loadImage() {
-    const doc = document.documentElement;
-    const scrollTop = doc.scrollTop;
-    if (boxs.every(box => box.loadedImage)) {
-      document.removeEventListener('scroll', scrollFn);
-      window.loadedImage = 1;
-      return;
-    }
-    boxs.forEach((box, idx) => {
-      if (box.loadedImage) {
-        return;
-      }
-      if (box.getBoundingClientRect().top < windowHeight) {
-        const imgDom = box.querySelector('img');
-        imgDom.src = imgDom.dataset.cover;
-        // 图片成功加载
-        imgDom.onload = () => {
-          box.classList.remove('img-loading');
-          box.loadedImage = true;
-          if (!window.loadImageSet) {
-            window.loadImageSet = [];
-          }
-          window.loadImageSet.push(idx);
-        }
-        // 图片加载失败
-        imgDom.onerror = () => {
-          box.classList.remove('img-loading');
-          box.classList.add('img-error');
-          imgDom.src = '/imgs/404.png';
-        }
-      }
-    });
-  }
-</script> </div>
+</div>
       <div class="main-right-wrapper"><div class="main-right">
   <div class="main-right--board">
     <div class="main-right--title">
