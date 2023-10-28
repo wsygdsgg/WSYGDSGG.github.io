@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>我的技术与生活——mysql数据库及数据表操作1.0 | 春风少年郎的博客</title>
+  <title>我的技术与生活——小站首页 | 春风少年郎的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="shortcut icon" href="/imgs/shortcut-icon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/css/public.css" />
@@ -16,7 +16,7 @@
 
   <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
   <script>
-    document.title = `我的技术与生活——mysql数据库及数据表操作1.0`
+    document.title = `我的技术与生活——小站首页`
   </script>
 <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="春风少年郎的博客" type="application/atom+xml">
 </head>
@@ -345,136 +345,119 @@
     </div>
   </div>
 </div></div>
-      <div id="main-container" class="main-container">
+      <div id="main-container" class="main-container"><link rel="stylesheet" href="/css/partial/index.css" />
 
 
-  <link rel="stylesheet" href="/css/partial/article.css" />
 
-<div class="article-container">
-  <div class="article">
-    <h1 class="article-title">mysql数据库及数据表操作1.0</h1>
-    <div class="article-info">
-      <div class="article-info--item">
-        <div class="article-info--info">
-          
-          <div class="article-info--categories">
-            <span>分类：</span>
-            <a class="category-link" href="/categories/MySQL/">MySQL</a>
-          </div>
-          
-          
-          <div class="article-info--tags">
-            <span>标签：</span>
-            <a class="tag-link" href="/tags/%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%8A%E6%95%B0%E6%8D%AE%E8%A1%A8%EF%BC%8C%E4%B8%8D%E6%98%AF%E6%95%B0%E6%8D%AE%E6%9C%AC%E8%BA%AB/" rel="tag">对象数据库及数据表，不是数据本身</a>
-          </div>
-          
-          <p class="article-info--date">日期：2023-10-17 16:34:17</p>
-        </div>
-        <img src="/imgs/default-cover.webp" alt="" class="article-cover">
-      </div>
-    </div>
-    <article class="article-content markdown-body">
-      <h1 id="mysql数据库及数据表操作"><a href="#mysql数据库及数据表操作" class="headerlink" title="mysql数据库及数据表操作"></a>mysql数据库及数据表操作</h1><h2 id="1-登入"><a href="#1-登入" class="headerlink" title="1.登入"></a>1.登入</h2><p><code>win+r  =&gt;  cmd  =&gt;  mysql -u root -r  =&gt; 回车</code></p>
-<h2 id="2-查询数据库及数据表"><a href="#2-查询数据库及数据表" class="headerlink" title="2.查询数据库及数据表"></a>2.查询数据库及数据表</h2><h3 id="a-查询所有数据库"><a href="#a-查询所有数据库" class="headerlink" title="a.查询所有数据库"></a>a.查询所有数据库</h3><h4 id="show-database"><a href="#show-database" class="headerlink" title="show database;"></a><code>show database;</code></h4><h3 id="b-查询当前数据库"><a href="#b-查询当前数据库" class="headerlink" title="b.查询当前数据库"></a>b.查询当前数据库</h3><h4 id="select-database"><a href="#select-database" class="headerlink" title="select database();"></a>select database();</h4><h3 id="c-查询当前数据库的所有表"><a href="#c-查询当前数据库的所有表" class="headerlink" title="c.查询当前数据库的所有表"></a>c.查询当前数据库的所有表</h3><h4 id="show-tables"><a href="#show-tables" class="headerlink" title="show tables;"></a><code>show tables;</code></h4><p>d.查看一个表的结构</p>
-<h4 id="desc-name-表名"><a href="#desc-name-表名" class="headerlink" title="desc name(表名)"></a><code>desc name(表名)</code></h4><h2 id="3-创建数据库和数据表"><a href="#3-创建数据库和数据表" class="headerlink" title="3.创建数据库和数据表"></a>3.创建数据库和数据表</h2><h3 id="a-创建数据库"><a href="#a-创建数据库" class="headerlink" title="a.创建数据库"></a>a.创建数据库</h3><p><code>create database name（库名）</code></p>
-<h3 id="b-创建数据表"><a href="#b-创建数据表" class="headerlink" title="b.创建数据表"></a>b.创建数据表</h3><p><code>create  table name (</code></p>
-<p>列名1  数据类型1,</p>
-<p>….</p>
-<p>列名n  数据类型n,</p>
-<p>);</p>
-<p>mysql&gt; SHOW CREATE TABLE students;<br>+———-+——————————————————-+<br>| students | CREATE TABLE <code>students</code> (                             |<br>|          |   <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT,            |<br>|          |   <code>class_id</code> bigint(20) NOT NULL,                     |<br>|          |   <code>name</code> varchar(100) NOT NULL,                       |<br>|          |   <code>gender</code> varchar(1) NOT NULL,                       |<br>|          |   <code>score</code> int(11) NOT NULL,                           |<br>|          |   PRIMARY KEY (<code>id</code>)                                  |<br>|          | ) ENGINE&#x3D;InnoDB AUTO_INCREMENT&#x3D;1 DEFAULT CHARSET&#x3D;utf8 |<br>+———-+——————————————————-+</p>
-<p>上图表明了怎么写表；</p>
-<h2 id="4-使用数据库"><a href="#4-使用数据库" class="headerlink" title="4.使用数据库"></a>4.使用数据库</h2><h3 id="use-name-库名"><a href="#use-name-库名" class="headerlink" title="use name(库名);"></a>use name(库名);</h3><h2 id="5-修改数据表-代码上，作用下"><a href="#5-修改数据表-代码上，作用下" class="headerlink" title="5.修改数据表(代码上，作用下 )"></a>5.修改数据表(代码上，作用下 )</h2><h4 id="提醒-无特殊说明时，name即是表名"><a href="#提醒-无特殊说明时，name即是表名" class="headerlink" title="提醒(无特殊说明时，name即是表名)"></a>提醒(无特殊说明时，name即是表名)</h4><p>   <code>alter table name rename to newname;</code></p>
-<h3 id="改表名"><a href="#改表名" class="headerlink" title="(改表名)"></a>(改表名)</h3><p>a<code>lter table name character set 字符集名称;</code>  </p>
-<h3 id="修改表的字符集"><a href="#修改表的字符集" class="headerlink" title="(修改表的字符集)"></a>(修改表的字符集)</h3><p><code>alter table name add name(列名) 数据类型;</code>   </p>
-<h3 id="添加一列"><a href="#添加一列" class="headerlink" title="(添加一列)"></a>(添加一列)</h3><p><code>alter table name change name(列名) newname(新列别) 新数据类型;</code>   </p>
-<h3 id="修改列名称-类型1"><a href="#修改列名称-类型1" class="headerlink" title="(修改列名称 类型1)"></a>(修改列名称 类型1)</h3><p><code>alter table name modify name(列名) 新数据类型;</code> </p>
-<h3 id="修改列名称-类型2"><a href="#修改列名称-类型2" class="headerlink" title="(修改列名称 类型2)"></a>(修改列名称 类型2)</h3><p><code>alter table name drop name(列名)</code></p>
-<h3 id="删除列"><a href="#删除列" class="headerlink" title="(删除列)"></a>(删除列)</h3><h2 id="6-删除数据库及数据表"><a href="#6-删除数据库及数据表" class="headerlink" title="6.删除数据库及数据表"></a>6.删除数据库及数据表</h2><h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><p><code>drop database if exists name(库名);</code></p>
-<h3 id="删除数据表"><a href="#删除数据表" class="headerlink" title="删除数据表"></a>删除数据表</h3><p><code>drop table if exists name(表名);</code></p>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
-    </article>
+<div class="index">
+  <div class="index-left">
     
-    <div class="read-nums">
-      <!-- id 将作为查询条件 -->
-      <span id="2023/10/17/mysql数据库及数据表操作1-0/" class="leancloud_visitors" data-flag-title="Your Article Title">
-        <em class="post-meta-item-text">浏览量</em>
-        <i class="leancloud-visitors-count"></i>
-      </span>
-    </div>
-    <div class="comments-intro">
-      <h2>评论区</h2>
-      <p>欢迎你留下宝贵的意见，昵称输入QQ号会显示QQ头像哦~</p>
-    </div>
-    <div id="vcomments" class="vcomments"></div>
+      <div class="index-article">
+        <!-- <img class="index-article--cover" src="/imgs/default-cover.webp" alt=""> -->
+        <div class="index-article--box">
+          <img class="index-article--cover" data-cover="imgs/default-cover.webp" alt="MySQL" />
+        </div>
+        <div class="index-article--content">
+          <a href="/2023/10/28/MySQL/">MySQL </a>
+          <div>
+            
+              <p>
+                <a class="post-category-link" href="/categories/MySQL/">MySQL</a>
+              </p>
+            
+            
+              <p>
+                <a class="-link" href="/tags/%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/" rel="tag">一篇就够了</a>
+              </p>
+            
+          </div>
+          <div class="bg"></div>
+        </div>
+      </div>
     
   </div>
-  <div class="article-catelogue">
-    <div class="article-catelogue--wrapper">
-      <div class="catelogue catelogue-1">
-        <h3>目录</h3>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%8A%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%93%8D%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">mysql数据库及数据表操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%99%BB%E5%85%A5"><span class="toc-number">1.1.</span> <span class="toc-text">1.登入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%8A%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="toc-number">1.2.</span> <span class="toc-text">2.查询数据库及数据表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#a-%E6%9F%A5%E8%AF%A2%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.2.1.</span> <span class="toc-text">a.查询所有数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#show-database"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">show database;</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b-%E6%9F%A5%E8%AF%A2%E5%BD%93%E5%89%8D%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.2.2.</span> <span class="toc-text">b.查询当前数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#select-database"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">select database();</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c-%E6%9F%A5%E8%AF%A2%E5%BD%93%E5%89%8D%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%89%80%E6%9C%89%E8%A1%A8"><span class="toc-number">1.2.3.</span> <span class="toc-text">c.查询当前数据库的所有表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#show-tables"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">show tables;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#desc-name-%E8%A1%A8%E5%90%8D"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">desc name(表名)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="toc-number">1.3.</span> <span class="toc-text">3.创建数据库和数据表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#a-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.3.1.</span> <span class="toc-text">a.创建数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="toc-number">1.3.2.</span> <span class="toc-text">b.创建数据表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%BD%BF%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.4.</span> <span class="toc-text">4.使用数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#use-name-%E5%BA%93%E5%90%8D"><span class="toc-number">1.4.1.</span> <span class="toc-text">use name(库名);</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE%E8%A1%A8-%E4%BB%A3%E7%A0%81%E4%B8%8A%EF%BC%8C%E4%BD%9C%E7%94%A8%E4%B8%8B"><span class="toc-number">1.5.</span> <span class="toc-text">5.修改数据表(代码上，作用下 )</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%90%E9%86%92-%E6%97%A0%E7%89%B9%E6%AE%8A%E8%AF%B4%E6%98%8E%E6%97%B6%EF%BC%8Cname%E5%8D%B3%E6%98%AF%E8%A1%A8%E5%90%8D"><span class="toc-number">1.5.0.1.</span> <span class="toc-text">提醒(无特殊说明时，name即是表名)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B9%E8%A1%A8%E5%90%8D"><span class="toc-number">1.5.1.</span> <span class="toc-text">(改表名)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E8%A1%A8%E7%9A%84%E5%AD%97%E7%AC%A6%E9%9B%86"><span class="toc-number">1.5.2.</span> <span class="toc-text">(修改表的字符集)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E4%B8%80%E5%88%97"><span class="toc-number">1.5.3.</span> <span class="toc-text">(添加一列)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%88%97%E5%90%8D%E7%A7%B0-%E7%B1%BB%E5%9E%8B1"><span class="toc-number">1.5.4.</span> <span class="toc-text">(修改列名称 类型1)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%88%97%E5%90%8D%E7%A7%B0-%E7%B1%BB%E5%9E%8B2"><span class="toc-number">1.5.5.</span> <span class="toc-text">(修改列名称 类型2)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%88%97"><span class="toc-number">1.5.6.</span> <span class="toc-text">(删除列)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%8A%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="toc-number">1.6.</span> <span class="toc-text">6.删除数据库及数据表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.6.1.</span> <span class="toc-text">删除数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="toc-number">1.6.2.</span> <span class="toc-text">删除数据表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.7.</span> <span class="toc-text"></span></a></li></ol></li></ol>
-      </div>
-      
-        <div class="catelogue catelogue-2">
-          
-            <p>
-              <span>上一篇：</span>
-              <a href="/2023/10/21/mysql查询细节补录/">mysql查询细节补录</a>
-            </p>
-           
-          
-            <p>
-              <span>下一篇</span>
-              <a href="/2023/10/11/C语言感想-1/">C语言感想.1</a>
-            </p>
-          
-        </div>
-      
+  <div class="index-center">
+    
+  </div>
+  <div class="index-right">
+    <div class="index-right-wrapper">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ctf/">Ctf</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li></ul>
+      <ul class="tags" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A6%82%E8%BF%B0/" rel="tag">概述</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F%E6%9F%A5%E8%AF%A2%EF%BC%8C%E5%8E%BB%E9%87%8D/" rel="tag">排序查询，去重</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%BB%E4%BD%93%E8%A7%84%E5%BE%8B/" rel="tag">总体规律</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%8A%E6%95%B0%E6%8D%AE%E8%A1%A8%EF%BC%8C%E4%B8%8D%E6%98%AF%E6%95%B0%E6%8D%AE%E6%9C%AC%E8%BA%AB/" rel="tag">对象数据库及数据表，不是数据本身</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%AB%E5%90%8D%E5%B8%A6%E7%A9%BA%E6%A0%BC%E6%88%96%E4%B8%AD%E6%96%87%EF%BC%8C%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2/" rel="tag">别名带空格或中文，模糊查询</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/" rel="tag">一篇就够了</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/where%E4%B8%8D%E9%80%82%E7%94%A8%E5%8F%8Ahaving%E8%BF%87%E6%BB%A4/" rel="tag">where不适用及having过滤</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lower-upper-substr-concat-length-trim-round-rand/" rel="tag">lower upper substr concat length trim round rand</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">2023年10月</a><span class="archive-list-count">15</span></li></ul>
     </div>
   </div>
 </div>
 
-
-<script>
-  // var定义，避免pjax重新进来造成的重复声明错误
-  var config = JSON.parse('{"enable":true,"appId":"Pf8zCXGEH1qsprnWfikVVujL-gzGzoHsz","appKey":"qOqoiUHhH1TGtLRUYURkLRQX","placeholder":"你确定你不说几句~来嘛~","meta":["nick"],"recordIP":true,"visitor":true,"enableQQ":true}')
-  new Valine({
-    el: '#vcomments',
-    appId: config.appId,
-    appKey: config.appKey,
-    placeholder: config.placeholder,
-    meta: config.meta,
-    recordIP: config.recordIP,
-    visitor: config.visitor,
-    enableQQ: config.enableQQ,
-    path: '2023/10/17/mysql数据库及数据表操作1-0/'
-  })
-</script>
+  <div class="page">
+    <span class="page-number current">1</span>
+  </div>
 
 
 <script>
-  $(document).on('pjax:complete', function() {
-    const tocs = document.querySelector('.toc')
-    const links = tocs ? tocs.querySelectorAll('a') : []
-    links.forEach(link => {
-      link.addEventListener('click', e => {
-        const href = decodeURIComponent(e.href)
-        href.search(/#(.*)/)
-        const id = RegExp.$1
-        const target = document.querySelector('#' + id)
-        const top = target.offsetTop
-        document.documentElement.scrollTo({
-          top: top - 100,
-          behavior: 'smooth'
-        })
-        e.preventDefault()
-      })
-    })
-  })
-</script> 
+  var allImgBoxs = document.querySelectorAll('.index-article--box');
+  var windowHeight = window.innerHeight;
+  var boxs = Array.from(allImgBoxs);
+  var timer = null;
+  boxs.forEach((box, idx) => {
+    if (!window.loadImageSet || !window.loadImageSet.includes(idx)) {
+      box.classList.add('img-loading');
+    } else {
+      const imgDom = box.querySelector('img');
+      imgDom.src = imgDom.dataset.cover;
+    }
+  });
 
-</div>
+  function scrollFn() {
+    if (timer) {
+      return;
+    }
+    timer = setTimeout(() => {
+      loadImage();
+      timer = null;
+    }, 100)
+  }
+
+  setTimeout(() => {
+    loadImage();
+  }, 100);
+  if (!window.loadedImage) {
+    document.addEventListener('scroll', scrollFn);
+  }
+
+  function loadImage() {
+    const doc = document.documentElement;
+    const scrollTop = doc.scrollTop;
+    if (boxs.every(box => box.loadedImage)) {
+      document.removeEventListener('scroll', scrollFn);
+      window.loadedImage = 1;
+      return;
+    }
+    boxs.forEach((box, idx) => {
+      if (box.loadedImage) {
+        return;
+      }
+      if (box.getBoundingClientRect().top < windowHeight) {
+        const imgDom = box.querySelector('img');
+        imgDom.src = imgDom.dataset.cover;
+        // 图片成功加载
+        imgDom.onload = () => {
+          box.classList.remove('img-loading');
+          box.loadedImage = true;
+          if (!window.loadImageSet) {
+            window.loadImageSet = [];
+          }
+          window.loadImageSet.push(idx);
+        }
+        // 图片加载失败
+        imgDom.onerror = () => {
+          box.classList.remove('img-loading');
+          box.classList.add('img-error');
+          imgDom.src = '/imgs/404.png';
+        }
+      }
+    });
+  }
+</script> </div>
       <div class="main-right-wrapper"><div class="main-right">
   <div class="main-right--board">
     <div class="main-right--title">
