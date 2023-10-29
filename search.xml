@@ -33,9 +33,21 @@
       <link href="/2023/10/29/vmware%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C1-0/"/>
       <url>/2023/10/29/vmware%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C1-0/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="vmware基本操作1-0"><a href="#vmware基本操作1-0" class="headerlink" title="vmware基本操作1.0"></a>vmware基本操作1.0</h1><h2 id="一-账户"><a href="#一-账户" class="headerlink" title="一. 账户"></a>一. 账户</h2><p>1.创建账户：  sudo useradd -m name(用户)</p><p>2.修改用户密码：sudo passwd name(用户)</p><p>3.删除用户：sudo userdel name(用户)</p><h2 id="二-目录"><a href="#二-目录" class="headerlink" title="二. 目录"></a>二. 目录</h2><h3 id="1-change-directory-切换目录"><a href="#1-change-directory-切换目录" class="headerlink" title="1.change directory  切换目录"></a>1.change directory  切换目录</h3><p>cd ~&#x2F;······                                相对路径</p><p>cd &#x2F;home&#x2F;name(用户)&#x2F;······    绝对路径</p><p>附：~   ：代表当前用户的主目录；    ·  ：代表当前目录；  ··   ：代表上一级目录</p><h3 id="2-list-罗列目录"><a href="#2-list-罗列目录" class="headerlink" title="2.list    罗列目录"></a>2.list    罗列目录</h3><p>ls ~  ：列出主目录下的所有项<br>ls ·&#x2F;ef ：列出当前目录下的ef文件</p><h3 id="3-print-working-directory-显示当前工作目录"><a href="#3-print-working-directory-显示当前工作目录" class="headerlink" title="3.print working directory 显示当前工作目录"></a>3.print working directory 显示当前工作目录</h3><p>pwd </p><h3 id="4-make-directory-创建目录"><a href="#4-make-directory-创建目录" class="headerlink" title="4.make directory  创建目录"></a>4.make directory  创建目录</h3><p>mkdir abcd      默认在~里</p><p>mkdir -p ~&#x2F;a&#x2F;b&#x2F;c    建立了一系列目录</p><p>附：-p ：可以将路径的层次目录全部建立</p>]]></content>
       
       
+      <categories>
+          
+          <category> VMware </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 概述 </tag>
+            
+        </tags>
       
     </entry>
     
