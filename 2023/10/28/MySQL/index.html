@@ -194,7 +194,7 @@
   const ipt = document.querySelector('#search-input')
   const btn = document.querySelector('#search-btn')
   const layer = document.querySelector('#search-layer')
-  const posts = JSON.parse(`[{"title":"C语言感想.1","path":"2023/10/11/C语言感想-1/"},{"title":"MySQL","path":"2023/10/28/MySQL/"},{"title":"MySQL单行处理函数1.0","path":"2023/10/22/MySQL单行处理函数1-0/"},{"title":"MySQL多行处理函数1-0","path":"2023/10/23/MySQL多行处理函数1-0/"},{"title":"","path":"2023/10/08/SQL笔记1-0查询/"},{"title":"SQL笔记2.0修改","path":"2023/10/10/SQL笔记2-0修改/"},{"title":"Hello World","path":"2023/10/05/hello-world/"},{"title":"mysql数据库及数据表操作1.0","path":"2023/10/17/mysql数据库及数据表操作1-0/"},{"title":"mysql查询细节补录2","path":"2023/10/22/mysql查询细节补录2/"},{"title":"mysql查询细节补录","path":"2023/10/21/mysql查询细节补录/"},{"title":"分组查询1.0","path":"2023/10/24/分组查询补录1-0/"},{"title":"口令破译方式1.0","path":"2023/10/22/破译口令方式1-0/"},{"title":"mysql单表处理大总结1.0","path":"2023/10/24/mysql表格处理大总结1-0/"},{"title":"请求头笔记及引用源记录","path":"2023/10/25/请求头笔记及引用源记录/"},{"title":"西电2023webhttp","path":"2023/10/25/西电2023webhttp/"}]`)
+  const posts = JSON.parse(`[{"title":"C语言感想.1","path":"2023/10/11/C语言感想-1/"},{"title":"MySQL","path":"2023/10/28/MySQL/"},{"title":"MySQL多行处理函数1-0","path":"2023/10/23/MySQL多行处理函数1-0/"},{"title":"SQL笔记1.0查询","path":"2023/10/29/SQL笔记1-0查询/"},{"title":"SQL笔记2.0修改","path":"2023/10/10/SQL笔记2-0修改/"},{"title":"mysql数据库及数据表操作1.0","path":"2023/10/17/mysql数据库及数据表操作1-0/"},{"title":"MySQL单行处理函数1.0","path":"2023/10/22/MySQL单行处理函数1-0/"},{"title":"Hello World","path":"2023/10/05/hello-world/"},{"title":"mysql查询细节补录","path":"2023/10/21/mysql查询细节补录/"},{"title":"mysql查询细节补录2","path":"2023/10/22/mysql查询细节补录2/"},{"title":"mysql单表处理大总结1.0","path":"2023/10/24/mysql表格处理大总结1-0/"},{"title":"vmware基本操作1.0","path":"2023/10/29/vmware基本操作1-0/"},{"title":"分组查询1.0","path":"2023/10/24/分组查询补录1-0/"},{"title":"西电2023webhttp","path":"2023/10/25/西电2023webhttp/"},{"title":"请求头笔记及引用源记录","path":"2023/10/25/请求头笔记及引用源记录/"},{"title":"口令破译方式1.0","path":"2023/10/22/破译口令方式1-0/"}]`)
   ipt.addEventListener('keyup', e => {
     if (e.key === 'Enter') {
       handleSearch()
@@ -328,7 +328,7 @@
       </h5>
       <p class="main-left--subtitle">
         <span>文章数目：</span>
-        <span>15 篇</span>
+        <span>16 篇</span>
       </p>
       <p class="main-left--subtitle">
         <span>最近动态：</span>
@@ -405,8 +405,8 @@
 <p>select                        select查询出来</p>
 <p>order by                    最后排序输出</p>
 <h4 id="3-查询类型及细节"><a href="#3-查询类型及细节" class="headerlink" title="3.查询类型及细节"></a>3.查询类型及细节</h4><h5 id="a-排序"><a href="#a-排序" class="headerlink" title="a. 排序"></a>a. 排序</h5><p>正常情况下为升序，desc 调整后为降序</p>
-<p>如：eg：<code>EXLECT  *  FROM students  WHERE num=2  ORDER  BY  gender  DESC;</code>    （大小写不敏感）</p>
-<p>多重排序：如：<code>EXLECT  *  FROM students  WHERE num=2  ORDER  BY  gender  DESC  ，score；</code>  逗号后面的为次级排序</p>
+<p>如：eg：<code>SELECT  *  FROM students  WHERE num=2  ORDER  BY  gender  DESC;</code>    （大小写不敏感）</p>
+<p>多重排序：如：<code>SELECT  *  FROM students  WHERE num=2  ORDER  BY  gender  DESC  ，score；</code>  逗号后面的为次级排序</p>
 <h5 id="b-分组"><a href="#b-分组" class="headerlink" title="b. 分组"></a>b. 分组</h5><p>模板</p>
 <p>​                      <code>select</code><br><code>​		...</code><br>                  <code>from​</code></p>
 <p>​			<code>...​</code>		</p>
@@ -441,7 +441,7 @@
 <p>D. in 与 not in 的用法(in 下面两个效果一致)</p>
 <p><code>select * from name(表名) where x = a or x= b;</code></p>
 <p><code>select * from name(表名) where x in(b,c);</code></p>
-<p>int 不是区间，而是具体的值。与之对立的是 not in</p>
+<p>in 不是区间，而是具体的值。与之对立的是 not in</p>
 <p><code>select * from name(表名) where x not in(b,c);</code></p>
 <p>查询不是a&#x3D;b及a&#x3D;c的数据。</p>
 <h5 id="g-模糊查询"><a href="#g-模糊查询" class="headerlink" title="g. 模糊查询"></a>g. 模糊查询</h5><p>% 匹配多个字符(以下先代码后解释)</p>
@@ -449,7 +449,7 @@
 <p>找到名字里含有%o%的</p>
 <p><code>select name from name(表名) where name1 like &#39;o%&#39;;</code></p>
 <p>找到名字里以o开头的</p>
-<p>&#96;&#96;select name from name(表名) where name1 like ‘%o’;&#96;&#96;&#96;</p>
+<p><code>select name from name(表名) where name1 like &#39;%o&#39;;</code></p>
 <p>找到名字里以o结尾的</p>
 <p>_ 匹配单个字符(以下先代码后解释)</p>
 <p><code>select * from name(表名) where name1 like &#39;_A%&#39;;</code></p>
@@ -632,6 +632,11 @@
       </div>
       
         <div class="catelogue catelogue-2">
+          
+            <p>
+              <span>上一篇：</span>
+              <a href="/2023/10/29/vmware基本操作1-0/">vmware基本操作1.0</a>
+            </p>
            
           
             <p>
