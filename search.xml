@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>ctfhub web 报错注入1</title>
+      <link href="/2023/11/12/ctfhub-web-%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A51/"/>
+      <url>/2023/11/12/ctfhub-web-%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A51/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>sql注入 post.1</title>
       <link href="/2023/11/08/sql%E6%B3%A8%E5%85%A5-post-1/"/>
       <url>/2023/11/08/sql%E6%B3%A8%E5%85%A5-post-1/</url>
@@ -77,7 +90,7 @@
       <link href="/2023/10/29/vmware%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C1-0/"/>
       <url>/2023/10/29/vmware%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C1-0/</url>
       
-        <content type="html"><![CDATA[<h1 id="vmware基本操作1-0"><a href="#vmware基本操作1-0" class="headerlink" title="vmware基本操作1.0"></a>vmware基本操作1.0</h1><h2 id="一-账户"><a href="#一-账户" class="headerlink" title="一. 账户"></a>一. 账户</h2><p>1.创建账户：  sudo useradd -m name(用户)</p><p>2.修改用户密码：sudo passwd name(用户)</p><p>3.删除用户：sudo userdel name(用户)</p><h2 id="二-目录"><a href="#二-目录" class="headerlink" title="二. 目录"></a>二. 目录</h2><h3 id="1-change-directory-切换目录"><a href="#1-change-directory-切换目录" class="headerlink" title="1.change directory  切换目录"></a>1.change directory  切换目录</h3><p>cd ~&#x2F;······                                相对路径</p><p>cd &#x2F;home&#x2F;name(用户)&#x2F;······    绝对路径</p><p>附：~   ：代表当前用户的主目录；    ·  ：代表当前目录；  ··   ：代表上一级目录</p><h3 id="2-list-罗列目录"><a href="#2-list-罗列目录" class="headerlink" title="2.list    罗列目录"></a>2.list    罗列目录</h3><p>ls ~  ：列出主目录下的所有项<br>ls ·&#x2F;ef ：列出当前目录下的ef文件</p><h3 id="3-print-working-directory-显示当前工作目录"><a href="#3-print-working-directory-显示当前工作目录" class="headerlink" title="3.print working directory 显示当前工作目录"></a>3.print working directory 显示当前工作目录</h3><p>pwd </p><h3 id="4-make-directory-创建目录"><a href="#4-make-directory-创建目录" class="headerlink" title="4.make directory  创建目录"></a>4.make directory  创建目录</h3><p>mkdir abcd      默认在~里</p><p>mkdir -p ~&#x2F;a&#x2F;b&#x2F;c    建立了一系列目录</p><p>附：-p ：可以将路径的层次目录全部建立</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="vmware基本操作1-0"><a href="#vmware基本操作1-0" class="headerlink" title="vmware基本操作1.0"></a>vmware基本操作1.0</h1><h2 id="一-账户"><a href="#一-账户" class="headerlink" title="一. 账户"></a>一. 账户</h2><p>1.创建账户：  sudo useradd -m name(用户)</p><p>2.修改用户密码：sudo passwd name(用户)</p><p>3.删除用户：sudo userdel name(用户)</p><h2 id="二-目录"><a href="#二-目录" class="headerlink" title="二. 目录"></a>二. 目录</h2><p>1.穿梭在各个目录间 </p><p>语法：cd    [目录途径]</p><p>示例：cd &#x2F;path&#x2F;···</p><p>常用参数及指令：</p><p>“cd -“ ：切换到上一个工作目录</p><p>2.显示目录的内容</p><p>语法：ls [选项]</p><p>示例：ls ~</p><p>常用参数及指令：</p><p>ls -l：以详细列表显示文件信息。</p><p>ls -a：显示所有文件，包括隐藏文件。&#96;</p><p>ls -h：以人类可读的格式显示文件大小。</p><p>ls -lh ：将二者结合，效果挺好</p><p>3.创建目录</p><p>语法：mkdir [目录名]</p><p>示例：mkdir pq</p><p>常用参数及指令：</p><p>mkdir -p &#x2F;home&#x2F;aaa&#x2F;abca    附：递归创建目录，如果目录已存在则不报错。</p><p>4.显示当前绝对路径</p><p>pwd ：就这么简单，但是很重要。</p><h2 id="三-文件"><a href="#三-文件" class="headerlink" title="三. 文件"></a>三. 文件</h2><p>1.创建并写入文件</p><p>echo “内容” &gt; [文件名]</p><p>2.追加文件：</p><p>echo “内容” &gt;&gt; [文件名]</p><p>附：若文件已存在，则应该在文件名前面附上路径</p><p>3.移动文件到指定目录 （重命名文件或目录）</p><p>语法：mv 源文件 目标目录或文件</p><p>示例：mv file.txt &#x2F;path&#x2F;to&#x2F;destination&#x2F;</p><p>常用参数及指令：</p><p>4删除文件 </p><p>-i：在删除文件前进行确认。</p><p>-r：递归删除，用于删除目录及其内容。</p><p>rm -i 文件名<code>或</code>rm -r 目录名，一般如此。</p><p>5。查看文件：cat</p><p>cat [路径]</p><p>附：指令参考书： man [指令]</p>]]></content>
       
       
       <categories>
