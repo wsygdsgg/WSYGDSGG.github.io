@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-11-12T09:14:45.366Z</updated>
+  <updated>2023-12-29T15:27:34.551Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HTTP write up</title>
+    <link href="http://example.com/2023/12/29/HTTP-write-up/"/>
+    <id>http://example.com/2023/12/29/HTTP-write-up/</id>
+    <published>2023-12-29T15:01:38.000Z</published>
+    <updated>2023-12-29T15:27:34.551Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="HTTP-write-up-HTTP-请求头详解"><a href="#HTTP-write-up-HTTP-请求头详解" class="headerlink" title="HTTP write up &amp;&amp; HTTP 请求头详解"></a>HTTP write up &amp;&amp; HTTP 请求头详解</h1><h2 id="一-题目："><a href="#一-题目：" class="headerlink" title="一. 题目："></a>一. 题目：</h2><p>this is GET method,</p><p>your mission:</p><p>1.use parameter: UwU&#x3D;u<br>2.post <strong>form</strong>: Luv&#x3D;u<br>3.use admin character<br>4.request from 127.0.0.1<br>5.use browser ‘MoeBrowser’<br>Complete All Missions</p><h2 id="二-详解："><a href="#二-详解：" class="headerlink" title="二. 详解："></a>二. 详解：</h2><h3 id="1-use-parameter-UwU-u"><a href="#1-use-parameter-UwU-u" class="headerlink" title="1.use parameter: UwU&#x3D;u"></a>1.use parameter: UwU&#x3D;u</h3><p>根据两句提示：this is GET method 、 parameter，判断是GET传参</p><p>124.70.99.199:3800&#x2F;?UwU&#x3D;u</p><h3 id="2-post-form-Luv-u"><a href="#2-post-form-Luv-u" class="headerlink" title="2.post form: Luv&#x3D;u"></a>2.post <strong>form</strong>: Luv&#x3D;u</h3><p>由题意知POST 传参，在报文体写入下述内容</p><p>Luv&#x3D;u</p><h3 id="3-use-admin-character（使用管理员身份）"><a href="#3-use-admin-character（使用管理员身份）" class="headerlink" title="3.use admin character（使用管理员身份）"></a>3.use admin character（使用管理员身份）</h3><p>在cookie中：</p><p>character&#x3D;admin</p><p>详解链接：<a href="https://blog.csdn.net/weixin_51182789/article/details/132287505">HTTP之cookie基础学习_http cookie-CSDN博客</a></p><h3 id="4-request-from-127-0-0-1"><a href="#4-request-from-127-0-0-1" class="headerlink" title="4.request from 127.0.0.1"></a>4.request from 127.0.0.1</h3><p>ID 跟 xxf 挂钩，添加一个X-Forwarded-For</p><p>X-Forwarded-For: 127.0.0.1</p><p>xxf与refer的用法可以参考我的post：<a href="https://wsygdsgg.github.io/2023/10/25/%E8%AF%B7%E6%B1%82%E5%A4%B4%E7%AC%94%E8%AE%B0%E5%8F%8A%E5%BC%95%E7%94%A8%E6%BA%90%E8%AE%B0%E5%BD%95/">我的技术与生活——请求头笔记及引用源记录 | 春风少年郎的博客 (wsygdsgg.github.io)</a></p><h3 id="5-use-browser-‘MoeBrowser’（使用浏览器MoeBrowser）"><a href="#5-use-browser-‘MoeBrowser’（使用浏览器MoeBrowser）" class="headerlink" title="5.use browser ‘MoeBrowser’（使用浏览器MoeBrowser）"></a>5.use browser ‘MoeBrowser’（使用浏览器MoeBrowser）</h3><p>user agent : ‘MoeBrowser（user agent 又称为：UA）</p><p>详解链接：<a href="https://blog.csdn.net/tszxlzc/article/details/88557222">User-Agent详解-CSDN博客</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;HTTP-write-up-HTTP-请求头详解&quot;&gt;&lt;a href=&quot;#HTTP-write-up-HTTP-请求头详解&quot; class=&quot;headerlink&quot; title=&quot;HTTP write up &amp;amp;&amp;amp; HTTP 请求头详解&quot;&gt;&lt;/a&gt;HTT</summary>
+      
+    
+    
+    
+    <category term="土豆实验室" scheme="http://example.com/categories/%E5%9C%9F%E8%B1%86%E5%AE%9E%E9%AA%8C%E5%AE%A4/"/>
+    
+    
+    <category term="http" scheme="http://example.com/tags/http/"/>
+    
+  </entry>
   
   <entry>
     <title>ctfhub web 报错注入1</title>
